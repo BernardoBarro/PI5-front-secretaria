@@ -3,29 +3,53 @@
     <div class="box">
       <div class="box-container">
         <div id="icon-perfil" class="button">
-          <i class="fa-solid fa-circle-user fa-2xl" style="color: #f970a4"></i>
-        </div>
-        <button id="icon-home" class="button">
-          <i class="fa-solid fa-house fa-lg" style="color: #f970a4"></i>
-        </button>
-        <button id="icon-projetos" class="button">
-          <i class="fa-solid fa-folder-closed fa-lg" style="color: #f970a4"></i>
-        </button>
-        <button id="icon-instituicoes" class="button">
-          <i class="fa-solid fa-building fa-lg" style="color: #f970a4"></i>
-        </button>
-        <button id="icon-membros" class="button">
-          <i class="fa-solid fa-address-card fa-lg" style="color: #f970a4"></i>
-        </button>
-        <button id="icon-cadastros" class="button">
-          <i class="fa-solid fa-clipboard fa-lg" style="color: #f970a4"></i>
-        </button>
-        <button id="icon-sair" class="button">
-          <span class="icon-sair-click">
+          <a href="#/perfil">
             <i
-              class="fa-solid fa-arrow-right-from-bracket"
+              class="fa-solid fa-circle-user fa-2xl"
               style="color: #f970a4"
             ></i>
+          </a>
+        </div>
+        <button id="icon-home" class="button">
+          <a href="/">
+            <i class="fa-solid fa-house fa-lg" style="color: #f970a4"></i>
+          </a>
+        </button>
+        <button id="icon-projetos" class="button">
+          <a href="#/projetos">
+            <i
+              class="fa-solid fa-folder-closed fa-lg"
+              style="color: #f970a4"
+            ></i>
+          </a>
+        </button>
+        <button id="icon-instituicoes" class="button">
+          <a href="#/instituicoes">
+            <i class="fa-solid fa-building fa-lg" style="color: #f970a4"></i>
+          </a>
+        </button>
+        <button id="icon-membros" class="button">
+          <a href="#/membros">
+            <i
+              class="fa-solid fa-address-card fa-lg"
+              style="color: #f970a4"
+            ></i>
+          </a>
+        </button>
+        <button id="icon-cadastros" class="button">
+          <a href="#/cadastro-geral">
+            <i class="fa-solid fa-clipboard fa-lg" style="color: #f970a4"></i>
+          </a>
+        </button>
+
+        <button id="icon-sair" class="button">
+          <span class="icon-sair-click">
+            <a href="#/login">
+              <i
+                class="fa-solid fa-arrow-right-from-bracket"
+                style="color: #f970a4"
+              ></i>
+            </a>
           </span>
         </button>
       </div>

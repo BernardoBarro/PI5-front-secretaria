@@ -23,7 +23,7 @@ import HoraBox from "../components/hora-home/Hora.vue";
 import TabelaBox from "../components/tabela-home/Tabela.vue";
 
 export default defineComponent({
-  name: "HomeApp",
+  name: "HomeVue",
   components: {
     MenuBox,
     DescricaoBox,
