@@ -9,34 +9,26 @@
     <img class="imagem-logo" src="../assets/rotaractLogoCadastro.png" alt="" />
 
     <div class="box-1">
-      <a href="#/cadastro-membros">
-        <div class="box-2">
-          <div class="circulo-2">
-            <h1>MEMBRO</h1>
-          </div>
+      <div class="box-2">
+        <div class="circulo-2">
+          <h1>MEMBRO</h1>
         </div>
-      </a>
-      <a href="#/cadastro-projetos">
-        <div class="box-3">
-          <div class="circulo-2">
-            <h1>PROJETO</h1>
-          </div>
+      </div>
+      <div class="box-3">
+        <div class="circulo-2">
+          <h1>PROJETO</h1>
         </div>
-      </a>
-      <a href="#/cadastro-reunioes">
-        <div class="box-4">
-          <div class="circulo-2">
-            <h1>REUNIÕES</h1>
-          </div>
+      </div>
+      <div class="box-4">
+        <div class="circulo-2">
+          <h1>REUNIÕES</h1>
         </div>
-      </a>
-      <a href="#/cadastro-instituicao">
-        <div class="box-5">
-          <div class="circulo-2">
-            <h1>INSTITUIÇÕES</h1>
-          </div>
+      </div>
+      <div class="box-5">
+        <div class="circulo-2">
+          <h1>INSTITUIÇÕES</h1>
         </div>
-      </a>
+      </div>
     </div>
     <div class="container-botao">
       <input class="botao" type="submit" name="salvar" value="Salvar" />
