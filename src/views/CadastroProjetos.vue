@@ -10,9 +10,22 @@
       <div class="circulo-2"></div>
       <form method="get" action="">
         <input
+          class="input-projeto"
           type="text"
           name="nome-projeto"
           placeholder=" Nome do Projeto"
+        /><br />
+        <input
+          class="input-patrocinador"
+          type="text"
+          name="nome-patrocinador"
+          placeholder=" Nome do Patrocinador"
+        /><br />
+        <input
+          class="input-valor"
+          type="number"
+          name="nome-patrocinador"
+          placeholder=" R$ 0.00"
         /><br />
         <select class="instituicoes" name="instituicoes">
           <option value="instituisao-1">Instituição 1</option>
@@ -79,11 +92,10 @@ main {
 }
 
 .instituicoes {
-  width: 77%;
+  width: 60%;
   height: 40px;
-  margin-top: 12px;
   outline: none;
-  margin-left: 29px;
+  margin-left: -28.9%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
@@ -91,6 +103,8 @@ main {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
+  position: absolute;
+  margin-top: -1%;
 }
 
 .membros {
@@ -108,7 +122,22 @@ main {
   letter-spacing: 3px;
 }
 
-input[type="text"] {
+#textarea {
+  margin-top: 14px;
+  margin-left: 29px;
+  width: 77%;
+  padding-bottom: 80px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  color: #f970a4;
+}
+
+.input-projeto {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
   width: 77%;
   height: 40px;
   margin-top: 12px;
@@ -120,22 +149,52 @@ input[type="text"] {
   border-radius: 3px;
 }
 
-#textarea {
-  margin-top: 18px;
-  margin-left: 29px;
-  width: 77%;
-  padding-bottom: 122px;
+.input-patrocinador {
+  color: #f970a4;
+  width: 57%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: -17.3%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
-  color: #f970a4;
 }
 
-input[type="text"]::placeholder {
+.input-valor {
+  color: #f970a4;
+  width: 15%;
+  height: 40px;
+  margin-top: -40px;
+  outline: none;
+  margin-left: 16.1%;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  position: absolute;
+}
+
+.input-projeto::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
+  padding: 5px;
+}
+
+.input-patrocinador::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 5px;
+}
+
+.input-valor::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 5px;
 }
 
 #textarea::placeholder {

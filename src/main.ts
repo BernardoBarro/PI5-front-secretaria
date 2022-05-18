@@ -12,10 +12,12 @@ import Membros from "./views/Membros.vue";
 import DetalhesProjeto from "./views/DetalhesProjeto.vue";
 import DetalhesInstituicao from "./views/DetalhesInstituicao.vue";
 import Perfil from "./views/Perfil.vue";
+import RecuperacaoSenha from "./views/RecuperacaoSenha.vue";
+import CadastroConvidados from "./views/CadastroConvidados.vue";
 import Erro from "./views/Erro.vue";
 
 import '@fortawesome/fontawesome-free/css/all.css'
 
 
-createApp(Erro)
+createApp(Membros)
     .mount('#app')

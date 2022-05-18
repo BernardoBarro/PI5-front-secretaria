@@ -3,7 +3,7 @@
     <div class="column is-one-fifth" style="margin-right: -6%">
       <MenuBox />
     </div>
-    <h1 class="titulo">CADASTRO DE REUNIÕES</h1>
+    <h1 class="titulo">CADASTRO DE CONVIDADOS</h1>
     <div class="circulo"></div>
 
     <div class="box-1">
@@ -15,28 +15,13 @@
           name="cidade"
           placeholder="Nome da Reunião"
         /><br />
-        <img src="../assets/icon-reuniao.png" />
+        <img src="../assets/icon-convidado.png" />
         <input
-          class="data-inicio"
-          type="text"
-          onfocus="(this.type='date')"
-          onblur="(this.type='text')"
-          placeholder="Data"
+          class="telefone"
+          type="tel"
+          required
+          placeholder="(xx) xxxxx-xxxx"
         /><br />
-        <b class="pontos">:</b>
-        <input
-          class="hora-inicio"
-          type="text"
-          onfocus="(this.type='time')"
-          onblur="(this.type='text')"
-          placeholder="Hora"
-        /><br />
-        <input class="local" type="text" placeholder="Local" /><br />
-        <textarea
-          id="textarea"
-          name="restricao-medica"
-          placeholder="Observações da Reunião"
-        ></textarea>
       </form>
     </div>
 
@@ -113,16 +98,8 @@ img {
   padding: 0px 0px 0px 10px;
 }
 
-.pontos {
-  position: absolute;
-  font-size: 25px;
-  color: #f970a4;
-  margin-left: 10.5%;
-  margin-top: -1%;
-}
-
-.data-inicio {
-  width: 20%;
+.telefone {
+  width: 41.8%;
   height: 40px;
   margin-top: 12px;
   outline: none;
@@ -138,56 +115,8 @@ img {
   letter-spacing: 3px;
   padding: 0px 0px 0px 10px;
 }
-.hora-inicio {
-  width: 20.2%;
-  height: 40px;
-  margin-top: -12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  margin-left: 11.6%;
-  position: absolute;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 0px 0px 0px 10px;
-}
-.local {
-  width: 41.7%;
-  height: 40px;
-  margin-top: 17px;
-  outline: none;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  margin-left: -10%;
-  position: absolute;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 0px 0px 0px 10px;
-}
 
-#textarea {
-  margin-top: 47px;
-  margin-left: 27.8%;
-  width: 53.5%;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-  outline: none;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 9px 0px 108px 10px;
-}
-
-#textarea::placeholder {
+.telefone::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
@@ -216,7 +145,7 @@ form {
 .titulo {
   font-size: 40px;
   position: absolute;
-  margin-left: 46%;
+  margin-left: 41%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
