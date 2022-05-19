@@ -36,7 +36,9 @@
     </div>
 
     <div class="container-botao">
-      <input class="botao" type="submit" name="salvar" value="Salvar" />
+      <router-link :to="{ name: 'projetos' }">
+        <input class="botao" type="submit" name="salvar" value="Salvar" />
+      </router-link>
     </div>
   </main>
 </template>

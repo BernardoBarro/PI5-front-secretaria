@@ -1,55 +1,55 @@
 <template>
   <div class="container">
-    <div class="box">
+    <div class="boxMenu">
       <div class="box-container">
         <div id="icon-perfil" class="button">
-          <a href="#/perfil">
+          <router-link :to="{ name: 'perfil' }">
             <i
               class="fa-solid fa-circle-user fa-2xl"
               style="color: #f970a4"
             ></i>
-          </a>
+          </router-link>
         </div>
         <button id="icon-home" class="button">
-          <a href="/">
+          <router-link :to="{ name: 'home' }">
             <i class="fa-solid fa-house fa-lg" style="color: #f970a4"></i>
-          </a>
+          </router-link>
         </button>
         <button id="icon-projetos" class="button">
-          <a href="#/projetos">
+          <router-link :to="{ name: 'projetos' }">
             <i
               class="fa-solid fa-folder-closed fa-lg"
               style="color: #f970a4"
             ></i>
-          </a>
+          </router-link>
         </button>
         <button id="icon-instituicoes" class="button">
-          <a href="#/instituicoes">
+          <router-link :to="{ name: 'instituicoes' }">
             <i class="fa-solid fa-building fa-lg" style="color: #f970a4"></i>
-          </a>
+          </router-link>
         </button>
         <button id="icon-membros" class="button">
-          <a href="#/membros">
+          <router-link :to="{ name: 'membros' }">
             <i
               class="fa-solid fa-address-card fa-lg"
               style="color: #f970a4"
             ></i>
-          </a>
+          </router-link>
         </button>
         <button id="icon-cadastros" class="button">
-          <a href="#/cadastro-geral">
+          <router-link :to="{ name: 'cadastro-geral' }">
             <i class="fa-solid fa-clipboard fa-lg" style="color: #f970a4"></i>
-          </a>
+          </router-link>
         </button>
 
         <button id="icon-sair" class="button">
           <span class="icon-sair-click">
-            <a href="#/login">
+            <router-link :to="{ name: 'login' }">
               <i
                 class="fa-solid fa-arrow-right-from-bracket"
                 style="color: #f970a4"
               ></i>
-            </a>
+            </router-link>
           </span>
         </button>
       </div>
@@ -66,13 +66,15 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.box {
+.boxMenu {
   background-color: white;
   width: 23%;
   height: 35rem;
   margin-top: 30px;
   margin-bottom: 30px;
   margin-left: 10%;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 .container {
   display: flex;

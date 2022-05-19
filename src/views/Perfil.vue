@@ -80,12 +80,14 @@
     </div>
     <div class="container-botao">
       <input class="botao-editar" type="submit" name="editar" value="Editar" />
-      <input
-        class="botao-excluir"
-        type="submit"
-        name="excluir"
-        value="Excluir"
-      />
+      <router-link :to="{ name: 'home' }">
+        <input
+          class="botao-excluir"
+          type="submit"
+          name="excluir"
+          value="Excluir"
+        />
+      </router-link>
     </div>
   </main>
 </template>

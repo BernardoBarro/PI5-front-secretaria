@@ -59,7 +59,9 @@
     </div>
 
     <div class="container-botao">
-      <input class="botao" type="submit" name="novo" value="Novo" />
+      <router-link :to="{ name: 'cadastro-instituicoes' }">
+        <input class="botao" type="submit" name="novo" value="Novo" />
+      </router-link>
     </div>
   </main>
 </template>

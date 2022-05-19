@@ -1,78 +1,71 @@
 <template>
-  <main class="columns is-gapless is-multiline">
-    <div class="column is-one-fifth" style="margin-right: -6%">
-      <MenuBox />
-    </div>
-    <h1 class="titulo">MEMBROS</h1>
-    <div class="circulo"></div>
+  <h1 class="titulo">PROJETOS</h1>
+  <div class="circulo"></div>
 
-    <div class="box-1">
-      <div class="circulo-2"></div>
-      <form method="get" action="">
-        <label class="label-nome">Nome</label>
-        <i class="fa-solid fa-arrow-up"></i>
+  <div class="box">
+    <div class="circulo-2"></div>
+    <form method="get" action="">
+      <label class="label-nome">Nome</label>
+      <i class="fa-solid fa-arrow-up"></i>
+      <i class="fa-solid fa-chevron-right"></i>
+      <input
+        type="text"
+        name="projeto"
+        placeholder=" Projeto 1"
+        disabled
+      /><br />
+      <a href="#/detalhes-projetos">
         <i class="fa-solid fa-chevron-right"></i>
-        <input
-          type="text"
-          name="projeto"
-          placeholder=" Membro 1"
-          disabled
-        /><br />
-        <i class="fa-solid fa-chevron-right"></i>
-        <input
-          type="text"
-          name="projeto"
-          placeholder=" Membro 2"
-          disabled
-        /><br />
-        <i class="fa-solid fa-chevron-right"></i>
-        <input
-          type="text"
-          name="projeto"
-          placeholder=" Membro 3"
-          disabled
-        /><br />
-        <i class="fa-solid fa-chevron-right"></i>
-        <input
-          type="text"
-          name="projeto"
-          placeholder=" Membro 4"
-          disabled
-        /><br />
-        <i class="fa-solid fa-chevron-right"></i>
-        <input
-          type="text"
-          name="projeto"
-          placeholder=" Membro 5"
-          disabled
-        /><br />
-        <i class="fa-solid fa-chevron-right"></i>
-        <input
-          type="text"
-          name="projeto"
-          placeholder=" Membro 6"
-          disabled
-        /><br />
-      </form>
-    </div>
+      </a>
+      <input
+        type="text"
+        name="projeto"
+        placeholder=" Projeto 2"
+        disabled
+      /><br />
+      <i class="fa-solid fa-chevron-right"></i>
+      <input
+        type="text"
+        name="projeto"
+        placeholder=" Projeto 3"
+        disabled
+      /><br />
+      <i class="fa-solid fa-chevron-right"></i>
+      <input
+        type="text"
+        name="projeto"
+        placeholder=" Projeto 4"
+        disabled
+      /><br />
+      <i class="fa-solid fa-chevron-right"></i>
+      <input
+        type="text"
+        name="projeto"
+        placeholder=" Projeto 5"
+        disabled
+      /><br />
+      <i class="fa-solid fa-chevron-right"></i>
+      <input
+        type="text"
+        name="projeto"
+        placeholder=" Projeto 6"
+        disabled
+      /><br />
+    </form>
+  </div>
 
-    <div class="container-botao">
-      <router-link :to="{ name: 'cadastro-membros' }">
-        <input class="botao" type="submit" name="novo" value="Novo" />
-      </router-link>
-    </div>
-  </main>
+  <div class="container-botao">
+    <router-link :to="{ name: 'cadastro-projetos' }">
+      <input class="botao" type="submit" name="novo" value="Novo" />
+    </router-link>
+  </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
-import MenuBox from "../components/menu/Menu.vue";
 
 export default defineComponent({
-  name: "MembrosVue",
-  components: {
-    MenuBox,
-  },
+  name: "ComponentProjeto",
 });
 </script>
 
@@ -144,7 +137,7 @@ input[type="text"]::placeholder {
   margin-top: -1.5%;
 }
 
-.box-1 {
+.box {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -163,7 +156,7 @@ form {
 .titulo {
   font-size: 40px;
   position: absolute;
-  margin-left: 72%;
+  margin-left: 48%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;

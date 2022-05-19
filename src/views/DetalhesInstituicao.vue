@@ -26,13 +26,23 @@
     </div>
 
     <div class="container-botao">
-      <input class="botao-editar" type="submit" name="editar" value="Editar" />
-      <input
-        class="botao-excluir"
-        type="submit"
-        name="excluir"
-        value="Excluir"
-      />
+      <router-link :to="{ name: 'cadastro-instituicoes' }">
+        <input
+          class="botao-editar"
+          type="submit"
+          name="editar"
+          value="Editar"
+        />
+      </router-link>
+
+      <router-link :to="{ name: 'instituicoes' }">
+        <input
+          class="botao-excluir"
+          type="submit"
+          name="excluir"
+          value="Excluir"
+        />
+      </router-link>
     </div>
   </main>
 </template>

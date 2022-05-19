@@ -55,7 +55,9 @@
     </div>
 
     <div class="container-botao">
-      <input class="botao" type="submit" name="salvar" value="Salvar" />
+      <router-link :to="{ name: 'home' }">
+        <input class="botao" type="submit" name="salvar" value="Salvar" />
+      </router-link>
     </div>
   </main>
 </template>

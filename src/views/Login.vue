@@ -24,7 +24,7 @@
           <input type="email" placeholder="User" />
           <input type="password" placeholder="Password" />
           <a href="#">Esqueceu sua senha?</a>
-          <button>Login</button>
+          <router-link class="button" :to="{ name: 'home' }">Login</router-link>
         </form>
       </div>
     </div>
@@ -100,7 +100,7 @@ a {
   position: absolute;
 }
 
-button {
+.button {
   border-radius: 20px;
   border: 1px solid #f970a4;
   background-color: #f970a4;
