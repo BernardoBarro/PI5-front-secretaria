@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from "./views/Home.vue";
 import Login from "./views/Login.vue";
+import Home from "./views/Home.vue";
 import CadastroGeral from "./views/CadastroGeral.vue";
 import CadastroMembros from "./views/CadastroMembros.vue";
 import CadastroInstituicoes from "./views/CadastroInstituicoes.vue";
@@ -16,64 +16,66 @@ import Erro from "./views/Erro.vue";
 
 
 const routes = [
+
     {
         path: '/',
-        name: 'home',
-        component: Home  //feito
+        name: 'login',
+        component: Login
     },
 
     {
-        path: '/login',
-        name: 'login',
-        component: Login  //feito
+        path: '/home',
+        name: 'home',
+        component: Home
     },
+
 
     {
         path: '/cadastro-geral',
         name: 'cadastro-geral',
-        component: CadastroGeral  //feito
+        component: CadastroGeral
     },
 
     {
         path: '/cadastro-membros',
         name: 'cadastro-membros',
-        component: CadastroMembros  //feito
+        component: CadastroMembros
     },
 
     {
         path: '/cadastro-instituicoes',
         name: 'cadastro-instituicoes',
-        component: CadastroInstituicoes  //feito
+        component: CadastroInstituicoes
     },
 
     {
         path: '/cadastro-reunioes',
         name: 'cadastro-reunioes',
-        component: CadastroReunioes  //feito
+        component: CadastroReunioes
     },
 
     {
         path: '/cadastro-projetos',
         name: 'cadastro-projetos',
-        component: CadastroProjetos  //feito
+        component: CadastroProjetos
     },
 
     {
         path: '/projetos',
         name: 'projetos',
-        component: Projetos  //feito
+        component: Projetos
     },
 
     {
         path: '/instituicoes',
         name: 'instituicoes',
-        component: Instituicoes  //feito
+        component: Instituicoes
     },
 
     {
         path: '/membros',
         name: 'membros',
-        component: Membros  //feito
+        component: Membros
     },
 
     {
@@ -85,13 +87,13 @@ const routes = [
     {
         path: '/detalhes-projeto',
         name: 'detalhes-projeto',
-        component: DetalhesProjeto  //feito
+        component: DetalhesProjeto
     },
 
     {
         path: '/detalhes-instituicao',
         name: 'detalhes-instituicao',
-        component: DetalhesInstituicao  //feito
+        component: DetalhesInstituicao
     },
 
 

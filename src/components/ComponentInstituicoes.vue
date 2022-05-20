@@ -1,60 +1,60 @@
 <template>
-  <h1 class="titulo-projeto">PROJETOS</h1>
-  <div class="circulo-projeto"></div>
+  <h1 class="titulo-inst">INSTITUIÇÕES</h1>
+  <div class="circulo-inst"></div>
 
-  <div class="box-projeto">
-    <div class="circulo-2-projeto"></div>
+  <div class="box-1-inst">
+    <div class="circulo-2-inst"></div>
     <form method="get" action="">
-      <label class="label-nome-projeto">Nome</label>
+      <label class="label-nome-inst">Nome</label>
       <i class="fa-solid fa-arrow-up"></i>
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
         name="projeto"
-        placeholder=" Projeto 1"
+        placeholder=" Instituição 1"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
         name="projeto"
-        placeholder=" Projeto 2"
+        placeholder=" Instituição 2"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
         name="projeto"
-        placeholder=" Projeto 3"
+        placeholder=" Instituição 3"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
         name="projeto"
-        placeholder=" Projeto 4"
+        placeholder=" Instituição 4"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
         name="projeto"
-        placeholder=" Projeto 5"
+        placeholder=" Instituição 5"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
         name="projeto"
-        placeholder=" Projeto 6"
+        placeholder=" Instituição 6"
         disabled
       /><br />
     </form>
   </div>
 
-  <div class="container-botao-projeto">
-    <router-link :to="{ name: 'cadastro-projetos' }">
-      <input class="botao-projeto" type="submit" name="novo" value="Novo" />
+  <div class="container-botao-inst">
+    <router-link :to="{ name: 'cadastro-instituicoes' }">
+      <input class="botao-inst" type="submit" name="novo" value="Novo" />
     </router-link>
   </div>
 </template>
@@ -63,15 +63,11 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ComponentProjeto",
+  name: "ComponentInstituicoes",
 });
 </script>
 
 <style>
-main {
-  background-color: #f2f2f2;
-}
-
 .fa-arrow-up::before {
   content: "\f062";
   position: absolute;
@@ -88,13 +84,13 @@ main {
   color: #f970a4;
 }
 
-.container-botao-projeto {
+.container-botao-inst {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
 
-.botao-projeto {
+.botao-inst {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -126,7 +122,7 @@ input[type="text"]::placeholder {
   letter-spacing: 3px;
 }
 
-.label-nome-projeto {
+.label-nome-inst {
   position: absolute;
   color: #f970a4;
   font-weight: 600;
@@ -135,7 +131,7 @@ input[type="text"]::placeholder {
   margin-top: -1.5%;
 }
 
-.box-projeto {
+.box-1-inst {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -151,17 +147,17 @@ form {
   margin-top: 55px;
 }
 
-.titulo-projeto {
+.titulo-inst {
   font-size: 40px;
   position: absolute;
-  margin-left: 72%;
+  margin-left: 65%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
 
-.circulo-projeto {
+.circulo-inst {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -172,14 +168,14 @@ form {
   margin-top: 3%;
 }
 
-.circulo-2-projeto {
+.circulo-2-inst {
   border-radius: 10px;
   width: 20px;
   height: 20px;
   background-color: #f2f2f2;
   position: absolute;
   display: inline-block;
-  margin-left: -36.5%;
+  margin-left: -37%;
   margin-top: 2%;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
 }
