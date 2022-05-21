@@ -27,21 +27,7 @@
         onblur="(this.type='text')"
         placeholder="Data de Fim"
       /><br />
-      <input
-        class="hora-inicio-cad-reu"
-        type="text"
-        onfocus="(this.type='time')"
-        onblur="(this.type='text')"
-        placeholder="Hora de Início"
-      /><br />
-      <b class="pontos-cad-reu">:</b>
-      <input
-        class="hora-fim-cad-reu"
-        type="text"
-        onfocus="(this.type='time')"
-        onblur="(this.type='text')"
-        placeholder="Hora de Fim"
-      /><br />
+      <input class="local-cad-reu" type="text" placeholder="Local" /><br />
       <textarea
         id="textarea"
         name="restricao-medica"
@@ -160,39 +146,16 @@ input[type="text"]::placeholder {
   letter-spacing: 3px;
   padding: 0px 0px 0px 10px;
 }
-.hora-inicio-cad-reu {
-  width: 20%;
+
+.local-cad-reu {
+  width: 53.4%;
   height: 40px;
-  margin-top: 12px;
+  margin-top: 17px;
+  margin-left: 28%;
   outline: none;
-  margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
-  border-radius: 3px;
-  margin-left: -10%;
-  position: absolute;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 0px 0px 0px 10px;
-}
-.hora-fim-cad-reu {
-  width: 20%;
-  height: 40px;
-  margin-top: -12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  margin-left: 11.6%;
-  position: absolute;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 0px 0px 0px 10px;
 }
 
 #textarea {

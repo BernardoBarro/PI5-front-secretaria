@@ -1,16 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Login from "./views/Login.vue";
 import Home from "./views/Home.vue";
-import CadastroGeral from "./views/CadastroGeral.vue";
+import CadastroGeral from "./views/CadastroGeral.vue"; //feito
 import CadastroMembros from "./views/CadastroMembros.vue";
 import CadastroInstituicoes from "./views/CadastroInstituicoes.vue";
-import CadastroReunioes from "./views/CadastroReunioes.vue";
-import CadastroProjetos from "./views/CadastroProjetos.vue";
+import CadastroReunioes from "./views/CadastroReunioes.vue"; //feito
+import CadastroProjetos from "./views/CadastroProjetos.vue"; //feito
 import Projetos from "./views/Projetos.vue";
 import Instituicoes from "./views/Instituicoes.vue";
 import Membros from "./views/Membros.vue";
 import DetalhesProjeto from "./views/DetalhesProjeto.vue";
 import DetalhesInstituicao from "./views/DetalhesInstituicao.vue";
+import CadastroConvidado from "./views/CadastroConvidado.vue"; //feito
+import RecuperacaoSenha from "./views/RecuperacaoSenha.vue"; //feito
 import Perfil from "./views/Perfil.vue";
 import Erro from "./views/Erro.vue";
 
@@ -37,6 +39,12 @@ const routes = [
     },
 
     {
+        path: '/cadastro-convidado',
+        name: 'cadastro-convidado',
+        component: CadastroConvidado
+    },
+
+    {
         path: '/cadastro-membros',
         name: 'cadastro-membros',
         component: CadastroMembros
@@ -58,6 +66,12 @@ const routes = [
         path: '/cadastro-projetos',
         name: 'cadastro-projetos',
         component: CadastroProjetos
+    },
+
+    {
+        path: '/recuperacao-senha',
+        name: 'recuperacao-senha',
+        component: RecuperacaoSenha
     },
 
     {

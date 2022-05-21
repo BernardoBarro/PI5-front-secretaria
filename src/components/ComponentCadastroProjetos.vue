@@ -6,9 +6,22 @@
     <div class="circulo-2-cad-proj"></div>
     <form class="form-cad-proj" method="get" action="">
       <input
+        id="input-projeto-cad-proj"
         type="text"
         name="nome-projeto"
         placeholder=" Nome do Projeto"
+      /><br />
+      <input
+        id="input-patrocinador-cad-proj"
+        type="text"
+        name="nome-patrocinador"
+        placeholder=" Nome do Patrocinador"
+      /><br />
+      <input
+        class="input-valor-cad-proj"
+        type="number"
+        name="nome-patrocinador"
+        placeholder=" R$ 0.00"
       /><br />
       <select class="instituicoes-cad-proj" name="instituicoes">
         <option value="instituisao-1">Instituição 1</option>
@@ -32,7 +45,7 @@
   </div>
 
   <div class="container-botao-cad-proj">
-    <router-link :to="{ name: 'projetos' }">
+    <router-link :to="{ name: 'cadastro-geral' }">
       <input
         class="botao-cad-proj"
         type="submit"
@@ -45,19 +58,17 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
 export default defineComponent({
   name: "ComponentCadastroProjetos",
 });
 </script>
 
-<style scoped>
+<style>
 .container-botao-cad-proj {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
-
 .botao-cad-proj {
   background-color: #f970a4;
   border: none;
@@ -71,13 +82,11 @@ export default defineComponent({
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
-
 .instituicoes-cad-proj {
-  width: 77%;
+  width: 60%;
   height: 40px;
-  margin-top: 12px;
   outline: none;
-  margin-left: 29px;
+  margin-left: -28.9%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
@@ -85,8 +94,9 @@ export default defineComponent({
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
+  position: absolute;
+  margin-top: -1%;
 }
-
 .membros-cad-proj {
   width: 77%;
   height: 40px;
@@ -101,8 +111,21 @@ export default defineComponent({
   font-weight: 600;
   letter-spacing: 3px;
 }
-
-input[type="text"] {
+#textarea {
+  margin-top: 14px;
+  margin-left: 29px;
+  width: 77%;
+  padding-bottom: 80px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  color: #f970a4;
+}
+#input-projeto-cad-proj {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
   width: 77%;
   height: 40px;
   margin-top: 12px;
@@ -113,32 +136,55 @@ input[type="text"] {
   background-color: #f2f2f2;
   border-radius: 3px;
 }
-
-#textarea {
-  margin-top: 18px;
-  margin-left: 29px;
-  width: 77%;
-  padding-bottom: 122px;
+#input-patrocinador-cad-proj {
+  color: #f970a4;
+  width: 57%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: -17.3%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
-  color: #f970a4;
 }
-
-input[type="text"]::placeholder {
+.input-valor-cad-proj {
+  color: #f970a4;
+  width: 15%;
+  height: 40px;
+  margin-top: -40px;
+  outline: none;
+  margin-left: 16.1%;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  position: absolute;
+}
+.input-projeto-cad-proj::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
+  padding: 5px;
 }
-
+.input-patrocinador-cad-proj::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 5px;
+}
+.input-valor-cad-proj::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 5px;
+}
 #textarea::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
   padding: 5px;
 }
-
 .box-1-cad-proj {
   background-color: white;
   width: 78%;
@@ -150,7 +196,6 @@ input[type="text"]::placeholder {
   text-align: center;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
-
 .form-cad-proj {
   margin-top: 33px;
 }
@@ -164,7 +209,6 @@ input[type="text"]::placeholder {
   font-weight: 500;
   color: #ffb0ce;
 }
-
 .circulo-cad-proj {
   border-radius: 10px;
   width: 20px;
@@ -175,7 +219,6 @@ input[type="text"]::placeholder {
   margin-left: 90.5%;
   margin-top: 3%;
 }
-
 .circulo-2-cad-proj {
   border-radius: 10px;
   width: 20px;

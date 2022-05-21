@@ -30,8 +30,15 @@
         </div>
       </div>
     </router-link>
-    <router-link :to="{ name: 'cadastro-instituicoes' }">
+    <router-link :to="{ name: 'cadastro-convidado' }">
       <div class="box-5-cad-geral">
+        <div class="circulo-2-cad-geral">
+          <h1 class="h1-cad-geral">CONVIDADO</h1>
+        </div>
+      </div>
+    </router-link>
+    <router-link :to="{ name: 'cadastro-instituicoes' }">
+      <div class="box-6-cad-geral">
         <div class="circulo-2-cad-geral">
           <h1 class="h1-cad-geral">INSTITUIÇÕES</h1>
         </div>
@@ -90,9 +97,9 @@ export default defineComponent({
   background-color: transparent;
   width: 78%;
   height: 25rem;
-  margin-top: 133px;
   margin-bottom: 30px;
   padding: 0;
+  margin-top: 4%;
 }
 
 .box-2-cad-geral {
@@ -134,6 +141,19 @@ export default defineComponent({
 }
 
 .box-5-cad-geral {
+  background-color: #f970a4;
+  width: 25%;
+  height: 8rem;
+  margin-top: 374px;
+  margin-bottom: 30px;
+  margin-left: 5%;
+  padding: 0;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
+  position: absolute;
+}
+
+.box-6-cad-geral {
   background-color: #f970a4;
   width: 25%;
   height: 8rem;
