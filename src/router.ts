@@ -13,7 +13,10 @@ import DetalhesProjeto from "./views/DetalhesProjeto.vue";
 import DetalhesInstituicao from "./views/DetalhesInstituicao.vue";
 import CadastroConvidado from "./views/CadastroConvidado.vue"; //feito
 import RecuperacaoSenha from "./views/RecuperacaoSenha.vue"; //feito
+import Convidados from "./views/Convidados.vue"; //feito
 import Perfil from "./views/Perfil.vue";
+import EdicaoPerfil from "./views/EdicaoPerfil.vue";
+import Patrocinador from "./views/Patrocinador.vue";
 import Erro from "./views/Erro.vue";
 
 
@@ -81,6 +84,12 @@ const routes = [
     },
 
     {
+        path: '/convidados',
+        name: 'convidados',
+        component: Convidados
+    },
+
+    {
         path: '/instituicoes',
         name: 'instituicoes',
         component: Instituicoes
@@ -109,7 +118,16 @@ const routes = [
         name: 'detalhes-instituicao',
         component: DetalhesInstituicao
     },
-
+    {
+        path: '/edicao-perfil',
+        name: 'edicao-perfil',
+        component: EdicaoPerfil
+    },
+    {
+        path: '/patrocinador',
+        name: 'patrocinador',
+        component: Patrocinador
+    },
 
     {
         path: '/:pathMatch(.*)*',

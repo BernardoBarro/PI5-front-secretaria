@@ -1,60 +1,60 @@
 <template>
-  <h1 class="titulo-inst">INSTITUIÇÕES</h1>
-  <div class="circulo-inst"></div>
+  <h1 class="titulo-conv">CONVIDADOS</h1>
+  <div class="circulo-conv"></div>
 
-  <div class="box-1-inst">
-    <div class="circulo-2-inst"></div>
-    <form class="form-inst" method="get" action="">
-      <label class="label-nome-inst">Nome</label>
+  <div class="box-conv">
+    <div class="circulo-2-conv"></div>
+    <form method="get" action="">
+      <label class="label-nome-conv">Nome</label>
       <i class="fa-solid fa-arrow-up"></i>
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 1"
+        name="convidado"
+        placeholder=" Convidado 1"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 2"
+        name="convidado"
+        placeholder=" Convidado 2"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 3"
+        name="convidado"
+        placeholder=" Convidado 3"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 4"
+        name="convidado"
+        placeholder=" Convidado 4"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 5"
+        name="convidado"
+        placeholder=" Convidado 5"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 6"
+        name="convidado"
+        placeholder=" Convidado 6"
         disabled
       /><br />
     </form>
   </div>
 
-  <div class="container-botao-inst">
-    <router-link :to="{ name: 'cadastro-instituicoes' }">
-      <input class="botao-inst" type="submit" name="novo" value="Novo" />
+  <div class="container-botao-conv">
+    <router-link :to="{ name: 'cadastro-convidado' }">
+      <input class="botao-conv" type="submit" name="novo" value="Novo" />
     </router-link>
   </div>
 </template>
@@ -63,7 +63,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ComponentInstituicoes",
+  name: "ComponentConvidados",
 });
 </script>
 
@@ -84,13 +84,13 @@ export default defineComponent({
   color: #f970a4;
 }
 
-.container-botao-inst {
+.container-botao-conv {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
 
-.botao-inst {
+.botao-conv {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -122,7 +122,7 @@ input[type="text"]::placeholder {
   letter-spacing: 3px;
 }
 
-.label-nome-inst {
+.label-nome-conv {
   position: absolute;
   color: #f970a4;
   font-weight: 600;
@@ -131,7 +131,7 @@ input[type="text"]::placeholder {
   margin-top: -1.5%;
 }
 
-.box-1-inst {
+.box-conv {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -143,21 +143,21 @@ input[type="text"]::placeholder {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.form-inst {
+form {
   margin-top: 55px;
 }
 
-.titulo-inst {
+.titulo-conv {
   font-size: 40px;
   position: absolute;
-  margin-left: 65%;
+  margin-left: 66%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
 
-.circulo-inst {
+.circulo-conv {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -168,14 +168,14 @@ input[type="text"]::placeholder {
   margin-top: 3%;
 }
 
-.circulo-2-inst {
+.circulo-2-conv {
   border-radius: 10px;
   width: 20px;
   height: 20px;
   background-color: #f2f2f2;
   position: absolute;
   display: inline-block;
-  margin-left: -37%;
+  margin-left: -36.5%;
   margin-top: 2%;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
 }

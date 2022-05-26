@@ -36,6 +36,21 @@
             ></i>
           </router-link>
         </button>
+        <button id="icon-convidados" class="button">
+          <router-link :to="{ name: 'convidados' }">
+            <i class="fa-solid fa-people-pulling" style="color: #f970a4"></i>
+          </router-link>
+        </button>
+
+        <button id="icon-patrocinador" class="button">
+          <router-link :to="{ name: 'patrocinador' }">
+            <i
+              class="fa-solid fa-hand-holding-dollar"
+              style="color: #f970a4"
+            ></i>
+          </router-link>
+        </button>
+
         <button id="icon-cadastros" class="button">
           <router-link :to="{ name: 'cadastro-geral' }">
             <i class="fa-solid fa-clipboard fa-lg" style="color: #f970a4"></i>
@@ -146,8 +161,36 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
 }
-#icon-cadastros {
+#icon-convidados {
   margin-top: 103%;
+  position: absolute;
+  background-color: #f2f2f2;
+  border-radius: 9px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f970a4;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#icon-patrocinador {
+  margin-top: 123%;
+  position: absolute;
+  background-color: #f2f2f2;
+  border-radius: 9px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f970a4;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#icon-cadastros {
+  margin-top: 143%;
   position: absolute;
   background-color: #f2f2f2;
   border-radius: 9px;

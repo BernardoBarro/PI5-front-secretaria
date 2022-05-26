@@ -1,69 +1,69 @@
 <template>
-  <h1 class="titulo-inst">INSTITUIÇÕES</h1>
-  <div class="circulo-inst"></div>
+  <h1 class="titulo-pat">PATROCINADOR</h1>
+  <div class="circulo-pat"></div>
 
-  <div class="box-1-inst">
-    <div class="circulo-2-inst"></div>
-    <form class="form-inst" method="get" action="">
-      <label class="label-nome-inst">Nome</label>
-      <i class="fa-solid fa-arrow-up"></i>
+  <div class="box-1-pat">
+    <div class="circulo-2-pat"></div>
+    <form method="get" action="">
+      <label class="label-nome-pat">Patrocinador</label>
+
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 1"
+        name="patrocinador"
+        placeholder=" Membro 1"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 2"
+        name="patrocinador"
+        placeholder=" Membro 2"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 3"
+        name="patrocinador"
+        placeholder=" Membro 3"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 4"
+        name="patrocinador"
+        placeholder=" Membro 4"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 5"
+        name="patrocinador"
+        placeholder=" Membro 5"
         disabled
       /><br />
       <i class="fa-solid fa-chevron-right"></i>
       <input
         type="text"
-        name="projeto"
-        placeholder=" Instituição 6"
+        name="patrocinador"
+        placeholder=" Membro 6"
         disabled
       /><br />
     </form>
   </div>
 
-  <div class="container-botao-inst">
-    <router-link :to="{ name: 'cadastro-instituicoes' }">
-      <input class="botao-inst" type="submit" name="novo" value="Novo" />
+  <div class="container-botao-pat">
+    <router-link :to="{ name: 'cadastro-projetos' }">
+      <input class="botao-pat" type="submit" name="novo" value="Novo" />
     </router-link>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ComponentInstituicoes",
+  name: "ComponentPatrocinador",
 });
 </script>
 
@@ -84,13 +84,13 @@ export default defineComponent({
   color: #f970a4;
 }
 
-.container-botao-inst {
+.container-botao-pat {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
 
-.botao-inst {
+.botao-pat {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -122,7 +122,7 @@ input[type="text"]::placeholder {
   letter-spacing: 3px;
 }
 
-.label-nome-inst {
+.label-nome-pat {
   position: absolute;
   color: #f970a4;
   font-weight: 600;
@@ -131,7 +131,7 @@ input[type="text"]::placeholder {
   margin-top: -1.5%;
 }
 
-.box-1-inst {
+.box-1-pat {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -143,21 +143,21 @@ input[type="text"]::placeholder {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.form-inst {
+form {
   margin-top: 55px;
 }
 
-.titulo-inst {
+.titulo-pat {
   font-size: 40px;
   position: absolute;
-  margin-left: 65%;
+  margin-left: 62%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
 
-.circulo-inst {
+.circulo-pat {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -168,7 +168,7 @@ input[type="text"]::placeholder {
   margin-top: 3%;
 }
 
-.circulo-2-inst {
+.circulo-2-pat {
   border-radius: 10px;
   width: 20px;
   height: 20px;
