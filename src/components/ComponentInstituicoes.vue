@@ -6,49 +6,15 @@
     <div class="circulo-2-inst"></div>
     <form class="form-inst" method="get" action="">
       <label class="label-nome-inst">Nome</label>
-      <i class="fa-solid fa-arrow-up"></i>
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Instituição 1"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Instituição 2"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Instituição 3"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Instituição 4"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Instituição 5"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Instituição 6"
-        disabled
-      /><br />
+      <ul class="ul-inst">
+        <router-link :to="{ name: 'detalhes-instituicao' }">
+          <li class="li-inst" v-for="datas in data" :key="datas.pessoa.nome">
+            <div class="item-inst">
+              {{ datas.pessoa.nome }}
+            </div>
+          </li>
+        </router-link>
+      </ul>
     </form>
   </div>
 
@@ -64,10 +30,52 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentInstituicoes",
+  data() {
+    return {
+      data: {},
+    };
+  },
+  beforeMount() {
+    this.getName();
+  },
+
+  methods: {
+    async getName() {
+      const res = await fetch("http://localhost:8080/associado");
+      const data = await res.json();
+      this.data = data;
+    },
+  },
 });
 </script>
 
 <style>
+.item-inst {
+  padding: 1%;
+  color: #f970a4;
+  text-align: left;
+}
+
+.li-inst {
+  list-style-type: none;
+  width: 92.2%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: 52px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+}
+
+.ul-inst {
+  margin-left: 8%;
+  overflow-y: scroll;
+  height: 296px;
+  width: 85%;
+}
+
 .fa-arrow-up::before {
   content: "\f062";
   position: absolute;
@@ -104,31 +112,13 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 
-input[type="text"] {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-}
-
-input[type="text"]::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
 .label-nome-inst {
   position: absolute;
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
-  margin-left: 3%;
-  margin-top: -1.5%;
+  margin-left: -28%;
+  margin-top: -2.5%;
 }
 
 .box-1-inst {

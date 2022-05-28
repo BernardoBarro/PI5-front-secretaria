@@ -18,6 +18,7 @@ import Perfil from "./views/Perfil.vue";
 import EdicaoPerfil from "./views/EdicaoPerfil.vue";
 import Patrocinador from "./views/Patrocinador.vue";
 import Erro from "./views/Erro.vue";
+import Teste from "./views/teste.vue";
 
 
 const routes = [
@@ -32,6 +33,12 @@ const routes = [
         path: '/home',
         name: 'home',
         component: Home
+    },
+
+    {
+        path: '/teste',
+        name: 'teste',
+        component: Teste
     },
 
 

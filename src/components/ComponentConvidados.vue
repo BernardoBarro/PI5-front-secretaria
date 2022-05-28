@@ -6,49 +6,13 @@
     <div class="circulo-2-conv"></div>
     <form method="get" action="">
       <label class="label-nome-conv">Nome</label>
-      <i class="fa-solid fa-arrow-up"></i>
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="convidado"
-        placeholder=" Convidado 1"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="convidado"
-        placeholder=" Convidado 2"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="convidado"
-        placeholder=" Convidado 3"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="convidado"
-        placeholder=" Convidado 4"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="convidado"
-        placeholder=" Convidado 5"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="convidado"
-        placeholder=" Convidado 6"
-        disabled
-      /><br />
+      <ul class="ul-conv">
+        <li class="li-conv" v-for="datas in data" :key="datas.nome">
+          <div class="item-conv">
+            {{ datas.nome }}
+          </div>
+        </li>
+      </ul>
     </form>
   </div>
 
@@ -64,10 +28,52 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentConvidados",
+  data() {
+    return {
+      data: {},
+    };
+  },
+  beforeMount() {
+    this.getName();
+  },
+
+  methods: {
+    async getName() {
+      const res = await fetch("http://localhost:8080/convidado");
+      const data = await res.json();
+      this.data = data;
+    },
+  },
 });
 </script>
 
 <style>
+.item-conv {
+  padding: 1%;
+  color: #f970a4;
+  text-align: left;
+}
+
+.li-conv {
+  list-style-type: none;
+  width: 92.2%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: 52px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+}
+
+.ul-conv {
+  margin-left: 8%;
+  overflow-y: scroll;
+  height: 296px;
+  width: 85%;
+}
+
 .fa-arrow-up::before {
   content: "\f062";
   position: absolute;
@@ -104,31 +110,13 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 
-input[type="text"] {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-}
-
-input[type="text"]::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
 .label-nome-conv {
   position: absolute;
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
-  margin-left: 3%;
-  margin-top: -1.5%;
+  margin-left: -28%;
+  margin-top: -2.5%;
 }
 
 .box-conv {

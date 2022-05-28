@@ -6,49 +6,15 @@
     <div class="circulo-2-projeto"></div>
     <form method="get" action="">
       <label class="label-nome-projeto">Nome</label>
-      <i class="fa-solid fa-arrow-up"></i>
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Projeto 1"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Projeto 2"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Projeto 3"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Projeto 4"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Projeto 5"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Projeto 6"
-        disabled
-      /><br />
+      <ul class="ul-projeto">
+        <router-link :to="{ name: 'detalhes-projeto' }">
+          <li class="li-projeto" v-for="datas in data" :key="datas.nome">
+            <div class="item-projeto">
+              {{ datas.nome }}
+            </div>
+          </li>
+        </router-link>
+      </ul>
     </form>
   </div>
 
@@ -64,12 +30,54 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentProjeto",
+  data() {
+    return {
+      data: {},
+    };
+  },
+  beforeMount() {
+    this.getName();
+  },
+
+  methods: {
+    async getName() {
+      const res = await fetch("http://localhost:8080/projeto");
+      const data = await res.json();
+      this.data = data;
+    },
+  },
 });
 </script>
 
 <style>
 main {
   background-color: #f2f2f2;
+}
+
+.item-projeto {
+  padding: 1%;
+  color: #f970a4;
+  text-align: left;
+}
+
+.li-projeto {
+  list-style-type: none;
+  width: 92.2%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: 52px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+}
+
+.ul-projeto {
+  margin-left: 8%;
+  overflow-y: scroll;
+  height: 296px;
+  width: 85%;
 }
 
 .fa-arrow-up::before {
@@ -108,31 +116,13 @@ main {
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 
-input[type="text"] {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-}
-
-input[type="text"]::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
 .label-nome-projeto {
   position: absolute;
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
-  margin-left: 3%;
-  margin-top: -1.5%;
+  margin-left: -28%;
+  margin-top: -2.5%;
 }
 
 .box-projeto {

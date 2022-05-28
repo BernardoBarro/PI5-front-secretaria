@@ -4,51 +4,15 @@
 
   <div class="box-1-pat">
     <div class="circulo-2-pat"></div>
-    <form method="get" action="">
+    <form class="form-pat" method="get" action="">
       <label class="label-nome-pat">Patrocinador</label>
-
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="patrocinador"
-        placeholder=" Membro 1"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="patrocinador"
-        placeholder=" Membro 2"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="patrocinador"
-        placeholder=" Membro 3"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="patrocinador"
-        placeholder=" Membro 4"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="patrocinador"
-        placeholder=" Membro 5"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="patrocinador"
-        placeholder=" Membro 6"
-        disabled
-      /><br />
+      <ul class="ul-pat">
+        <li class="li-pat" v-for="datas in data" :key="datas.nome">
+          <div class="item-pat">
+            {{ datas.nome }}
+          </div>
+        </li>
+      </ul>
     </form>
   </div>
 
@@ -64,10 +28,52 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentPatrocinador",
+  data() {
+    return {
+      data: {},
+    };
+  },
+  beforeMount() {
+    this.getName();
+  },
+
+  methods: {
+    async getName() {
+      const res = await fetch("http://localhost:8080/patrocinador");
+      const data = await res.json();
+      this.data = data;
+    },
+  },
 });
 </script>
 
 <style>
+.item-pat {
+  padding: 1%;
+  color: #f970a4;
+  text-align: left;
+}
+
+.li-pat {
+  list-style-type: none;
+  width: 92.2%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: 52px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+}
+
+.ul-pat {
+  margin-left: 8%;
+  overflow-y: scroll;
+  height: 296px;
+  width: 85%;
+}
+
 .fa-arrow-up::before {
   content: "\f062";
   position: absolute;
@@ -104,31 +110,13 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 
-input[type="text"] {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-}
-
-input[type="text"]::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
 .label-nome-pat {
   position: absolute;
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
-  margin-left: 3%;
-  margin-top: -1.5%;
+  margin-left: -28%;
+  margin-top: -2.5%;
 }
 
 .box-1-pat {
@@ -143,7 +131,7 @@ input[type="text"]::placeholder {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-form {
+.form-pat {
   margin-top: 55px;
 }
 

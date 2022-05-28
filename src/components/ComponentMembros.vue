@@ -4,51 +4,15 @@
 
   <div class="box-1-memb">
     <div class="circulo-2-memb"></div>
-    <form method="get" action="">
+    <form class="form-memb" method="get" action="">
       <label class="label-nome-memb">Nome</label>
-      <i class="fa-solid fa-arrow-up"></i>
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Membro 1"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Membro 2"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Membro 3"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Membro 4"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Membro 5"
-        disabled
-      /><br />
-      <i class="fa-solid fa-chevron-right"></i>
-      <input
-        type="text"
-        name="projeto"
-        placeholder=" Membro 6"
-        disabled
-      /><br />
+      <ul class="ul-memb">
+        <li class="li-memb" v-for="datas in data" :key="datas.pessoa.nome">
+          <div class="item-memb">
+            {{ datas.pessoa.nome }}
+          </div>
+        </li>
+      </ul>
     </form>
   </div>
 
@@ -64,6 +28,22 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentMembros",
+  data() {
+    return {
+      data: {},
+    };
+  },
+  beforeMount() {
+    this.getName();
+  },
+
+  methods: {
+    async getName() {
+      const res = await fetch("http://localhost:8080/associado");
+      const data = await res.json();
+      this.data = data;
+    },
+  },
 });
 </script>
 
@@ -74,6 +54,32 @@ export default defineComponent({
   margin-left: 7.5%;
   margin-top: -3.9%;
   color: #f970a4;
+}
+
+.item-memb {
+  padding: 1%;
+  color: #f970a4;
+  text-align: left;
+}
+
+.li-memb {
+  list-style-type: none;
+  width: 92.2%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: 52px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+}
+
+.ul-memb {
+  margin-left: 8%;
+  overflow-y: scroll;
+  height: 296px;
+  width: 85%;
 }
 
 .fa-chevron-right::before {
@@ -104,31 +110,13 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 
-input[type="text"] {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-}
-
-input[type="text"]::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
 .label-nome-memb {
   position: absolute;
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
-  margin-left: 3%;
-  margin-top: -1.5%;
+  margin-left: -28%;
+  margin-top: -2.5%;
 }
 
 .box-1-memb {
@@ -143,7 +131,7 @@ input[type="text"]::placeholder {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-form {
+.form-memb {
   margin-top: 55px;
 }
 
