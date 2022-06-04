@@ -5,12 +5,23 @@
   <div class="box-1-cad-inst">
     <div class="circulo-2-cad-inst"></div>
     <form class="form-cad-inst" method="get" action="">
-      <input type="text" name="cidade" placeholder=" Cidade" /><br />
-      <input type="text" name="padrinho" placeholder=" Padrinho" /><br />
+      <input
+        type="text"
+        name="nome"
+        ref="post_nome"
+        placeholder=" Nome"
+      /><br />
+      <input
+        type="text"
+        name="contato"
+        ref="post_contato"
+        placeholder=" Contato"
+      /><br />
       <textarea
         id="textarea"
         name="restricao-medica"
-        placeholder=" Restrições Médicas"
+        ref="post_descricao"
+        placeholder=" Detalhes"
       ></textarea>
     </form>
   </div>
@@ -22,16 +33,50 @@
         type="submit"
         name="salvar"
         value="Salvar"
+        @click="postData"
       />
     </router-link>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentCadastroInstituicoes",
+  data() {
+    return {
+      postResult: null,
+    };
+  },
+  methods: {
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
+    async postData() {
+      const postData = {
+        nome: this.$refs.post_nome.value,
+        contato: this.$refs.post_contato.value,
+      };
+      try {
+        const res = await fetch("http://localhost:8080/instituicao", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            charset: "utf-8",
+          },
+          body: JSON.stringify(postData),
+        });
+
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.postResult = err.message;
+      }
+    },
+  },
 });
 </script>
 

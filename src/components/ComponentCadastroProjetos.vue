@@ -8,58 +8,108 @@
       <input
         id="input-projeto-cad-proj"
         type="text"
-        name="nome-projeto"
+        name="nome"
+        ref="nome_projeto"
         placeholder=" Nome do Projeto"
       /><br />
       <input
         id="input-patrocinador-cad-proj"
         type="text"
-        name="nome-patrocinador"
+        name="nome_patrocinador"
+        ref="nome_patrocinador"
         placeholder=" Nome do Patrocinador"
       /><br />
       <input
         class="input-valor-cad-proj"
         type="number"
-        name="nome-patrocinador"
+        name="valor"
+        ref="valor"
         placeholder=" R$ 0.00"
       /><br />
       <select class="instituicoes-cad-proj" name="instituicoes">
-        <option value="instituisao-1">Instituição 1</option>
-        <option value="instituisao-2">Instituição 2</option>
+        <option
+          name="instituicao"
+          ref="instituicao"
+          v-for="datas in data"
+          :key="datas.nome"
+        >
+          {{ datas.nome }}
+        </option>
       </select>
       <br />
-      <select class="membros-cad-proj" name="membros">
-        <option value="protocolo">Protocolo</option>
-        <option value="comunidades">Comunidades</option>
-        <option value="internos">Internos</option>
-        <option value="imagem-publica">Imagem Pública</option>
-        <option value="financas">Finanças</option>
-        <option value="internacionais">Internacionais</option>
-      </select>
       <textarea
         id="textarea"
         name="descricao"
+        ref="descricao"
         placeholder=" Descrição"
       ></textarea>
     </form>
   </div>
 
   <div class="container-botao-cad-proj">
-    <router-link :to="{ name: 'cadastro-geral' }">
-      <input
-        class="botao-cad-proj"
-        type="submit"
-        name="salvar"
-        value="Salvar"
-      />
-    </router-link>
+    <!-- <router-link :to="{ name: 'cadastro-geral' }"> -->
+    <input
+      class="botao-cad-proj"
+      type="submit"
+      name="salvar"
+      value="Salvar"
+      @click="postData"
+    />
+    <!-- </router-link> -->
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "ComponentCadastroProjetos",
+  data() {
+    return {
+      postResult: null,
+      data: {},
+    };
+  },
+  beforeMount() {
+    this.getName();
+  },
+  methods: {
+    async getName() {
+      const res = await fetch("http://localhost:8080/instituicao");
+      const data = await res.json();
+      this.data = data;
+    },
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
+    async postData() {
+      const postData = {
+        nome: this.$refs.nome_projeto.value,
+        // nomePatrocinador: this.$refs.nome_patrocinador.value,
+        // valor: this.$refs.valor.value,
+        // instituicoes: this.$refs.instituicoes.value,
+        area: this.$refs.area_enfoque.value,
+        descricao: this.$refs.descricao.value,
+      };
+      console.log(postData);
+      try {
+        const res = await fetch("http://localhost:8080/projeto", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            charset: "utf-8",
+          },
+          body: JSON.stringify(postData),
+        });
+
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.postResult = err.message;
+      }
+    },
+  },
 });
 </script>
 

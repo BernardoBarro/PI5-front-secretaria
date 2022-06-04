@@ -8,9 +8,9 @@
       <label class="label-nome-inst">Nome</label>
       <ul class="ul-inst">
         <router-link :to="{ name: 'detalhes-instituicao' }">
-          <li class="li-inst" v-for="datas in data" :key="datas.pessoa.nome">
+          <li class="li-inst" v-for="datas in data" :key="datas.nome">
             <div class="item-inst">
-              {{ datas.pessoa.nome }}
+              {{ datas.nome }}
             </div>
           </li>
         </router-link>
@@ -41,7 +41,7 @@ export default defineComponent({
 
   methods: {
     async getName() {
-      const res = await fetch("http://localhost:8080/associado");
+      const res = await fetch("http://localhost:8080/instituicao");
       const data = await res.json();
       this.data = data;
     },

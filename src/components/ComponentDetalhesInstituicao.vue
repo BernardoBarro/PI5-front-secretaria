@@ -47,6 +47,22 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentDetalhesInstituicao",
+  data() {
+    return {
+      data: {},
+    };
+  },
+  beforeMount() {
+    this.getName();
+  },
+
+  methods: {
+    async getName() {
+      const res = await fetch("http://localhost:8080/associado");
+      const data = await res.json();
+      this.data = data;
+    },
+  },
 });
 </script>
 

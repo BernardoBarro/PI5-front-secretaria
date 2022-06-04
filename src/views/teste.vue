@@ -1,32 +1,73 @@
 <template>
-  <div id="app">
-    <!-- <li v-for="datas in data" :key="datas.pessoa.nome">
-      {{ datas.pessoa.nome }}
-    </li> -->
-    {{ data }}
+  <div id="app" class="container">
+    <div class="card">
+      <div class="card-header">Vue Fetch POST - BezKoder.com</div>
+      <div class="card-body">
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            ref="post_title"
+            placeholder="Title"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            ref="post_description"
+            placeholder="Description"
+          />
+        </div>
+        <button class="btn btn-sm btn-primary" @click="postData">
+          Post Data
+        </button>
+        <button class="btn btn-sm btn-warning ml-2" @click="clearPostOutput">
+          Clear
+        </button>
+        <div v-if="postResult" class="alert alert-secondary mt-2" role="alert">
+          <pre>{{ postResult }}</pre>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "App",
   data() {
     return {
-      data: {},
+      postResult: null,
     };
   },
-  beforeMount() {
-    this.getName();
-  },
-
   methods: {
-    async getName() {
-      const res = await fetch(
-        "http://localhost:8080/instituicoes_beneficiadas"
-      );
-      const data = await res.json();
-      this.data = data;
-      console.log(data);
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
+    async postData() {
+      const postData = {
+        nome: this.$refs.post_title.value,
+        contato: this.$refs.post_description.value,
+      };
+      try {
+        const res = await fetch("http://localhost:8080/instituicao", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            charset: "utf-8",
+          },
+          body: JSON.stringify(postData),
+        });
+
+        if (!res.ok) {
+          console.log("aqui");
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.postResult = err.message;
+        console.log("catch");
+      }
     },
   },
 };
