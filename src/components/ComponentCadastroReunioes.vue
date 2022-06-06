@@ -1,3 +1,5 @@
+
+<!-- não deu certo -->
 <template>
   <h1 class="titulo-cad-reu">CADASTRO DE REUNIÕES</h1>
   <div class="circulo-cad-reu"></div>
@@ -9,6 +11,7 @@
         class="nome-reuniao-cad-reu"
         type="text"
         name="cidade"
+        ref="nome_reuniao"
         placeholder="Nome da Reunião"
       /><br />
       <img class="img-cad-reu" src="../assets/icon-reuniao.png" />
@@ -16,42 +19,81 @@
         class="data-inicio-cad-reu"
         type="text"
         onfocus="(this.type='date')"
-        onblur="(this.type='text')"
-        placeholder="Data de Início"
+        ref="datareuniao"
+        placeholder="Data Reunião"
       /><br />
-      <b class="pontos-cad-reu">:</b>
       <input
-        class="data-fim-cad-reu"
+        class="local-cad-reu"
         type="text"
-        onfocus="(this.type='date')"
-        onblur="(this.type='text')"
-        placeholder="Data de Fim"
+        placeholder="Local"
+        ref="local"
       /><br />
-      <input class="local-cad-reu" type="text" placeholder="Local" /><br />
       <textarea
         id="textarea"
-        name="restricao-medica"
+        name="assunto"
         placeholder="Observações da Reunião"
+        ref="assunto"
       ></textarea>
     </form>
   </div>
 
   <div class="container-botao-cad-reu">
     <router-link :to="{ name: 'home' }">
-      <input class="botao-cad-reu" type="submit" name="salvar" value="Salvar" />
+      <input
+        class="botao-cad-reu"
+        type="submit"
+        name="salvar"
+        value="Salvar"
+        @click="postData"
+      />
     </router-link>
   </div>
 </template>
 
 
-<script lang="ts">
+<script >
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentCadastroReunioes",
+  data() {
+    return {
+      postResult: null,
+    };
+  },
+  methods: {
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
+    async postData() {
+      const postData = {
+        nome: this.$refs.nome_reuniao.value,
+        assunto: this.$refs.assunto.value,
+        data: this.$refs.datareuniao.value,
+        local: this.$refs.local.value,
+      };
+      console.log(postData);
+      try {
+        const res = await fetch("http://localhost:8080/reuniao", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            charset: "utf-8",
+          },
+          body: JSON.stringify(postData),
+        });
+
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.postResult = err.message;
+      }
+    },
+  },
 });
 </script>
-
 <style scoped>
 input[type="text"]::placeholder {
   color: #f970a4;
@@ -112,7 +154,7 @@ input[type="text"]::placeholder {
 }
 
 .data-inicio-cad-reu {
-  width: 20%;
+  width: 41.8%;
   height: 40px;
   margin-top: 12px;
   outline: none;
@@ -129,28 +171,10 @@ input[type="text"]::placeholder {
   padding: 0px 0px 0px 10px;
 }
 
-.data-fim-cad-reu {
-  width: 20%;
-  height: 40px;
-  margin-top: -12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  margin-left: 11.6%;
-  position: absolute;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 0px 0px 0px 10px;
-}
-
 .local-cad-reu {
   width: 53.4%;
   height: 40px;
-  margin-top: 17px;
+  margin-top: 40px;
   margin-left: 28%;
   outline: none;
   border: none;
@@ -228,3 +252,5 @@ input[type="text"]::placeholder {
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
 }
 </style>
+
+

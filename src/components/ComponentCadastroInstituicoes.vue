@@ -6,23 +6,26 @@
     <div class="circulo-2-cad-inst"></div>
     <form class="form-cad-inst" method="get" action="">
       <input
+        id="input-nome-cad-inst"
         type="text"
         name="nome"
-        ref="post_nome"
-        placeholder=" Nome"
+        ref="nome"
+        placeholder=" Nome da Instituição"
       /><br />
       <input
+        class="input-contato-cad-inst"
         type="text"
         name="contato"
-        ref="post_contato"
-        placeholder=" Contato"
+        ref="contato"
+        placeholder=" Telefone"
       /><br />
       <textarea
         id="textarea"
-        name="restricao-medica"
-        ref="post_descricao"
-        placeholder=" Detalhes"
+        name="descricao"
+        placeholder="Observações da Instituição"
+        ref="descricao"
       ></textarea>
+      <img class="img-cad-patr" src="../assets/icon-patrocinador.png" />
     </form>
   </div>
 
@@ -55,9 +58,11 @@ export default defineComponent({
     },
     async postData() {
       const postData = {
-        nome: this.$refs.post_nome.value,
-        contato: this.$refs.post_contato.value,
+        nome: this.$refs.nome.value,
+        contato: this.$refs.contato.value,
+        descricao: this.$refs.descricao.value,
       };
+      console.log(postData);
       try {
         const res = await fetch("http://localhost:8080/instituicao", {
           method: "POST",
@@ -87,6 +92,66 @@ export default defineComponent({
   margin-bottom: 24px;
 }
 
+#textarea {
+  margin-top: 45px;
+  margin-left: 22.8%;
+  width: 57%;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  color: #f970a4;
+  outline: none;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 9px 0px 108px 10px;
+}
+
+#textarea::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+#input-nome-cad-inst {
+  color: #f970a4;
+  width: 57%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: 22.7%;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+}
+.input-contato-cad-inst {
+  color: #f970a4;
+  width: 44.5%;
+  height: 40px;
+  margin-top: 15px;
+  outline: none;
+  margin-left: -13.4%;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  position: absolute;
+}
+
+.input-nome-cad-inst::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 5px;
+}
+.input-contato-cad-inst::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 5px;
+}
+
 .botao-cad-inst {
   background-color: #f970a4;
   border: none;
@@ -99,43 +164,6 @@ export default defineComponent({
   margin-left: -93px;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-}
-
-input[type="text"] {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-}
-
-#textarea {
-  margin-top: 18px;
-  margin-left: 29px;
-  width: 77%;
-  padding-bottom: 122px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-}
-
-input[type="text"]::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
-#textarea::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 5px;
 }
 
 .box-1-cad-inst {

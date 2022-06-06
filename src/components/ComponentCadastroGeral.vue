@@ -11,37 +11,38 @@
   <div class="box-1-cad-geral">
     <router-link :to="{ name: 'cadastro-membros' }">
       <div class="box-2-cad-geral">
-        <div class="circulo-2-cad-geral">
-          <h1 class="h1-cad-geral">MEMBRO</h1>
-        </div>
+        <div class="circulo-2-cad-geral"></div>
+        <h1 class="h1-cad-geral">MEMBRO</h1>
       </div>
     </router-link>
     <router-link :to="{ name: 'cadastro-projetos' }">
       <div class="box-3-cad-geral">
-        <div class="circulo-2-cad-geral">
-          <h1 class="h1-cad-geral">PROJETO</h1>
-        </div>
+        <div class="circulo-2-cad-geral"></div>
+        <h1 class="h1-cad-geral">PROJETO</h1>
       </div>
     </router-link>
     <router-link :to="{ name: 'cadastro-reunioes' }">
       <div class="box-4-cad-geral">
-        <div class="circulo-2-cad-geral">
-          <h1 class="h1-cad-geral">REUNIÕES</h1>
-        </div>
+        <div class="circulo-2-cad-geral"></div>
+        <h1 class="h1-cad-geral">REUNIÕES</h1>
       </div>
     </router-link>
     <router-link :to="{ name: 'cadastro-convidado' }">
       <div class="box-5-cad-geral">
-        <div class="circulo-2-cad-geral">
-          <h1 class="h1-cad-geral">CONVIDADO</h1>
-        </div>
+        <div class="circulo-2-cad-geral"></div>
+        <h1 class="h1-cad-geral">CONVIDADO</h1>
       </div>
     </router-link>
     <router-link :to="{ name: 'cadastro-instituicoes' }">
       <div class="box-6-cad-geral">
-        <div class="circulo-2-cad-geral">
-          <h1 class="h1-cad-geral">INSTITUIÇÕES</h1>
-        </div>
+        <div class="circulo-2-cad-geral"></div>
+        <h1 class="h1-cad-geral">INSTITUIÇÕES</h1>
+      </div>
+    </router-link>
+    <router-link :to="{ name: 'cadastro-patrocinador' }">
+      <div class="box-7-cad-geral">
+        <div class="circulo-2-cad-geral"></div>
+        <h1 class="h1-cad-geral">PATROCINADOR</h1>
       </div>
     </router-link>
   </div>
@@ -60,10 +61,10 @@ export default defineComponent({
   font-weight: 600;
   font-size: 30px;
   color: white;
-  margin-top: 55px;
-  margin-left: 106px;
+  margin-top: 65px;
+  margin-left: 92px;
   text-align: right !important;
-  width: 189px;
+  width: 222px;
 }
 
 .imagem-logo-cad-geral {
@@ -158,6 +159,19 @@ export default defineComponent({
   width: 25%;
   height: 8rem;
   margin-top: 216px;
+  margin-bottom: 30px;
+  margin-left: 33%;
+  padding: 0;
+  border-radius: 30px;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
+  position: absolute;
+}
+
+.box-7-cad-geral {
+  background-color: #f970a4;
+  width: 25%;
+  height: 8rem;
+  margin-top: 374px;
   margin-bottom: 30px;
   margin-left: 33%;
   padding: 0;

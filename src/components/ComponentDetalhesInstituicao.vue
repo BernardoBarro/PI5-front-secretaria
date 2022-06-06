@@ -1,79 +1,95 @@
 <template>
-  <h1 class="titulo-det-inst">INSTITUIÇÃO</h1>
-  <div class="circulo-det-inst"></div>
+  <h1 class="titulo-cad-inst">CADASTRO DE INSTITUIÇÕES</h1>
+  <div class="circulo-cad-inst"></div>
 
-  <div class="box-1-det-inst">
-    <div class="circulo-2-det-inst"></div>
-    <form method="get" action="">
+  <div class="box-1-cad-inst">
+    <div class="circulo-2-cad-inst"></div>
+    <form class="form-cad-inst" method="get" action="">
       <input
         type="text"
-        name="nome-instituicao"
-        placeholder=" Nome da Instituição"
-        disabled
+        name="nome"
+        ref="post_nome"
+        placeholder=" Nome"
       /><br />
-      <input type="text" name="cnpj" placeholder=" CNPJ" disabled /><br />
+      <input
+        type="text"
+        name="contato"
+        ref="post_contato"
+        placeholder=" Contato"
+      /><br />
       <textarea
         id="textarea"
-        name="descricao"
-        placeholder=" Descrição"
-        disabled
+        name="restricao-medica"
+        ref="post_descricao"
+        placeholder=" Detalhes"
       ></textarea>
     </form>
   </div>
 
-  <div class="container-botao-det-inst">
-    <router-link :to="{ name: 'cadastro-instituicoes' }">
-      <input
-        class="botao-editar-det-inst"
-        type="submit"
-        name="editar"
-        value="Editar"
-      />
-    </router-link>
-
+  <div class="container-botao-cad-inst">
     <router-link :to="{ name: 'instituicoes' }">
       <input
-        class="botao-excluir-det-inst"
+        class="botao-cad-inst"
         type="submit"
-        name="excluir"
-        value="Excluir"
+        name="salvar"
+        value="Salvar"
+        @click="postData"
       />
     </router-link>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ComponentDetalhesInstituicao",
+  name: "ComponentCadastroInstituicoes",
   data() {
     return {
-      data: {},
+      postResult: null,
     };
   },
-  beforeMount() {
-    this.getName();
-  },
-
   methods: {
-    async getName() {
-      const res = await fetch("http://localhost:8080/associado");
-      const data = await res.json();
-      this.data = data;
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
+    async postData() {
+      const postData = {
+        nome: this.$refs.post_nome.value,
+        contato: this.$refs.post_contato.value,
+      };
+      console.log(postData);
+      try {
+        const res = await fetch("http://localhost:8080/instituicao", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            autorisxxx: "qsaassaasas",
+            charset: "utf-8",
+          },
+          body: JSON.stringify(postData),
+        });
+
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.postResult = err.message;
+      }
     },
   },
 });
 </script>
 
 <style scoped>
-.container-botao-det-inst {
+.container-botao-cad-inst {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
 
-.botao-excluir-det-inst {
+.botao-cad-inst {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -82,55 +98,9 @@ export default defineComponent({
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: -275px;
+  margin-left: -93px;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-  width: 125px;
-}
-
-.botao-editar-det-inst {
-  background-color: #f970a4;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: -125px;
-  padding: 8px 40px;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-  width: 125px;
-}
-
-.instituicoes-det-inst {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
-.membros-det-inst {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
 }
 
 input[type="text"] {
@@ -170,7 +140,7 @@ input[type="text"]::placeholder {
   padding: 5px;
 }
 
-.box-1-det-inst {
+.box-1-cad-inst {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -182,21 +152,21 @@ input[type="text"]::placeholder {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-form {
-  margin-top: 33px;
+.form-cad-inst {
+  margin-top: 58px;
 }
 
-.titulo-det-inst {
+.titulo-cad-inst {
   font-size: 40px;
   position: absolute;
-  margin-left: 67%;
+  margin-left: 40%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
 
-.circulo-det-inst {
+.circulo-cad-inst {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -207,7 +177,7 @@ form {
   margin-top: 3%;
 }
 
-.circulo-2-det-inst {
+.circulo-2-cad-inst {
   border-radius: 10px;
   width: 20px;
   height: 20px;

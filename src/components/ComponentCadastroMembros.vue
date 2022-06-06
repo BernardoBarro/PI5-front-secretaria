@@ -7,142 +7,159 @@
       <div class="circulo-2-cad-membro"></div>
       <img class="img-cad-membro" src="../assets/icon-perfil.png" />
       <br />
-      <ul class="ul-cad-membro-cad-membro">
-        <li class="cargos-cad-membro">
-          <label>
-            <input
-              type="radio"
-              id="Presidente"
-              name="fav_language"
-              value="Presidente"
-            />
-            <span class="span-cad-membro">Presidente</span><br />
-          </label>
-        </li>
-
-        <li class="cargos-cad-membro">
-          <label>
-            <input
-              class="cargos-cad-membro"
-              type="radio"
-              id="Vice-Presidente"
-              name="fav_language"
-              value="Vice-Presidente"
-            />
-            <span class="span-cad-membro">Vice-Presidente</span><br />
-          </label>
-        </li>
-
-        <li class="cargos-cad-membro">
-          <label>
-            <input
-              class="cargos-cad-membro"
-              type="radio"
-              id="Secretario"
-              name="fav_language"
-              value="Secretario"
-            />
-            <span class="span-cad-membro">Secretário</span><br />
-          </label>
-        </li>
-
-        <li class="cargos-cad-membro">
-          <label>
-            <input
-              class="cargos-cad-membro"
-              type="radio"
-              id="Tesoureiro"
-              name="fav_language"
-              value="Tesoureiro"
-            />
-            <span>Tesoureiro</span><br />
-          </label>
-        </li>
-
-        <li class="cargos-cad-membro">
-          <label>
-            <input
-              class="cargos-cad-membro"
-              type="radio"
-              id="Membro"
-              name="fav_language"
-              value="Membro"
-            />
-            <span>Membro</span><br />
-          </label>
-        </li>
-      </ul>
+      <h2 class="titulo-status-cad-membro">Status</h2>
+      <select class="status-cad-membro" name="status" ref="status">
+        <option>ATIVO</option>
+        <option>AFASTADO</option>
+        <option>DESLIGADO</option>
+      </select>
     </div>
 
     <div class="box-3-cad-membro">
       <div class="coluna-esquerda-cad-membro">
         <form class="form-cad-membro" method="get" action="">
-          <input type="text" name="RI" placeholder=" RI" /><br />
-          <input type="text" name="nome" placeholder=" Nome" /><br />
+          <input type="text" name="ri" placeholder=" RI" ref="ri" /><br />
+          <input type="text" name="nome" placeholder=" Nome" ref="nome" /><br />
           <input
             type="text"
-            onfocus="(this.type='date')"
-            onblur="(this.type='text')"
-            name="sexo"
-            placeholder=" Sexo"
+            name="genero"
+            placeholder=" Genero"
+            ref="genero"
           /><br />
           <input
             type="text"
-            onfocus="(this.type='date')"
-            onblur="(this.type='text')"
-            name="data-nascimento"
+            name="nascimento"
             placeholder=" Data de Nascimento"
+            ref="nascimento"
           /><br />
           <input
             type="text"
-            name="data-admissao"
+            name="dataAdmissao"
             placeholder=" Data de Admissão"
+            ref="dataAdmissao"
           /><br />
-          <input type="e-mail" name="telefone" placeholder=" Telefone" /><br />
+          <input
+            type="text"
+            name="telefone"
+            placeholder=" Telefone"
+            ref="telefone"
+          /><br />
         </form>
       </div>
 
       <div class="coluna-direita-cad-membro">
         <form method="get" action="">
-          <input type="text" name="endereço" placeholder=" Endereço" /><br />
-          <input type="text" name="ocupacao" placeholder=" Ocupação" /><br />
-          <input type="text" name="padrinho" placeholder=" Padrinho" /><br />
-          <input type="text" name="email" placeholder=" E-mail" /><br />
-          <input type="text" name="senha" placeholder=" Senha" /><br />
-          <select class="cargo-comissoes-cad-membro" name="cargo-comissoes">
-            <option value="protocolo">Protocolo</option>
-            <option value="comunidades">Comunidades</option>
-            <option value="internos">Internos</option>
-            <option value="imagem-publica">Imagem Pública</option>
-            <option value="financas">Finanças</option>
-            <option value="internacionais">Internacionais</option>
-          </select>
+          <input type="text" name="cep" placeholder=" CEP" ref="cep" /><br />
+          <input
+            type="text"
+            name="ocupacao"
+            placeholder=" Ocupação"
+            ref="ocupacao"
+          /><br />
+          <input
+            type="text"
+            name="padrinho"
+            placeholder=" Padrinho"
+            ref="padrinho"
+          /><br />
+          <input
+            type="text"
+            name="email"
+            placeholder=" E-mail"
+            ref="email"
+          /><br />
+          <input
+            type="text"
+            name="senha"
+            placeholder=" Senha"
+            ref="senha"
+          /><br />
+          <input
+            type="text"
+            name="senha"
+            placeholder=" Cargo"
+            ref="cargo"
+          /><br />
           <br />
         </form>
       </div>
     </div>
   </div>
   <div class="container-botao-cad-membro">
-    <router-link :to="{ name: 'membros' }">
-      <input
-        class="botao-cad-membro"
-        type="submit"
-        name="salvar"
-        value="Salvar"
-      />
-    </router-link>
+    <!-- <router-link :to="{ name: 'membros' }"> -->
+    <input
+      class="botao-cad-membro"
+      type="submit"
+      name="salvar"
+      value="Salvar"
+      @click="postData"
+    />
+    <!-- </router-link> -->
   </div>
 </template>
 
-<script lang="ts">
+<script >
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentCadastromembro",
+  data() {
+    return {
+      postResult: null,
+    };
+  },
+  methods: {
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
+    async postData() {
+      console.log("aqui antes do POST");
+      const postData = {
+        ri: this.$refs.ri.value,
+        nome: this.$refs.nome.value,
+        genero: this.$refs.genero.value,
+        nascimento: this.$refs.nascimento.value,
+        dataAdmissao: this.$refs.dataAdmissao.value,
+        telefone: this.$refs.telefone.value,
+        cep: this.$refs.cep.value,
+        ocupacao: this.$refs.ocupacao.value,
+        padrinho: this.$refs.padrinho.value,
+        email: this.$refs.email.value,
+        senha: this.$refs.senha.value,
+        status: this.$refs.status.value,
+      };
+      console.log(postData);
+      try {
+        const res = await fetch("http://localhost:8080/associado", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            charset: "utf-8",
+          },
+          body: JSON.stringify(postData),
+        });
+
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.postResult = err.message;
+      }
+    },
+  },
 });
 </script>
 
 <style>
+.titulo-status-cad-membro {
+  color: #ffff;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 12%;
+}
+
 .container-botao-cad-membro {
   align-items: flex-end;
   margin-block-start: auto;
@@ -178,10 +195,24 @@ export default defineComponent({
   letter-spacing: 3px;
 }
 
-input[type="text"] {
+.status-cad-membro {
   width: 77%;
   height: 40px;
   margin-top: 12px;
+  outline: none;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+input[type="text"] {
+  width: 77%;
+  height: 40px;
+  margin-top: 10px;
   outline: none;
   margin-left: 29px;
   border: none;
@@ -242,13 +273,13 @@ input[type="text"]::placeholder {
 .coluna-esquerda-cad-membro {
   width: 55%;
   position: absolute;
-  margin-left: 0%;
+  margin-left: 4%;
   margin-top: -2%;
 }
 
 .coluna-direita-cad-membro {
   width: 55%;
-  margin-left: 55%;
+  margin-left: 54%;
   position: absolute;
   margin-top: -2%;
 }

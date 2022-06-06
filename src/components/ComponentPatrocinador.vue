@@ -5,7 +5,7 @@
   <div class="box-1-pat">
     <div class="circulo-2-pat"></div>
     <form class="form-pat" method="get" action="">
-      <label class="label-nome-pat">Patrocinador</label>
+      <label class="label-nome-pat">Nome</label>
       <ul class="ul-pat">
         <li class="li-pat" v-for="datas in data" :key="datas.nome">
           <div class="item-pat">

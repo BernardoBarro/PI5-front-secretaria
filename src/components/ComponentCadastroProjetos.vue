@@ -9,53 +9,43 @@
         id="input-projeto-cad-proj"
         type="text"
         name="nome"
-        ref="nome_projeto"
+        ref="nome"
         placeholder=" Nome do Projeto"
       /><br />
       <input
-        id="input-patrocinador-cad-proj"
+        id="input-data-inicio-cad-proj"
         type="text"
-        name="nome_patrocinador"
-        ref="nome_patrocinador"
-        placeholder=" Nome do Patrocinador"
+        name="dataInicio"
+        ref="dataInicio"
+        placeholder=" Data Início"
       /><br />
       <input
-        class="input-valor-cad-proj"
-        type="number"
-        name="valor"
-        ref="valor"
-        placeholder=" R$ 0.00"
+        id="input-status-cad-proj"
+        type="text"
+        name="status"
+        ref="status"
+        placeholder=" Status"
       /><br />
-      <select class="instituicoes-cad-proj" name="instituicoes">
-        <option
-          name="instituicao"
-          ref="instituicao"
-          v-for="datas in data"
-          :key="datas.nome"
-        >
-          {{ datas.nome }}
-        </option>
-      </select>
-      <br />
       <textarea
         id="textarea"
         name="descricao"
+        placeholder="Observações do Projeto"
         ref="descricao"
-        placeholder=" Descrição"
       ></textarea>
+      <img class="img-cad-proj" src="../assets/icon-patrocinador.png" />
     </form>
   </div>
 
   <div class="container-botao-cad-proj">
-    <!-- <router-link :to="{ name: 'cadastro-geral' }"> -->
-    <input
-      class="botao-cad-proj"
-      type="submit"
-      name="salvar"
-      value="Salvar"
-      @click="postData"
-    />
-    <!-- </router-link> -->
+    <router-link :to="{ name: 'cadastro-geral' }">
+      <input
+        class="botao-cad-proj"
+        type="submit"
+        name="salvar"
+        value="Salvar"
+        @click="postData"
+      />
+    </router-link>
   </div>
 </template>
 
@@ -66,28 +56,17 @@ export default defineComponent({
   data() {
     return {
       postResult: null,
-      data: {},
     };
   },
-  beforeMount() {
-    this.getName();
-  },
   methods: {
-    async getName() {
-      const res = await fetch("http://localhost:8080/instituicao");
-      const data = await res.json();
-      this.data = data;
-    },
     fortmatResponse(res) {
       return JSON.stringify(res, null, 2);
     },
     async postData() {
       const postData = {
-        nome: this.$refs.nome_projeto.value,
-        // nomePatrocinador: this.$refs.nome_patrocinador.value,
-        // valor: this.$refs.valor.value,
-        // instituicoes: this.$refs.instituicoes.value,
-        area: this.$refs.area_enfoque.value,
+        nome: this.$refs.nome.value,
+        dataInicio: this.$refs.dataInicio.value,
+        status: this.$refs.status.value,
         descricao: this.$refs.descricao.value,
       };
       console.log(postData);
@@ -119,6 +98,14 @@ export default defineComponent({
   margin-block-start: auto;
   margin-bottom: 24px;
 }
+
+.img-cad-proj {
+  width: 218px;
+  position: absolute;
+  margin-left: -65%;
+  margin-top: -2%;
+}
+
 .botao-cad-proj {
   background-color: #f970a4;
   border: none;
@@ -132,109 +119,75 @@ export default defineComponent({
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
-.instituicoes-cad-proj {
-  width: 60%;
-  height: 40px;
-  outline: none;
-  margin-left: -28.9%;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  position: absolute;
-  margin-top: -1%;
-}
-.membros-cad-proj {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
+
 #textarea {
-  margin-top: 14px;
-  margin-left: 29px;
-  width: 77%;
-  padding-bottom: 80px;
+  margin-top: 78px;
+  margin-left: 22.8%;
+  width: 57%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
   color: #f970a4;
+  outline: none;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 9px 0px 108px 10px;
 }
-#input-projeto-cad-proj {
+
+#textarea::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
 }
-#input-patrocinador-cad-proj {
+
+#input-projeto-cad-proj {
   color: #f970a4;
   width: 57%;
   height: 40px;
   margin-top: 12px;
   outline: none;
-  margin-left: -17.3%;
+  margin-left: 22.7%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
 }
-.input-valor-cad-proj {
+#input-data-inicio-cad-proj {
   color: #f970a4;
-  width: 15%;
+  width: 44.5%;
   height: 40px;
-  margin-top: -40px;
+  margin-top: 15px;
   outline: none;
-  margin-left: 16.1%;
+  margin-left: -13.4%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
   position: absolute;
 }
+
+#input-status-cad-proj {
+  color: #f970a4;
+  width: 44.5%;
+  height: 40px;
+  margin-top: 46px;
+  outline: none;
+  margin-left: -13.4%;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  position: absolute;
+}
+
 .input-projeto-cad-proj::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
   padding: 5px;
 }
-.input-patrocinador-cad-proj::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 5px;
-}
-.input-valor-cad-proj::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 5px;
-}
-#textarea::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 5px;
-}
+
 .box-1-cad-proj {
   background-color: white;
   width: 78%;

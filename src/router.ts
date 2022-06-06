@@ -18,7 +18,7 @@ import Perfil from "./views/Perfil.vue";
 import EdicaoPerfil from "./views/EdicaoPerfil.vue";
 import Patrocinador from "./views/Patrocinador.vue";
 import Erro from "./views/Erro.vue";
-import Teste from "./views/teste.vue";
+import CadastroPatrocinador from "./views/CadastroPatrocinador.vue";
 
 
 const routes = [
@@ -36,9 +36,9 @@ const routes = [
     },
 
     {
-        path: '/teste',
-        name: 'teste',
-        component: Teste
+        path: '/cadastro-patrocinador',
+        name: 'cadastro-patrocinador',
+        component: CadastroPatrocinador
     },
 
 
@@ -148,5 +148,6 @@ const router = createRouter({
 });
 
 export default router;
+
 
 

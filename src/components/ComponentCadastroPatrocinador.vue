@@ -1,31 +1,38 @@
+
 <template>
-  <h1 class="titulo-cad-conv">CADASTRO DE CONVIDADOS</h1>
-  <div class="circulo-cad-conv"></div>
-  <div class="box-1-cad-conv">
-    <div class="circulo-2-cad-conv"></div>
-    <form class="form-cad-conv" method="get" action="">
+  <h1 class="titulo-cad-patr">CADASTRO DE PATROCINADOR</h1>
+  <div class="circulo-cad-patr"></div>
+
+  <div class="box-1-cad-patr">
+    <div class="circulo-2-cad-patr"></div>
+    <form class="form-cad-patr" method="get" action="">
       <input
-        id="nome-reuniao-cad-conv"
+        id="input-patrocinador-cad-patr"
         type="text"
-        name="cidade"
-        ref="nome_convidade"
-        placeholder="Nome do convidado"
+        name="nome_patrocinador"
+        ref="nome_patrocinador"
+        placeholder=" Nome do Patrocinador"
       /><br />
-      <img class="img-cad-conv" src="../assets/icon-convidado.png" />
       <input
-        id="telefone-cad-conv"
-        type="text"
-        required
-        ref="tel_convidado"
-        placeholder="Telefone"
+        class="input-valor-cad-patr"
+        type="number"
+        name="valor"
+        ref="valor"
+        placeholder=" R$ 0.00"
       /><br />
+      <textarea
+        id="textarea"
+        name="descricao"
+        placeholder="Observações da Reunião"
+        ref="descricao"
+      ></textarea>
+      <img class="img-cad-patr" src="../assets/icon-patrocinador.png" />
     </form>
   </div>
-
-  <div class="container-botao-cad-conv">
+  <div class="container-botao-cad-patr">
     <router-link :to="{ name: 'cadastro-geral' }">
       <input
-        class="botao-cad-conv"
+        class="botao-cad-patr"
         type="submit"
         name="salvar"
         value="Salvar"
@@ -38,21 +45,25 @@
 <script>
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "ComponentCadastroConvidados",
+  name: "ComponentCadastroPatrocinador",
   data() {
     return {
       postResult: null,
     };
   },
   methods: {
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
     async postData() {
       const postData = {
-        nome: this.$refs.nome_convidade.value,
-        contato: this.$refs.tel_convidado.value,
+        nome: this.$refs.nome_patrocinador.value,
+        valorDecimal: this.$refs.valor.value,
+        descricao: this.$refs.descricao.value,
       };
       console.log(postData);
       try {
-        const res = await fetch("http://localhost:8080/convidado", {
+        const res = await fetch("http://localhost:8080/patrocinador", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -74,24 +85,41 @@ export default defineComponent({
 </script>
 
 <style>
-input[type="text"]::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-.img-cad-conv {
-  width: 218px;
-  position: absolute;
-  margin-left: -13%;
-  margin-top: 2%;
-  margin-left: -29%;
-}
-.container-botao-cad-conv {
+.container-botao-cad-patr {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
-.botao-cad-conv {
+
+#textarea {
+  margin-top: 45px;
+  margin-left: 22.8%;
+  width: 57%;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  color: #f970a4;
+  outline: none;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 9px 0px 108px 10px;
+}
+
+#textarea::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.img-cad-patr {
+  width: 218px;
+  position: absolute;
+  margin-left: -65%;
+  margin-top: -2%;
+}
+
+.botao-cad-patr {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -104,45 +132,47 @@ input[type="text"]::placeholder {
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
-#nome-reuniao-cad-conv {
-  width: 79%;
+
+#input-patrocinador-cad-patr {
+  color: #f970a4;
+  width: 57%;
   height: 40px;
   margin-top: 12px;
   outline: none;
-  margin-left: 29px;
+  margin-left: 22.7%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
+}
+.input-valor-cad-patr {
   color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 0px 0px 0px 10px;
+  width: 44.5%;
+  height: 40px;
+  margin-top: 15px;
+  outline: none;
+  margin-left: -13.4%;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  position: absolute;
 }
 
-#telefone-cad-conv {
-  width: 41.8%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  margin-left: -10%;
-  position: absolute;
+.input-patrocinador-cad-patr::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
-  padding: 0px 0px 0px 10px;
+  padding: 5px;
 }
-.telefone-cad-conv::placeholder {
+.input-valor-cad-patr::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
+  padding: 5px;
 }
-.box-1-cad-conv {
+
+.box-1-cad-patr {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -153,20 +183,20 @@ input[type="text"]::placeholder {
   text-align: center;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
-.form-cad-conv {
-  margin-top: 35px;
+.form-cad-patr {
+  margin-top: 33px;
 }
 
-.titulo-cad-conv {
+.titulo-cad-patr {
   font-size: 40px;
   position: absolute;
-  margin-left: 41%;
+  margin-left: 34%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
-.circulo-cad-conv {
+.circulo-cad-patr {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -176,7 +206,7 @@ input[type="text"]::placeholder {
   margin-left: 90.5%;
   margin-top: 3%;
 }
-.circulo-2-cad-conv {
+.circulo-2-cad-patr {
   border-radius: 10px;
   width: 20px;
   height: 20px;
