@@ -8,9 +8,13 @@
       <label class="label-nome-memb">Nome</label>
       <ul class="ul-memb">
         <li class="li-memb" v-for="datas in data" :key="datas.pessoa.nome">
-          <div class="item-memb">
-            {{ datas.pessoa.nome }}
-          </div>
+          <router-link
+            :to="{ name: 'edicao-membro', params: { id: datas.ri } }"
+          >
+            <div class="item-memb">
+              {{ datas.pessoa.nome }}
+            </div>
+          </router-link>
         </li>
       </ul>
     </form>

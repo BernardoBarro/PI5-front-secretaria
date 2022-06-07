@@ -7,13 +7,15 @@
     <form method="get" action="">
       <label class="label-nome-projeto">Nome</label>
       <ul class="ul-projeto">
-        <router-link :to="{ name: 'detalhes-projeto' }">
-          <li class="li-projeto" v-for="datas in data" :key="datas.nome">
+        <li class="li-projeto" v-for="datas in data" :key="datas.nome">
+          <router-link
+            :to="{ name: 'edicao-projeto', params: { id: datas.id } }"
+          >
             <div class="item-projeto">
               {{ datas.nome }}
             </div>
-          </li>
-        </router-link>
+          </router-link>
+        </li>
       </ul>
     </form>
   </div>

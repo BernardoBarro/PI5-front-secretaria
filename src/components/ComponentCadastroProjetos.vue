@@ -27,7 +27,7 @@
         placeholder=" Status"
       /><br />
       <textarea
-        id="textarea"
+        id="textarea-proj"
         name="descricao"
         placeholder="Observações do Projeto"
         ref="descricao"
@@ -120,7 +120,7 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 
-#textarea {
+#textarea-proj {
   margin-top: 78px;
   margin-left: 22.8%;
   width: 57%;
@@ -135,7 +135,7 @@ export default defineComponent({
   padding: 9px 0px 108px 10px;
 }
 
-#textarea::placeholder {
+#textarea-proj::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;

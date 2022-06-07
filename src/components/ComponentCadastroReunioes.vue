@@ -18,7 +18,6 @@
       <input
         class="data-inicio-cad-reu"
         type="text"
-        onfocus="(this.type='date')"
         ref="datareuniao"
         placeholder="Data Reunião"
       /><br />

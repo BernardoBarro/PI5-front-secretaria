@@ -127,6 +127,7 @@ export default defineComponent({
         email: this.$refs.email.value,
         senha: this.$refs.senha.value,
         status: this.$refs.status.value,
+        cargo: this.$refs.cargo.value,
       };
       console.log(postData);
       try {

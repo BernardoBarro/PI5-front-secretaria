@@ -1,39 +1,51 @@
 <template>
-  <h1 class="titulo-cad-inst">CADASTRO DE INSTITUIÇÕES</h1>
-  <div class="circulo-cad-inst"></div>
+  <h1 class="titulo-edi-inst">EDIÇÃO INSTITUIÇÃO</h1>
+  <div class="circulo-edi-inst"></div>
 
-  <div class="box-1-cad-inst">
-    <div class="circulo-2-cad-inst"></div>
-    <form class="form-cad-inst" method="get" action="">
+  <div class="box-1-edi-inst">
+    <div class="circulo-2-edi-inst"></div>
+    <form class="form-edi-inst" method="get" action="">
       <input
+        id="input-edi-inst"
         type="text"
         name="nome"
         ref="post_nome"
         placeholder=" Nome"
+        v-bind:value="nome"
       /><br />
       <input
+        id="input-edi-inst"
         type="text"
-        name="contato"
+        name="telefone"
         ref="post_contato"
-        placeholder=" Contato"
+        placeholder=" Telefone"
+        v-bind:value="contato"
       /><br />
       <textarea
-        id="textarea"
+        id="textarea-edi-inst"
         name="restricao-medica"
         ref="post_descricao"
-        placeholder=" Detalhes"
+        placeholder=" Descrição"
+        v-bind:value="descricao"
       ></textarea>
     </form>
   </div>
 
-  <div class="container-botao-cad-inst">
+  <div class="container-botao-edi-inst">
+    <router-link :to="{ name: 'cadastro-instituicoes' }">
+      <input
+        class="botao-editar-edi-inst"
+        type="submit"
+        name="editar"
+        value="Editar"
+      />
+    </router-link>
     <router-link :to="{ name: 'instituicoes' }">
       <input
-        class="botao-cad-inst"
+        class="botao-excluir-edi-inst"
         type="submit"
-        name="salvar"
-        value="Salvar"
-        @click="postData"
+        name="excluir"
+        value="Excluir"
       />
     </router-link>
   </div>
@@ -41,55 +53,45 @@
 
 <script>
 import { defineComponent } from "vue";
+import router from "../router";
 
 export default defineComponent({
-  name: "ComponentCadastroInstituicoes",
+  name: "ComponentEdicaoInstituicao",
   data() {
     return {
-      postResult: null,
+      data: {},
+      nome: {},
+      contato: {},
+      descricao: {},
     };
   },
+  beforeMount() {
+    this.getName();
+  },
   methods: {
-    fortmatResponse(res) {
-      return JSON.stringify(res, null, 2);
-    },
-    async postData() {
-      const postData = {
-        nome: this.$refs.post_nome.value,
-        contato: this.$refs.post_contato.value,
-      };
-      console.log(postData);
-      try {
-        const res = await fetch("http://localhost:8080/instituicao", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            autorisxxx: "qsaassaasas",
-            charset: "utf-8",
-          },
-          body: JSON.stringify(postData),
-        });
-
-        if (!res.ok) {
-          const message = `An error has occured: ${res.status} - ${res.statusText}`;
-          throw new Error(message);
-        }
-      } catch (err) {
-        this.postResult = err.message;
-      }
+    async getName() {
+      const res = await fetch(
+        "http://localhost:8080/instituicao/" +
+          router.currentRoute.value.params.id
+      );
+      const data = await res.json();
+      this.data = data;
+      this.nome = data.nome;
+      this.contato = data.contato;
+      this.descricao = data.descricao;
     },
   },
 });
 </script>
 
 <style scoped>
-.container-botao-cad-inst {
+.container-botao-edi-inst {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
 
-.botao-cad-inst {
+.botao-excluir-edi-inst {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -98,12 +100,28 @@ export default defineComponent({
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: -93px;
+  margin-left: -275px;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
+  width: 125px;
 }
 
-input[type="text"] {
+.botao-editar-edi-inst {
+  background-color: #f970a4;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: -125px;
+  padding: 8px 40px;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
+  width: 125px;
+}
+
+#input-edi-inst {
   width: 77%;
   height: 40px;
   margin-top: 12px;
@@ -113,10 +131,18 @@ input[type="text"] {
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
+  color: #f970a4;
+  padding-left: 11px;
+  font-weight: 600;
 }
 
-#textarea {
-  margin-top: 18px;
+#input-edi-inst::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+}
+
+#textarea-edi-inst {
+  margin-top: 14px;
   margin-left: 29px;
   width: 77%;
   padding-bottom: 122px;
@@ -125,22 +151,18 @@ input[type="text"] {
   background-color: #f2f2f2;
   border-radius: 3px;
   color: #f970a4;
+  padding-left: 11px;
+  padding-top: 10px;
+  font-weight: 600;
+  outline: none;
 }
 
-input[type="text"]::placeholder {
+#textarea-edi-inst::placeholder {
   color: #f970a4;
   font-weight: 600;
-  letter-spacing: 3px;
 }
 
-#textarea::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 5px;
-}
-
-.box-1-cad-inst {
+.box-1-edi-inst {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -152,21 +174,21 @@ input[type="text"]::placeholder {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.form-cad-inst {
+.form-edi-inst {
   margin-top: 58px;
 }
 
-.titulo-cad-inst {
+.titulo-edi-inst {
   font-size: 40px;
   position: absolute;
-  margin-left: 40%;
+  margin-left: 51%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
 
-.circulo-cad-inst {
+.circulo-edi-inst {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -177,7 +199,7 @@ input[type="text"]::placeholder {
   margin-top: 3%;
 }
 
-.circulo-2-cad-inst {
+.circulo-2-edi-inst {
   border-radius: 10px;
   width: 20px;
   height: 20px;

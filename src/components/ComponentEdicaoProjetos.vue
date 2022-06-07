@@ -1,41 +1,45 @@
 <template>
-  <h1 class="titulo-det-pro">PROJETO</h1>
-  <div class="circulo-det-pro"></div>
+  <h1 class="titulo-edi-pro">EDIÇÃO PROJETOS</h1>
+  <div class="circulo-edi-pro"></div>
 
-  <div class="box-1-det-pro">
-    <div class="circulo-2-det-pro"></div>
+  <div class="box-1-edi-pro">
+    <div class="circulo-2-edi-pro"></div>
     <form method="get" action="">
       <input
+        id="input-edi-proj"
         type="text"
         name="nome-projeto"
-        placeholder=" Nome do Projeto"
-        disabled
+        placeholder=" Projeto"
+        v-bind:value="nome"
+      />
+      <br />
+      <input
+        id="input-edi-proj"
+        type="text"
+        name="dataInicio"
+        placeholder=" Data de Inicio"
+        v-bind:value="dataInicio"
       /><br />
       <input
+        id="input-edi-proj"
         type="text"
-        name="instituicao"
-        placeholder=" Instituição 3"
-        disabled
-      /><br />
-      <input
-        type="text"
-        name="cargo-comissoes"
-        placeholder=" Cargo Comissao 2"
-        disabled
+        name="status"
+        placeholder=" Status"
+        v-bind:value="status"
       /><br />
       <textarea
-        id="textarea"
+        id="textarea-edi-pro"
         name="descricao"
         placeholder=" Descrição"
-        disabled
+        v-bind:value="descricao"
       ></textarea>
     </form>
   </div>
 
-  <div class="container-botao-det-pro">
+  <div class="container-botao-edi-pro">
     <router-link :to="{ name: 'cadastro-projetos' }">
       <input
-        class="botao-editar-det-pro"
+        class="botao-editar-edi-pro"
         type="submit"
         name="editar"
         value="Editar"
@@ -43,7 +47,7 @@
     </router-link>
     <router-link :to="{ name: 'projetos' }">
       <input
-        class="botao-excluir"
+        class="botao-excluir-edi-pro"
         type="submit"
         name="excluir"
         value="Excluir"
@@ -54,20 +58,46 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import router from "../router";
 
 export default defineComponent({
-  name: "ComponentDetalhesProjetos",
+  name: "ComponentEdicaoProjetos",
+  data() {
+    return {
+      data: {},
+      nome: {},
+      dataInicio: {},
+      status: {},
+      descricao: {},
+    };
+  },
+  beforeMount() {
+    this.getName();
+  },
+  methods: {
+    async getName() {
+      const res = await fetch(
+        "http://localhost:8080/projeto/" + router.currentRoute.value.params.id
+      );
+      const data = await res.json();
+      this.data = data;
+      this.nome = data.nome;
+      this.dataInicio = data.dataInicio;
+      this.status = data.status;
+      this.descricao = data.descricao;
+    },
+  },
 });
 </script>
 
 <style scoped>
-.container-botao-det-pro {
+.container-botao-edi-pro {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
 
-.botao-excluir-det-pro {
+.botao-excluir-edi-pro {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -82,7 +112,7 @@ export default defineComponent({
   width: 125px;
 }
 
-.botao-editar-det-pro {
+.botao-editar-edi-pro {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -97,7 +127,7 @@ export default defineComponent({
   width: 125px;
 }
 
-.instituicoes-det-pro {
+#input-edi-proj {
   width: 77%;
   height: 40px;
   margin-top: 12px;
@@ -108,39 +138,17 @@ export default defineComponent({
   background-color: #f2f2f2;
   border-radius: 3px;
   color: #f970a4;
+  padding-left: 11px;
   font-weight: 600;
-  letter-spacing: 3px;
 }
 
-.membros-det-pro {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
+#input-edi-proj::placeholder {
   color: #f970a4;
   font-weight: 600;
-  letter-spacing: 3px;
 }
 
-input[type="text"] {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-}
-
-#textarea {
-  margin-top: 18px;
+#textarea-edi-pro {
+  margin-top: 14px;
   margin-left: 29px;
   width: 77%;
   padding-bottom: 122px;
@@ -149,22 +157,18 @@ input[type="text"] {
   background-color: #f2f2f2;
   border-radius: 3px;
   color: #f970a4;
+  padding-left: 11px;
+  padding-top: 10px;
+  font-weight: 600;
+  outline: none;
 }
 
-input[type="text"]::placeholder {
+#textarea-edi-pro::placeholder {
   color: #f970a4;
   font-weight: 600;
-  letter-spacing: 3px;
 }
 
-#textarea::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 5px;
-}
-
-.box-1-det-pro {
+.box-1-edi-pro {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -180,17 +184,17 @@ form {
   margin-top: 33px;
 }
 
-.titulo-det-pro {
+.titulo-edi-pro {
   font-size: 40px;
   position: absolute;
-  margin-left: 74%;
+  margin-left: 56%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
 
-.circulo-det-pro {
+.circulo-edi-pro {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -201,7 +205,7 @@ form {
   margin-top: 3%;
 }
 
-.circulo-2-det-pro {
+.circulo-2-edi-pro {
   border-radius: 10px;
   width: 20px;
   height: 20px;

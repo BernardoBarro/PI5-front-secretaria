@@ -3,20 +3,20 @@
     <div class="column is-one-fifth" style="margin-right: -6%">
       <MenuBox />
     </div>
-    <ComponentDetalhesProjetos />
+    <ComponentEdicaoMembro />
   </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import MenuBox from "../components/menu/Menu.vue";
-import ComponentDetalhesProjetos from "../components/ComponentDetalhesProjetos.vue";
+import ComponentEdicaoMembro from "../components/ComponentEdicaoMembro.vue";
 
 export default defineComponent({
-  name: "DetalhesProjeto",
+  name: "EdicaoMembro",
   components: {
     MenuBox,
-    ComponentDetalhesProjetos,
+    ComponentEdicaoMembro,
   },
 });
 </script>

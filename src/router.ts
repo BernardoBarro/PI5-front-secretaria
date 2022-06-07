@@ -9,8 +9,9 @@ import CadastroProjetos from "./views/CadastroProjetos.vue"; //feito
 import Projetos from "./views/Projetos.vue";
 import Instituicoes from "./views/Instituicoes.vue";
 import Membros from "./views/Membros.vue";
-import DetalhesProjeto from "./views/DetalhesProjeto.vue";
-import DetalhesInstituicao from "./views/DetalhesInstituicao.vue";
+import EdicaoProjeto from "./views/EdicaoProjeto.vue";
+import EdicaoInstituicao from "./views/EdicaoInstituicao.vue";
+import EdicaoMembro from "./views/EdicaoMembro.vue";
 import CadastroConvidado from "./views/CadastroConvidado.vue"; //feito
 import RecuperacaoSenha from "./views/RecuperacaoSenha.vue"; //feito
 import Convidados from "./views/Convidados.vue"; //feito
@@ -111,20 +112,27 @@ const routes = [
     {
         path: '/perfil',
         name: 'perfil',
-        component: Perfil  //feito (editar ainda não tem tela)
+        component: Perfil
     },
 
     {
-        path: '/detalhes-projeto',
-        name: 'detalhes-projeto',
-        component: DetalhesProjeto
+        path: '/edicao-projeto/:id',
+        name: 'edicao-projeto',
+        component: EdicaoProjeto
     },
 
     {
-        path: '/detalhes-instituicao',
-        name: 'detalhes-instituicao',
-        component: DetalhesInstituicao
+        path: '/edicao-instituicao/:id',
+        name: 'edicao-instituicao',
+        component: EdicaoInstituicao
     },
+
+    {
+        path: '/edicao-membro/:ri',
+        name: 'edicao-membro',
+        component: EdicaoMembro
+    },
+
     {
         path: '/edicao-perfil',
         name: 'edicao-perfil',
