@@ -11,6 +11,7 @@
         name="nome-projeto"
         placeholder=" Projeto"
         v-bind:value="nome"
+        ref="nome"
       />
       <br />
       <input
@@ -19,6 +20,7 @@
         name="dataInicio"
         placeholder=" Data de Inicio"
         v-bind:value="dataInicio"
+        ref="dataInicio"
       /><br />
       <input
         id="input-edi-proj"
@@ -26,12 +28,14 @@
         name="status"
         placeholder=" Status"
         v-bind:value="status"
+        ref="status"
       /><br />
       <textarea
         id="textarea-edi-pro"
         name="descricao"
         placeholder=" Descrição"
         v-bind:value="descricao"
+        ref="descricao"
       ></textarea>
     </form>
   </div>
@@ -43,6 +47,7 @@
         type="submit"
         name="editar"
         value="Editar"
+        @click="putData"
       />
     </router-link>
     <router-link :to="{ name: 'projetos' }">
@@ -56,7 +61,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import router from "../router";
 
@@ -64,6 +69,7 @@ export default defineComponent({
   name: "ComponentEdicaoProjetos",
   data() {
     return {
+      putResult: null,
       data: {},
       nome: {},
       dataInicio: {},
@@ -85,6 +91,35 @@ export default defineComponent({
       this.dataInicio = data.dataInicio;
       this.status = data.status;
       this.descricao = data.descricao;
+    },
+    async putData() {
+      const { nome, dataInicio, status, descricao } = this.$refs;
+      const putData = {
+        nome: nome.value,
+        dataInicio: dataInicio.value,
+        status: status.value,
+        descricao: descricao.value,
+      };
+      console.log(putData);
+      try {
+        const res = await fetch(
+          "http://localhost:8080/projeto" + router.currentRoute.value.params.id,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              charset: "utf-8",
+            },
+            body: JSON.stringify(putData),
+          }
+        );
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.putResult = err.message;
+      }
     },
   },
 });
