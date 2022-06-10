@@ -68,7 +68,7 @@ export default defineComponent({
       const postData = {
         nome: this.$refs.nome_reuniao.value,
         assunto: this.$refs.assunto.value,
-        data: this.$refs.datareuniao.value,
+        dataReuniao: this.$refs.datareuniao.value,
         local: this.$refs.local.value,
       };
       console.log(postData);

@@ -10,15 +10,23 @@
         <td class="titulo">Nome</td>
         <td class="titulo">Data</td>
       </tr>
-      <td>
-        <li class="li-tab" v-for="datas in data" :key="datas.nome">
-          {{ datas.nome }}
+      <td class="tabela-reu">
+        <li class="li-reuniao" v-for="datas in data" :key="datas.nome">
+          <router-link
+            :to="{ name: 'edicao-reuniao', params: { id: datas.id } }"
+          >
+            <div class="tab-reu">
+              {{ datas.nome }}
+            </div>
+          </router-link>
         </li>
       </td>
 
       <td>
-        <li class="li-tab" v-for="datas in data" :key="datas.data">
-          {{ datas.data }}
+        <li class="li-reuniao" v-for="datas in data" :key="datas.data">
+          <div class="tab-reu">
+            {{ datas.dataReuniao }}
+          </div>
         </li>
       </td>
     </table>
@@ -50,8 +58,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.li-tab {
+.li-reuniao {
   list-style-type: none;
+}
+
+.tab-reu {
   width: 92.2%;
   height: 40px;
   margin-top: 12px;
@@ -61,6 +72,11 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
+  padding: 1%;
+  color: #f970a4;
+  text-align: left;
+  padding-left: 5%;
+  padding-top: 4%;
 }
 
 #table-box {

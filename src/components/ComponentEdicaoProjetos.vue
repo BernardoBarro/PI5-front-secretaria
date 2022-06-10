@@ -4,9 +4,9 @@
 
   <div class="box-1-edi-pro">
     <div class="circulo-2-edi-pro"></div>
-    <form method="get" action="">
+    <form>
       <input
-        id="input-edi-proj"
+        id="input-edi-pro"
         type="text"
         name="nome-projeto"
         placeholder=" Projeto"
@@ -15,7 +15,7 @@
       />
       <br />
       <input
-        id="input-edi-proj"
+        id="input-edi-pro"
         type="text"
         name="dataInicio"
         placeholder=" Data de Inicio"
@@ -23,7 +23,7 @@
         ref="dataInicio"
       /><br />
       <input
-        id="input-edi-proj"
+        id="input-edi-pro"
         type="text"
         name="status"
         placeholder=" Status"
@@ -41,7 +41,7 @@
   </div>
 
   <div class="container-botao-edi-pro">
-    <router-link :to="{ name: 'cadastro-projetos' }">
+    <router-link :to="{ name: 'projetos' }">
       <input
         class="botao-editar-edi-pro"
         type="submit"
@@ -56,6 +56,7 @@
         type="submit"
         name="excluir"
         value="Excluir"
+        @click="deleteDataById"
       />
     </router-link>
   </div>
@@ -100,10 +101,12 @@ export default defineComponent({
         status: status.value,
         descricao: descricao.value,
       };
+
       console.log(putData);
       try {
         const res = await fetch(
-          "http://localhost:8080/projeto" + router.currentRoute.value.params.id,
+          "http://localhost:8080/projeto/" +
+            router.currentRoute.value.params.id,
           {
             method: "PUT",
             headers: {
@@ -119,6 +122,28 @@ export default defineComponent({
         }
       } catch (err) {
         this.putResult = err.message;
+      }
+    },
+    async deleteDataById() {
+      const id = router.currentRoute.value.params.id;
+      if (id) {
+        console.log(id);
+        try {
+          const res = await fetch(
+            "http://localhost:8080/projeto/" +
+              router.currentRoute.value.params.id,
+            { method: "DELETE" }
+          );
+          const data = await res.json();
+          const result = {
+            status: res.status + "-" + res.statusText,
+            headers: { "Content-Type": res.headers.get("Content-Type") },
+            data: data,
+          };
+          this.deleteResult = this.fortmatResponse(result);
+        } catch (err) {
+          this.deleteResult = err.message;
+        }
       }
     },
   },
@@ -162,7 +187,7 @@ export default defineComponent({
   width: 125px;
 }
 
-#input-edi-proj {
+#input-edi-pro {
   width: 77%;
   height: 40px;
   margin-top: 12px;
@@ -177,7 +202,7 @@ export default defineComponent({
   font-weight: 600;
 }
 
-#input-edi-proj::placeholder {
+#input-edi-pro::placeholder {
   color: #f970a4;
   font-weight: 600;
 }

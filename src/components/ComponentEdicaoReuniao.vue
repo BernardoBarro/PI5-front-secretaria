@@ -1,49 +1,58 @@
 <template>
-  <h1 class="titulo-edi-inst">EDIÇÃO INSTITUIÇÃO</h1>
-  <div class="circulo-edi-inst"></div>
+  <h1 class="titulo-edi-reu">EDIÇÃO REUNIAO</h1>
+  <div class="circulo-edi-reu"></div>
 
-  <div class="box-1-edi-inst">
-    <div class="circulo-2-edi-inst"></div>
-    <form class="form-edi-inst" method="get" action="">
+  <div class="box-1-edi-reu">
+    <div class="circulo-2-edi-reu"></div>
+    <form>
       <input
-        id="input-edi-inst"
+        id="input-edi-reu"
         type="text"
-        name="nome"
-        ref="nome"
-        placeholder=" Nome"
+        name="nome-reuniao"
+        placeholder=" Nome da Reunião"
         v-bind:value="nome"
+        ref="nome"
+      />
+      <br />
+      <input
+        id="input-edi-reu"
+        type="text"
+        name="dataReuniao"
+        placeholder=" Data de Inicio"
+        v-bind:value="dataReuniao"
+        ref="dataReuniao"
       /><br />
       <input
-        id="input-edi-inst"
+        id="input-edi-reu"
         type="text"
-        name="telefone"
-        ref="contato"
-        placeholder=" Telefone"
-        v-bind:value="contato"
+        name="assunto"
+        placeholder=" Assunto"
+        v-bind:value="assunto"
+        ref="assunto"
       /><br />
       <textarea
-        id="textarea-edi-inst"
-        name="restricao-medica"
-        ref="detalhes"
-        placeholder=" Descrição"
-        v-bind:value="detalhes"
+        id="textarea-edi-reu"
+        name="local"
+        placeholder=" Local"
+        v-bind:value="local"
+        ref="local"
       ></textarea>
     </form>
   </div>
 
-  <div class="container-botao-edi-inst">
-    <router-link :to="{ name: 'instituicoes' }">
+  <div class="container-botao-edi-reu">
+    <router-link :to="{ name: 'home' }">
       <input
-        class="botao-editar-edi-inst"
+        class="botao-editar-edi-reu"
         type="submit"
         name="editar"
         value="Editar"
         @click="putData"
       />
     </router-link>
-    <router-link :to="{ name: 'instituicoes' }">
+    <router-link :to="{ name: 'home' }">
       <input
-        class="botao-excluir-edi-inst"
+        class="botao-excluir-edi-reu"
         type="submit"
         name="excluir"
         value="Excluir"
@@ -58,14 +67,15 @@ import { defineComponent } from "vue";
 import router from "../router";
 
 export default defineComponent({
-  name: "ComponentEdicaoInstituicao",
+  name: "ComponentEdicaoReuniao",
   data() {
     return {
       putResult: null,
       data: {},
       nome: {},
-      contato: {},
-      detalhes: {},
+      dataReuniao: {},
+      assunto: {},
+      local: {},
     };
   },
   beforeMount() {
@@ -74,27 +84,28 @@ export default defineComponent({
   methods: {
     async getName() {
       const res = await fetch(
-        "http://localhost:8080/instituicao/" +
-          router.currentRoute.value.params.id
+        "http://localhost:8080/reuniao/" + router.currentRoute.value.params.id
       );
       const data = await res.json();
       this.data = data;
       this.nome = data.nome;
-      this.contato = data.contato;
-      this.detalhes = data.detalhes;
+      this.dataReuniao = data.dataReuniao;
+      this.assunto = data.assunto;
+      this.local = data.local;
     },
     async putData() {
-      const { nome, contato, detalhes } = this.$refs;
+      const { nome, dataReuniao, assunto, local } = this.$refs;
       const putData = {
         nome: nome.value,
-        contato: contato.value,
-        detalhes: detalhes.value,
+        dataReuniao: dataReuniao.value,
+        assunto: assunto.value,
+        local: local.value,
       };
 
       console.log(putData);
       try {
         const res = await fetch(
-          "http://localhost:8080/instituicao/" +
+          "http://localhost:8080/reuniao/" +
             router.currentRoute.value.params.id,
           {
             method: "PUT",
@@ -119,7 +130,7 @@ export default defineComponent({
         console.log(id);
         try {
           const res = await fetch(
-            "http://localhost:8080/instituicao/" +
+            "http://localhost:8080/reuniao/" +
               router.currentRoute.value.params.id,
             { method: "DELETE" }
           );
@@ -140,13 +151,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.container-botao-edi-inst {
+.container-botao-edi-reu {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
 
-.botao-excluir-edi-inst {
+.botao-excluir-edi-reu {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -161,7 +172,7 @@ export default defineComponent({
   width: 125px;
 }
 
-.botao-editar-edi-inst {
+.botao-editar-edi-reu {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -176,7 +187,7 @@ export default defineComponent({
   width: 125px;
 }
 
-#input-edi-inst {
+#input-edi-reu {
   width: 77%;
   height: 40px;
   margin-top: 12px;
@@ -191,12 +202,12 @@ export default defineComponent({
   font-weight: 600;
 }
 
-#input-edi-inst::placeholder {
+#input-edi-reu::placeholder {
   color: #f970a4;
   font-weight: 600;
 }
 
-#textarea-edi-inst {
+#textarea-edi-reu {
   margin-top: 14px;
   margin-left: 29px;
   width: 77%;
@@ -212,12 +223,12 @@ export default defineComponent({
   outline: none;
 }
 
-#textarea-edi-inst::placeholder {
+#textarea-edi-reu::placeholder {
   color: #f970a4;
   font-weight: 600;
 }
 
-.box-1-edi-inst {
+.box-1-edi-reu {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -229,21 +240,21 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.form-edi-inst {
-  margin-top: 58px;
+form {
+  margin-top: 33px;
 }
 
-.titulo-edi-inst {
+.titulo-edi-reu {
   font-size: 40px;
   position: absolute;
-  margin-left: 51%;
+  margin-left: 58%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
 
-.circulo-edi-inst {
+.circulo-edi-reu {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -254,7 +265,7 @@ export default defineComponent({
   margin-top: 3%;
 }
 
-.circulo-2-edi-inst {
+.circulo-2-edi-reu {
   border-radius: 10px;
   width: 20px;
   height: 20px;

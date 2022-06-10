@@ -8,22 +8,26 @@
       <label class="label-nome-pat">Nome</label>
       <ul class="ul-pat">
         <li class="li-pat" v-for="datas in data" :key="datas.nome">
-          <div class="item-pat">
-            {{ datas.nome }}
-          </div>
+          <router-link
+            :to="{ name: 'edicao-patrocinador', params: { id: datas.id } }"
+          >
+            <div class="item-pat">
+              {{ datas.nome }}
+            </div>
+          </router-link>
         </li>
       </ul>
     </form>
   </div>
 
   <div class="container-botao-pat">
-    <router-link :to="{ name: 'cadastro-projetos' }">
+    <router-link :to="{ name: 'cadastro-patrocinador' }">
       <input class="botao-pat" type="submit" name="novo" value="Novo" />
     </router-link>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -42,6 +46,7 @@ export default defineComponent({
       const res = await fetch("http://localhost:8080/patrocinador");
       const data = await res.json();
       this.data = data;
+      Location.reload();
     },
   },
 });

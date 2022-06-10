@@ -23,7 +23,7 @@
   </div>
 
   <div class="container-botao-cad-conv">
-    <router-link :to="{ name: 'cadastro-geral' }">
+    <router-link :to="{ name: 'convidado' }">
       <input
         class="botao-cad-conv"
         type="submit"

@@ -1,17 +1,19 @@
 <template>
   <h1 class="titulo-projeto">PROJETOS</h1>
   <div class="circulo-projeto"></div>
-
   <div class="box-projeto">
     <div class="circulo-2-projeto"></div>
     <form method="get" action="">
       <label class="label-nome-projeto">Nome</label>
       <ul class="ul-projeto">
-        <li class="li-projeto" v-for="datas in data" :key="datas.nome">
+        <li v-for="datas in data" :key="datas.nome">
           <router-link
             :to="{ name: 'edicao-projeto', params: { id: datas.id } }"
           >
-            <div class="item-projeto">
+            <div
+              class="li-projeto"
+              v-if="datas.status != 'CANCELADO' && datas.status != 'FINALIZADO'"
+            >
               {{ datas.nome }}
             </div>
           </router-link>
@@ -56,12 +58,6 @@ main {
   background-color: #f2f2f2;
 }
 
-.item-projeto {
-  padding: 1%;
-  color: #f970a4;
-  text-align: left;
-}
-
 .li-projeto {
   list-style-type: none;
   width: 92.2%;
@@ -73,6 +69,9 @@ main {
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
+  padding: 1%;
+  color: #f970a4;
+  text-align: left;
 }
 
 .ul-projeto {

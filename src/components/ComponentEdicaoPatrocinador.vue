@@ -1,49 +1,49 @@
-<template>
-  <h1 class="titulo-edi-inst">EDIÇÃO INSTITUIÇÃO</h1>
-  <div class="circulo-edi-inst"></div>
 
-  <div class="box-1-edi-inst">
-    <div class="circulo-2-edi-inst"></div>
-    <form class="form-edi-inst" method="get" action="">
+<template>
+  <h1 class="titulo-edi-pat">EDIÇÃO DE PATROCINADOR</h1>
+  <div class="circulo-edi-pat"></div>
+
+  <div class="box-1-edi-pat">
+    <div class="circulo-2-edi-pat"></div>
+    <form>
       <input
-        id="input-edi-inst"
+        id="input-edi-pat"
         type="text"
         name="nome"
         ref="nome"
-        placeholder=" Nome"
+        placeholder=" Nome do Patrocinador"
         v-bind:value="nome"
       /><br />
       <input
-        id="input-edi-inst"
-        type="text"
-        name="telefone"
-        ref="contato"
-        placeholder=" Telefone"
-        v-bind:value="contato"
+        id="input-edi-pat"
+        type="number"
+        name="valorDecimal"
+        ref="valorDecimal"
+        placeholder=" R$ 0.00"
+        v-bind:value="valorDecimal"
       /><br />
       <textarea
-        id="textarea-edi-inst"
-        name="restricao-medica"
-        ref="detalhes"
-        placeholder=" Descrição"
-        v-bind:value="detalhes"
+        id="textareaedi"
+        name="descricao"
+        placeholder="Observações da Reunião"
+        ref="descricao"
+        v-bind:value="descricao"
       ></textarea>
     </form>
   </div>
-
-  <div class="container-botao-edi-inst">
-    <router-link :to="{ name: 'instituicoes' }">
+  <div class="container-botao-edi-pat">
+    <router-link :to="{ name: 'patrocinador' }">
       <input
-        class="botao-editar-edi-inst"
+        class="botao-editar-edi-pat"
         type="submit"
         name="editar"
         value="Editar"
         @click="putData"
       />
     </router-link>
-    <router-link :to="{ name: 'instituicoes' }">
+    <router-link :to="{ name: 'patrocinador' }">
       <input
-        class="botao-excluir-edi-inst"
+        class="botao-excluir-edi-pat"
         type="submit"
         name="excluir"
         value="Excluir"
@@ -56,16 +56,15 @@
 <script>
 import { defineComponent } from "vue";
 import router from "../router";
-
 export default defineComponent({
-  name: "ComponentEdicaoInstituicao",
+  name: "ComponentEdicaoPatrocinador",
   data() {
     return {
       putResult: null,
       data: {},
       nome: {},
-      contato: {},
-      detalhes: {},
+      valorDecimal: {},
+      descricao: {},
     };
   },
   beforeMount() {
@@ -74,27 +73,26 @@ export default defineComponent({
   methods: {
     async getName() {
       const res = await fetch(
-        "http://localhost:8080/instituicao/" +
+        "http://localhost:8080/patrocinador/" +
           router.currentRoute.value.params.id
       );
       const data = await res.json();
       this.data = data;
       this.nome = data.nome;
-      this.contato = data.contato;
-      this.detalhes = data.detalhes;
+      this.valorDecimal = data.valorDecimal;
+      this.descricao = data.descricao;
     },
     async putData() {
-      const { nome, contato, detalhes } = this.$refs;
+      const { nome, valorDecimal, descricao } = this.$refs;
       const putData = {
         nome: nome.value,
-        contato: contato.value,
-        detalhes: detalhes.value,
+        valorDecimal: valorDecimal.value,
+        descricao: descricao.value,
       };
-
       console.log(putData);
       try {
         const res = await fetch(
-          "http://localhost:8080/instituicao/" +
+          "http://localhost:8080/patrocinador/" +
             router.currentRoute.value.params.id,
           {
             method: "PUT",
@@ -119,7 +117,7 @@ export default defineComponent({
         console.log(id);
         try {
           const res = await fetch(
-            "http://localhost:8080/instituicao/" +
+            "http://localhost:8080/patrocinador/" +
               router.currentRoute.value.params.id,
             { method: "DELETE" }
           );
@@ -139,14 +137,14 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.container-botao-edi-inst {
+<style>
+.container-botao-edi-pat {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
 
-.botao-excluir-edi-inst {
+.botao-excluir-edi-pat {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -161,7 +159,7 @@ export default defineComponent({
   width: 125px;
 }
 
-.botao-editar-edi-inst {
+.botao-editar-edi-pat {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -176,27 +174,7 @@ export default defineComponent({
   width: 125px;
 }
 
-#input-edi-inst {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-  padding-left: 11px;
-  font-weight: 600;
-}
-
-#input-edi-inst::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-}
-
-#textarea-edi-inst {
+#textareaedi {
   margin-top: 14px;
   margin-left: 29px;
   width: 77%;
@@ -212,12 +190,32 @@ export default defineComponent({
   outline: none;
 }
 
-#textarea-edi-inst::placeholder {
+#textareaedi::placeholder {
   color: #f970a4;
   font-weight: 600;
 }
 
-.box-1-edi-inst {
+#input-edi-pat {
+  width: 77%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: 29px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+  color: #f970a4;
+  padding-left: 11px;
+  font-weight: 600;
+}
+
+#input-edi-pat::placeholder {
+  color: #f970a4;
+  font-weight: 600;
+}
+
+.box-1-edi-pat {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -228,22 +226,20 @@ export default defineComponent({
   text-align: center;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
-
-.form-edi-inst {
-  margin-top: 58px;
+.form-edi-pat {
+  margin-top: 33px;
 }
 
-.titulo-edi-inst {
+.titulo-edi-pat {
   font-size: 40px;
   position: absolute;
-  margin-left: 51%;
+  margin-left: 41%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
-
-.circulo-edi-inst {
+.circulo-edi-pat {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -253,8 +249,7 @@ export default defineComponent({
   margin-left: 90.5%;
   margin-top: 3%;
 }
-
-.circulo-2-edi-inst {
+.circulo-2-edi-pat {
   border-radius: 10px;
   width: 20px;
   height: 20px;

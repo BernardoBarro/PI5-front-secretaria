@@ -14,7 +14,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import MenuBox from "../components/menu/Menu.vue";
 import DescricaoBox from "../components/descricao-home/Descricao.vue";

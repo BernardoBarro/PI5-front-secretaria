@@ -37,7 +37,7 @@
   </div>
 
   <div class="container-botao-cad-proj">
-    <router-link :to="{ name: 'cadastro-geral' }">
+    <router-link :to="{ name: 'projetos' }">
       <input
         class="botao-cad-proj"
         type="submit"

@@ -1,25 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Login from "./views/Login.vue";
 import Home from "./views/Home.vue";
-import CadastroGeral from "./views/CadastroGeral.vue"; //feito
+import CadastroGeral from "./views/CadastroGeral.vue";
 import CadastroMembros from "./views/CadastroMembros.vue";
 import CadastroInstituicoes from "./views/CadastroInstituicoes.vue";
-import CadastroReunioes from "./views/CadastroReunioes.vue"; //feito
-import CadastroProjetos from "./views/CadastroProjetos.vue"; //feito
+import CadastroReunioes from "./views/CadastroReunioes.vue";
+import CadastroProjetos from "./views/CadastroProjetos.vue";
+import CadastroPatrocinador from "./views/CadastroPatrocinador.vue";
 import Projetos from "./views/Projetos.vue";
 import Instituicoes from "./views/Instituicoes.vue";
 import Membros from "./views/Membros.vue";
 import EdicaoProjeto from "./views/EdicaoProjeto.vue";
 import EdicaoInstituicao from "./views/EdicaoInstituicao.vue";
 import EdicaoMembro from "./views/EdicaoMembro.vue";
-import CadastroConvidado from "./views/CadastroConvidado.vue"; //feito
-import RecuperacaoSenha from "./views/RecuperacaoSenha.vue"; //feito
-import Convidados from "./views/Convidados.vue"; //feito
+import EdicaoConvidado from "./views/EdicaoConvidado.vue";
+import EdicaoReuniao from "./views/EdicaoReuniao.vue";
+import CadastroConvidado from "./views/CadastroConvidado.vue";
+import EdicaoPatrocinador from "./views/EdicaoPatrocinador.vue";
+import RecuperacaoSenha from "./views/RecuperacaoSenha.vue";
+import Convidados from "./views/Convidados.vue";
 import Perfil from "./views/Perfil.vue";
 import EdicaoPerfil from "./views/EdicaoPerfil.vue";
 import Patrocinador from "./views/Patrocinador.vue";
 import Erro from "./views/Erro.vue";
-import CadastroPatrocinador from "./views/CadastroPatrocinador.vue";
 
 
 const routes = [
@@ -131,6 +134,24 @@ const routes = [
         path: '/edicao-membro/:ri',
         name: 'edicao-membro',
         component: EdicaoMembro
+    },
+
+    {
+        path: '/edicao-convidado/:id',
+        name: 'edicao-convidado',
+        component: EdicaoConvidado
+    },
+
+    {
+        path: '/edicao-patrocinador/:id',
+        name: 'edicao-patrocinador',
+        component: EdicaoPatrocinador
+    },
+
+    {
+        path: '/edicao-reuniao/:id',
+        name: 'edicao-reuniao',
+        component: EdicaoReuniao
     },
 
     {

@@ -30,7 +30,7 @@
     </form>
   </div>
   <div class="container-botao-cad-patr">
-    <router-link :to="{ name: 'cadastro-geral' }">
+    <router-link :to="{ name: 'patrocinador' }">
       <input
         class="botao-cad-patr"
         type="submit"
@@ -190,7 +190,7 @@ export default defineComponent({
 .titulo-cad-patr {
   font-size: 40px;
   position: absolute;
-  margin-left: 34%;
+  margin-left: 36%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;

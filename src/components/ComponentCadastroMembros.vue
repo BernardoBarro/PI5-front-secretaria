@@ -34,9 +34,9 @@
           /><br />
           <input
             type="text"
-            name="dataAdmissao"
+            name="admissao"
             placeholder=" Data de Admissão"
-            ref="dataAdmissao"
+            ref="admissao"
           /><br />
           <input
             type="text"
@@ -76,7 +76,7 @@
           /><br />
           <input
             type="text"
-            name="senha"
+            name="cargo"
             placeholder=" Cargo"
             ref="cargo"
           /><br />
@@ -86,15 +86,15 @@
     </div>
   </div>
   <div class="container-botao-cad-membro">
-    <!-- <router-link :to="{ name: 'membros' }"> -->
-    <input
-      class="botao-cad-membro"
-      type="submit"
-      name="salvar"
-      value="Salvar"
-      @click="postData"
-    />
-    <!-- </router-link> -->
+    <router-link :to="{ name: 'membros' }">
+      <input
+        class="botao-cad-membro"
+        type="submit"
+        name="salvar"
+        value="Salvar"
+        @click="postData"
+      />
+    </router-link>
   </div>
 </template>
 
@@ -119,14 +119,14 @@ export default defineComponent({
         nome: this.$refs.nome.value,
         genero: this.$refs.genero.value,
         nascimento: this.$refs.nascimento.value,
-        dataAdmissao: this.$refs.dataAdmissao.value,
+        admissao: this.$refs.admissao.value,
         telefone: this.$refs.telefone.value,
         cep: this.$refs.cep.value,
         ocupacao: this.$refs.ocupacao.value,
         padrinho: this.$refs.padrinho.value,
         email: this.$refs.email.value,
         senha: this.$refs.senha.value,
-        status: this.$refs.status.value,
+        // status: this.$refs.status.value,
         cargo: this.$refs.cargo.value,
       };
       console.log(postData);

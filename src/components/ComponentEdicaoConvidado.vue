@@ -1,49 +1,40 @@
 <template>
-  <h1 class="titulo-edi-inst">EDIÇÃO INSTITUIÇÃO</h1>
-  <div class="circulo-edi-inst"></div>
-
-  <div class="box-1-edi-inst">
-    <div class="circulo-2-edi-inst"></div>
-    <form class="form-edi-inst" method="get" action="">
+  <h1 class="titulo-edi-conv">EDIÇÃO DE CONVIDADOS</h1>
+  <div class="circulo-edi-conv"></div>
+  <div class="box-1-edi-conv">
+    <div class="circulo-2-edi-conv"></div>
+    <form>
       <input
-        id="input-edi-inst"
+        id="input-edi-conv"
         type="text"
         name="nome"
         ref="nome"
-        placeholder=" Nome"
+        placeholder="Nome do convidado"
         v-bind:value="nome"
       /><br />
       <input
-        id="input-edi-inst"
+        id="input-edi-conv"
         type="text"
-        name="telefone"
         ref="contato"
-        placeholder=" Telefone"
+        placeholder="Telefone"
         v-bind:value="contato"
       /><br />
-      <textarea
-        id="textarea-edi-inst"
-        name="restricao-medica"
-        ref="detalhes"
-        placeholder=" Descrição"
-        v-bind:value="detalhes"
-      ></textarea>
     </form>
   </div>
 
-  <div class="container-botao-edi-inst">
-    <router-link :to="{ name: 'instituicoes' }">
+  <div class="container-botao-edi-conv">
+    <router-link :to="{ name: 'convidados' }">
       <input
-        class="botao-editar-edi-inst"
+        class="botao-editar-edi-conv"
         type="submit"
         name="editar"
         value="Editar"
         @click="putData"
       />
     </router-link>
-    <router-link :to="{ name: 'instituicoes' }">
+    <router-link :to="{ name: 'convidados' }">
       <input
-        class="botao-excluir-edi-inst"
+        class="botao-excluir-edi-conv"
         type="submit"
         name="excluir"
         value="Excluir"
@@ -58,14 +49,13 @@ import { defineComponent } from "vue";
 import router from "../router";
 
 export default defineComponent({
-  name: "ComponentEdicaoInstituicao",
+  name: "ComponentEdicaoConvidados",
   data() {
     return {
       putResult: null,
       data: {},
       nome: {},
       contato: {},
-      detalhes: {},
     };
   },
   beforeMount() {
@@ -74,27 +64,22 @@ export default defineComponent({
   methods: {
     async getName() {
       const res = await fetch(
-        "http://localhost:8080/instituicao/" +
-          router.currentRoute.value.params.id
+        "http://localhost:8080/convidado/" + router.currentRoute.value.params.id
       );
       const data = await res.json();
-      this.data = data;
       this.nome = data.nome;
       this.contato = data.contato;
-      this.detalhes = data.detalhes;
     },
     async putData() {
-      const { nome, contato, detalhes } = this.$refs;
+      const { nome, contato } = this.$refs;
       const putData = {
         nome: nome.value,
-        contato: contato.value,
-        detalhes: detalhes.value,
+        conatato: contato.value,
       };
-
       console.log(putData);
       try {
         const res = await fetch(
-          "http://localhost:8080/instituicao/" +
+          "http://localhost:8080/convidado/" +
             router.currentRoute.value.params.id,
           {
             method: "PUT",
@@ -119,7 +104,7 @@ export default defineComponent({
         console.log(id);
         try {
           const res = await fetch(
-            "http://localhost:8080/instituicao/" +
+            "http://localhost:8080/convidado/" +
               router.currentRoute.value.params.id,
             { method: "DELETE" }
           );
@@ -139,14 +124,27 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.container-botao-edi-inst {
+<style>
+.container-botao-edi-conv {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
-
-.botao-excluir-edi-inst {
+.botao-editar-edi-conv {
+  background-color: #f970a4;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: -125px;
+  padding: 8px 40px;
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
+  width: 125px;
+}
+.botao-excluir-edi-conv {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -161,22 +159,7 @@ export default defineComponent({
   width: 125px;
 }
 
-.botao-editar-edi-inst {
-  background-color: #f970a4;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: -125px;
-  padding: 8px 40px;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-  width: 125px;
-}
-
-#input-edi-inst {
+#input-edi-conv {
   width: 77%;
   height: 40px;
   margin-top: 12px;
@@ -191,33 +174,12 @@ export default defineComponent({
   font-weight: 600;
 }
 
-#input-edi-inst::placeholder {
+#input-edi-conv::placeholder {
   color: #f970a4;
   font-weight: 600;
 }
 
-#textarea-edi-inst {
-  margin-top: 14px;
-  margin-left: 29px;
-  width: 77%;
-  padding-bottom: 122px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-  padding-left: 11px;
-  padding-top: 10px;
-  font-weight: 600;
-  outline: none;
-}
-
-#textarea-edi-inst::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-}
-
-.box-1-edi-inst {
+.box-1-edi-conv {
   background-color: white;
   width: 78%;
   height: 25rem;
@@ -229,21 +191,20 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.form-edi-inst {
-  margin-top: 58px;
+.form-edi-conv {
+  margin-top: 35px;
 }
 
-.titulo-edi-inst {
+.titulo-edi-conv {
   font-size: 40px;
   position: absolute;
-  margin-left: 51%;
+  margin-left: 45%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
   color: #ffb0ce;
 }
-
-.circulo-edi-inst {
+.circulo-edi-conv {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -253,8 +214,7 @@ export default defineComponent({
   margin-left: 90.5%;
   margin-top: 3%;
 }
-
-.circulo-2-edi-inst {
+.circulo-2-edi-conv {
   border-radius: 10px;
   width: 20px;
   height: 20px;
