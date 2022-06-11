@@ -14,6 +14,7 @@
           placeholder=" RI"
           ref="ri"
           v-bind:value="ri"
+          disabled
         /><br />
         <input
           id="input-edi-mem"
@@ -42,10 +43,10 @@
         <input
           id="input-edi-mem"
           type="text"
-          name="dataAdmissao"
+          name="admissao"
           placeholder=" Data de Admissão"
-          ref="dataAdmissao"
-          v-bind:value="dataAdmissao"
+          ref="admissao"
+          v-bind:value="admissao"
         /><br />
         <input
           id="input-edi-mem"
@@ -99,6 +100,7 @@
           placeholder=" Senha"
           ref="senha"
           v-bind:value="senha"
+          disabled
         /><br />
         <input
           id="input-edi-mem"
@@ -114,26 +116,28 @@
   </div>
 
   <div class="container-botao-det-pro">
-    <router-link :to="{ name: 'cadastro-projetos' }">
+    <router-link :to="{ name: 'membros' }">
       <input
         class="botao-editar-det-pro"
         type="submit"
         name="editar"
         value="Editar"
+        @click="putData"
       />
     </router-link>
-    <router-link :to="{ name: 'projetos' }">
+    <router-link :to="{ name: 'membros' }">
       <input
         class="botao-excluir-det-pro"
         type="submit"
         name="excluir"
         value="Excluir"
+        @click="deleteDataById"
       />
     </router-link>
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import router from "../router";
 
@@ -146,7 +150,7 @@ export default defineComponent({
       nome: {},
       genero: {},
       nascimento: {},
-      dataAdmissao: {},
+      admissao: {},
       telefone: {},
       cep: {},
       ocupacao: {},
@@ -170,7 +174,7 @@ export default defineComponent({
       this.nome = data.pessoa.nome;
       this.genero = data.pessoa.genero;
       this.nascimento = data.pessoa.nascimento;
-      this.dataAdmissao = data.dataAdmissao;
+      this.admissao = data.admissao;
       this.telefone = data.pessoa.telefone;
       this.cep = data.pessoa.endereco.cep;
       this.ocupacao = data.pessoa.ocupacao;
@@ -178,6 +182,55 @@ export default defineComponent({
       this.email = data.pessoa.email;
       this.senha = data.pessoa.senha;
       this.cargo = data.cargo.nome;
+    },
+    async putData() {
+      const {
+        nome,
+        genero,
+        nascimento,
+        admissao,
+        telefone,
+        cep,
+        ocupacao,
+        padrinho,
+        email,
+
+        cargo,
+      } = this.$refs;
+      const putData = {
+        nome: nome.value,
+        genero: genero.value,
+        nascimento: nascimento.value,
+        admissao: admissao.value,
+        telefone: telefone.value,
+        cep: cep.value,
+        ocupacao: ocupacao.value,
+        padrinho: padrinho.value,
+        email: email.value,
+        cargo: cargo.value,
+      };
+
+      console.log(putData);
+      try {
+        const res = await fetch(
+          "http://localhost:8080/associado/" +
+            router.currentRoute.value.params.ri,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              charset: "utf-8",
+            },
+            body: JSON.stringify(putData),
+          }
+        );
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.putResult = err.message;
+      }
     },
   },
 });
@@ -230,6 +283,14 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: #f2f2f2;
   border-radius: 3px;
+  color: #f970a4;
+  padding-left: 11px;
+  font-weight: 600;
+}
+
+#input-edi-mem::placeholder {
+  color: #f970a4;
+  font-weight: 600;
 }
 
 .box-1-edi-mem {

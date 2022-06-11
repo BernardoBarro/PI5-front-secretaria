@@ -46,7 +46,6 @@ export default defineComponent({
       const res = await fetch("http://localhost:8080/patrocinador");
       const data = await res.json();
       this.data = data;
-      Location.reload();
     },
   },
 });

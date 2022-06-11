@@ -8,7 +8,7 @@
         id="nome-reuniao-cad-conv"
         type="text"
         name="cidade"
-        ref="nome_convidade"
+        ref="nome_convidado"
         placeholder="Nome do convidado"
       /><br />
       <img class="img-cad-conv" src="../assets/icon-convidado.png" />
@@ -23,7 +23,7 @@
   </div>
 
   <div class="container-botao-cad-conv">
-    <router-link :to="{ name: 'convidado' }">
+    <router-link :to="{ name: 'convidados' }">
       <input
         class="botao-cad-conv"
         type="submit"
@@ -38,16 +38,19 @@
 <script>
 import { defineComponent } from "vue";
 export default defineComponent({
-  name: "ComponentCadastroConvidados",
+  name: "ComponentCadastroConvidado",
   data() {
     return {
       postResult: null,
     };
   },
   methods: {
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
     async postData() {
       const postData = {
-        nome: this.$refs.nome_convidade.value,
+        nome: this.$refs.nome_convidado.value,
         contato: this.$refs.tel_convidado.value,
       };
       console.log(postData);

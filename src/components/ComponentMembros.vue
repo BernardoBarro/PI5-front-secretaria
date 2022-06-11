@@ -9,7 +9,7 @@
       <ul class="ul-memb">
         <li class="li-memb" v-for="datas in data" :key="datas.pessoa.nome">
           <router-link
-            :to="{ name: 'edicao-membro', params: { id: datas.ri } }"
+            :to="{ name: 'edicao-membro', params: { ri: datas.ri } }"
           >
             <div class="item-memb">
               {{ datas.pessoa.nome }}
