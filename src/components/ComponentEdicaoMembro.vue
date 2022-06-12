@@ -247,7 +247,7 @@ export default defineComponent({
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
-  color: white;
+  color: var(--segunda-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -262,7 +262,7 @@ export default defineComponent({
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
-  color: white;
+  color: var(--segunda-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -294,7 +294,7 @@ export default defineComponent({
 }
 
 .box-1-edi-mem {
-  background-color: white;
+  background-color: var(--segunda-color);
   width: 78%;
   height: 25rem;
   margin-top: 133px;

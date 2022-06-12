@@ -60,7 +60,7 @@ export default defineComponent({
 .h1-cad-geral {
   font-weight: 600;
   font-size: 30px;
-  color: white;
+  color: var(--principal-color);
   margin-top: 65px;
   margin-left: 92px;
   text-align: right !important;
@@ -72,26 +72,6 @@ export default defineComponent({
   margin-left: 84%;
   margin-top: 8%;
   width: 16%;
-}
-
-.container-botao-cad-geral {
-  align-items: flex-end;
-  margin-block-start: auto;
-  margin-bottom: 24px;
-}
-
-.botao-cad-geral {
-  background-color: #f970a4;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: -93px;
-  padding: 8px 40px;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 
 .box-1-cad-geral {

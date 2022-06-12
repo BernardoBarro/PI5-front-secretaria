@@ -82,7 +82,7 @@ export default defineComponent({
 
 <style scoped>
 .boxMenu {
-  background-color: white;
+  background-color: var(--segunda-color);
   width: 23%;
   height: 35rem;
   margin-top: 30px;

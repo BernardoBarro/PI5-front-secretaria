@@ -55,7 +55,6 @@ export default defineComponent({
 }
 
 .container-main-login {
-  background: #f6f5f7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,7 +100,7 @@ export default defineComponent({
 
 .linha-vertical-login {
   width: 193px;
-  border: 0.1px solid #ffffff;
+  border: 0.1px solid var(--principal-color);
   margin-top: 30%;
   position: absolute;
 }
@@ -110,7 +109,7 @@ export default defineComponent({
   border-radius: 20px;
   border: 1px solid #f970a4;
   background-color: #f970a4;
-  color: #ffffff;
+  color: var(--segunda-color);
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -120,19 +119,19 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 .form-login {
-  background-color: #ffffff;
+  background-color: var(--segunda-color);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 0 50px;
   height: 100%;
-  margin-top: -1%;
+  margin-top: 0%;
 }
 
 input {
-  background-color: rgb(253, 252, 252);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.12);
+  background-color: var(--principal-color);
+  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 5%) inset;
   border: none;
   outline: none;
   padding: 12px 15px;

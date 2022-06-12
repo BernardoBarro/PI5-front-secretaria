@@ -20,7 +20,7 @@ export default defineComponent({
 
 <style scoped>
 .box {
-  background-color: white;
+  background-color: var(--segunda-color);
   margin-top: 7%;
 }
 </style>

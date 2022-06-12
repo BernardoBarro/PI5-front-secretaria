@@ -59,7 +59,7 @@ export default defineComponent({
 
 <style scoped>
 .box {
-  background-color: white;
+  background-color: var(--segunda-color);
   width: 68%;
   height: 35rem;
   margin-top: 30px;
@@ -125,14 +125,14 @@ export default defineComponent({
   position: absolute;
   margin-left: 24%;
   margin-top: 5%;
-  color: white;
+  color: var(--segunda-color);
   font-weight: bold;
 }
 .sub-text-card {
   position: absolute;
   margin-left: 24%;
   margin-top: 10%;
-  color: white;
+  color: var(--segunda-color);
   font-size: 11px;
 }
 

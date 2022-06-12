@@ -84,6 +84,7 @@ export default defineComponent({
     0 0 0 1px rgb(10 10 10 / 2%);
   border-radius: 9px;
   overflow-y: scroll;
+  background-color: var(--segunda-color);
 }
 .titulo {
   text-align: center;

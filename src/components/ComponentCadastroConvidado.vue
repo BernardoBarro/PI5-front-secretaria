@@ -98,7 +98,7 @@ input[type="text"]::placeholder {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
-  color: white;
+  color: var(--segunda-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -106,21 +106,6 @@ input[type="text"]::placeholder {
   margin-left: -93px;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-}
-#nome-reuniao-cad-conv {
-  width: 79%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: ;
-  border-radius: 3px;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 0px 0px 0px 10px;
 }
 
 #telefone-cad-conv {
@@ -146,7 +131,7 @@ input[type="text"]::placeholder {
   letter-spacing: 3px;
 }
 .box-1-cad-conv {
-  background-color: white;
+  background-color: var(--segunda-color);
   width: 78%;
   height: 25rem;
   margin-top: 133px;

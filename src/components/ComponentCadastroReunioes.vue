@@ -117,7 +117,7 @@ input[type="text"]::placeholder {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
-  color: white;
+  color: var(--segunda-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -202,7 +202,7 @@ input[type="text"]::placeholder {
 }
 
 .box-1-cad-reu {
-  background-color: white;
+  background-color: var(--segunda-color);
   width: 78%;
   height: 25rem;
   margin-top: 133px;
