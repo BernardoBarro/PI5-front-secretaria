@@ -78,7 +78,7 @@ export default defineComponent({
 
 <style>
 input[type="text"]::placeholder {
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
   letter-spacing: 3px;
 }
@@ -95,10 +95,10 @@ input[type="text"]::placeholder {
   margin-bottom: 24px;
 }
 .botao-cad-conv {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   border: none;
   border-radius: 20px;
-  color: var(--segunda-color);
+  color: var(--principal-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -120,13 +120,13 @@ input[type="text"]::placeholder {
   border-radius: 3px;
   margin-left: -10%;
   position: absolute;
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
   letter-spacing: 3px;
   padding: 0px 0px 0px 10px;
 }
 .telefone-cad-conv::placeholder {
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
   letter-spacing: 3px;
 }
@@ -152,13 +152,13 @@ input[type="text"]::placeholder {
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
-  color: #ffb0ce;
+  color: var(--terceira-color);
 }
 .circulo-cad-conv {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   position: absolute;
   display: inline-block;
   margin-left: 90.5%;

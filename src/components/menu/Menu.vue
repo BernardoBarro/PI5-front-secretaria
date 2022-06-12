@@ -6,39 +6,48 @@
           <router-link :to="{ name: 'perfil' }">
             <i
               class="fa-solid fa-circle-user fa-2xl"
-              style="color: #f970a4"
+              style="color: var(--terceira-color)"
             ></i>
           </router-link>
         </div>
         <button id="icon-home" class="button">
           <router-link :to="{ name: 'home' }">
-            <i class="fa-solid fa-house fa-lg" style="color: #f970a4"></i>
+            <i
+              class="fa-solid fa-house fa-lg"
+              style="color: var(--terceira-color)"
+            ></i>
           </router-link>
         </button>
         <button id="icon-projetos" class="button">
           <router-link :to="{ name: 'projetos' }">
             <i
               class="fa-solid fa-folder-closed fa-lg"
-              style="color: #f970a4"
+              style="color: var(--terceira-color)"
             ></i>
           </router-link>
         </button>
         <button id="icon-instituicoes" class="button">
           <router-link :to="{ name: 'instituicoes' }">
-            <i class="fa-solid fa-building fa-lg" style="color: #f970a4"></i>
+            <i
+              class="fa-solid fa-building fa-lg"
+              style="color: var(--terceira-color)"
+            ></i>
           </router-link>
         </button>
         <button id="icon-membros" class="button">
           <router-link :to="{ name: 'membros' }">
             <i
               class="fa-solid fa-address-card fa-lg"
-              style="color: #f970a4"
+              style="color: var(--terceira-color)"
             ></i>
           </router-link>
         </button>
         <button id="icon-convidados" class="button">
           <router-link :to="{ name: 'convidados' }">
-            <i class="fa-solid fa-people-pulling" style="color: #f970a4"></i>
+            <i
+              class="fa-solid fa-people-pulling"
+              style="color: var(--terceira-color)"
+            ></i>
           </router-link>
         </button>
 
@@ -46,14 +55,17 @@
           <router-link :to="{ name: 'patrocinador' }">
             <i
               class="fa-solid fa-hand-holding-dollar"
-              style="color: #f970a4"
+              style="color: var(--terceira-color)"
             ></i>
           </router-link>
         </button>
 
         <button id="icon-cadastros" class="button">
           <router-link :to="{ name: 'cadastro-geral' }">
-            <i class="fa-solid fa-clipboard fa-lg" style="color: #f970a4"></i>
+            <i
+              class="fa-solid fa-clipboard fa-lg"
+              style="color: var(--terceira-color)"
+            ></i>
           </router-link>
         </button>
 
@@ -62,7 +74,7 @@
             <router-link :to="{ name: 'login' }">
               <i
                 class="fa-solid fa-arrow-right-from-bracket"
-                style="color: #f970a4"
+                style="color: var(--terceira-color)"
               ></i>
             </router-link>
           </span>
@@ -112,7 +124,7 @@ export default defineComponent({
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f970a4;
+  border-color: var(--terceira-color);
   width: 40px;
   height: 40px;
   display: flex;
@@ -126,7 +138,7 @@ export default defineComponent({
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f970a4;
+  border-color: var(--terceira-color);
   width: 40px;
   height: 40px;
   display: flex;
@@ -140,7 +152,7 @@ export default defineComponent({
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f970a4;
+  border-color: var(--terceira-color);
   width: 40px;
   height: 40px;
   display: flex;
@@ -154,7 +166,7 @@ export default defineComponent({
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f970a4;
+  border-color: var(--terceira-color);
   width: 40px;
   height: 40px;
   display: flex;
@@ -168,7 +180,7 @@ export default defineComponent({
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f970a4;
+  border-color: var(--terceira-color);
   width: 40px;
   height: 40px;
   display: flex;
@@ -182,7 +194,7 @@ export default defineComponent({
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f970a4;
+  border-color: var(--terceira-color);
   width: 40px;
   height: 40px;
   display: flex;
@@ -196,7 +208,7 @@ export default defineComponent({
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f970a4;
+  border-color: var(--terceira-color);
   width: 40px;
   height: 40px;
   display: flex;
@@ -210,7 +222,7 @@ export default defineComponent({
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f970a4;
+  border-color: var(--terceira-color);
   width: 40px;
   height: 40px;
   display: flex;

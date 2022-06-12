@@ -18,21 +18,30 @@
       <h1 class="linha-box">_______________________</h1>
       <div id="card-presidente">
         <div class="icon">
-          <i class="fa-solid fa-circle-user fa-3x" style="color: #ffff"></i>
+          <i
+            class="fa-solid fa-circle-user fa-3x"
+            style="color: var(--principal-color)"
+          ></i>
         </div>
         <h2 class="text-card">Maicon Miosso</h2>
         <h3 class="sub-text-card">Presidente</h3>
       </div>
       <div id="card-vice-presidente">
         <div class="icon">
-          <i class="fa-solid fa-circle-user fa-3x" style="color: #ffff"></i>
+          <i
+            class="fa-solid fa-circle-user fa-3x"
+            style="color: var(--principal-color)"
+          ></i>
         </div>
         <h2 class="text-card">Caroline Kolassa</h2>
         <h3 class="sub-text-card">Vice - Presidente</h3>
       </div>
       <div id="card-tesoureiro">
         <div class="icon">
-          <i class="fa-solid fa-circle-user fa-3x" style="color: #ffff"></i>
+          <i
+            class="fa-solid fa-circle-user fa-3x"
+            style="color: var(--principal-color)"
+          ></i>
         </div>
         <h2 class="text-card">Bernardo Barro</h2>
         <h3 class="sub-text-card">Tesoureiro</h3>
@@ -82,17 +91,17 @@ export default defineComponent({
   letter-spacing: 0.2rem;
   margin-top: 5px;
   font-weight: bold;
-  color: #f970a4;
+  color: var(--terceira-color);
 }
 .linha-box {
   margin-top: -15px;
   font-size: 20px;
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: bold;
   text-align: center;
 }
 #card-presidente {
-  background: #d91b5c;
+  background: var(--quarta-color);
   width: 121%;
   height: 11%;
   margin-top: 20px;
@@ -100,7 +109,7 @@ export default defineComponent({
 }
 
 #card-vice-presidente {
-  background: #f970a4;
+  background: var(--terceira-color);
   width: 121%;
   height: 11%;
   margin-top: 20px;
@@ -108,7 +117,7 @@ export default defineComponent({
 }
 
 #card-tesoureiro {
-  background: #f970a4;
+  background: var(--terceira-color);
   width: 121%;
   height: 11%;
   margin-top: 20px;
@@ -125,14 +134,14 @@ export default defineComponent({
   position: absolute;
   margin-left: 24%;
   margin-top: 5%;
-  color: var(--segunda-color);
+  color: var(--principal-color);
   font-weight: bold;
 }
 .sub-text-card {
   position: absolute;
   margin-left: 24%;
   margin-top: 10%;
-  color: var(--segunda-color);
+  color: var(--principal-color);
   font-size: 11px;
 }
 
@@ -140,6 +149,7 @@ export default defineComponent({
   margin-top: 14%;
   font-size: 12px;
   font-weight: bold;
+  color: var(--terceira-color);
 }
 
 .bola {

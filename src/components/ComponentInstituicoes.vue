@@ -54,7 +54,7 @@ export default defineComponent({
 <style>
 .item-inst {
   padding: 1%;
-  color: #f970a4;
+  color: var(--terceira-color);
   text-align: left;
 }
 
@@ -78,12 +78,24 @@ export default defineComponent({
   width: 85%;
 }
 
+.ul-inst::-webkit-scrollbar {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 3px solid var(--principal-color);
+  width: 8px;
+}
+
+.ul-inst::-webkit-scrollbar-thumb {
+  background-color: var(--terceira-color);
+  border-radius: 20px;
+}
+
 .fa-arrow-up::before {
   content: "\f062";
   position: absolute;
   margin-left: 7.5%;
   margin-top: -3.9%;
-  color: #f970a4;
+  color: var(--terceira-color);
 }
 
 .fa-chevron-right::before {
@@ -91,7 +103,7 @@ export default defineComponent({
   position: absolute;
   margin-top: -1%;
   margin-left: 60%;
-  color: #f970a4;
+  color: var(--terceira-color);
 }
 
 .container-botao-inst {
@@ -101,10 +113,10 @@ export default defineComponent({
 }
 
 .botao-inst {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   border: none;
   border-radius: 20px;
-  color: var(--segunda-color);
+  color: var(--principal-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -116,7 +128,7 @@ export default defineComponent({
 
 .label-nome-inst {
   position: absolute;
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
   letter-spacing: 3px;
   margin-left: -28%;
@@ -146,14 +158,14 @@ export default defineComponent({
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
-  color: #ffb0ce;
+  color: var(--terceira-color);
 }
 
 .circulo-inst {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   position: absolute;
   display: inline-block;
   margin-left: 90.5%;

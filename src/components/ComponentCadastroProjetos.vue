@@ -108,10 +108,10 @@ export default defineComponent({
 }
 
 .botao-cad-proj {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   border: none;
   border-radius: 20px;
-  color: var(--segunda-color);
+  color: var(--principal-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -129,7 +129,7 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: var(--principal-color);
   border-radius: 3px;
-  color: #f970a4;
+  color: var(--terceira-color);
   outline: none;
   font-weight: 600;
   letter-spacing: 3px;
@@ -137,13 +137,13 @@ export default defineComponent({
 }
 
 #textarea-proj::placeholder {
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
   letter-spacing: 3px;
 }
 
 #input-projeto-cad-proj {
-  color: #f970a4;
+  color: var(--terceira-color);
   width: 57%;
   height: 40px;
   margin-top: 12px;
@@ -155,7 +155,7 @@ export default defineComponent({
   border-radius: 3px;
 }
 #input-data-inicio-cad-proj {
-  color: #f970a4;
+  color: var(--terceira-color);
   width: 44.5%;
   height: 40px;
   margin-top: 15px;
@@ -169,7 +169,7 @@ export default defineComponent({
 }
 
 #input-status-cad-proj {
-  color: #f970a4;
+  color: var(--terceira-color);
   width: 44.5%;
   height: 40px;
   margin-top: 46px;
@@ -183,7 +183,7 @@ export default defineComponent({
 }
 
 .input-projeto-cad-proj::placeholder {
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
   letter-spacing: 3px;
   padding: 5px;
@@ -211,13 +211,13 @@ export default defineComponent({
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
-  color: #ffb0ce;
+  color: var(--terceira-color);
 }
 .circulo-cad-proj {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   position: absolute;
   display: inline-block;
   margin-left: 90.5%;

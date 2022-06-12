@@ -21,6 +21,7 @@ export default defineComponent({
 <style scoped>
 .box {
   background-color: var(--segunda-color);
+  color: var(--terceira-color);
   margin-top: 7%;
 }
 </style>

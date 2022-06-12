@@ -92,7 +92,7 @@ export default defineComponent({
 .h1-erro {
   font-weight: 600;
   font-size: 93px;
-  color: #f970a4;
+  color: var(--terceira-color);
   margin-top: -12px;
   margin-left: -62px;
   text-align: right !important;

@@ -70,7 +70,7 @@ export default defineComponent({
   border-radius: 10px;
   width: 16px;
   height: 16px;
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   position: inherit;
   display: inline-block;
   margin-left: -54%;
@@ -78,7 +78,7 @@ export default defineComponent({
   position: absolute;
 }
 .h1-rec-sen {
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
 }
 
@@ -115,8 +115,8 @@ export default defineComponent({
 }
 .button-rec-sen {
   border-radius: 20px;
-  border: 1px solid #f970a4;
-  background-color: #f970a4;
+  border: 1px solid var(--terceira-color);
+  background-color: var(--terceira-color);
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -196,7 +196,7 @@ export default defineComponent({
   height: 100%;
 }
 .overlay {
-  background: #f970a4;
+  background: var(--terceira-color);
   color: #ffffff;
   position: relative;
   left: -100%;

@@ -35,7 +35,7 @@ const interval = setInterval(() => {
 .hora {
   text-align: center;
   font-size: 80px;
-  color: #f970a4;
+  color: var(--terceira-color);
   margin-top: 15%;
   border-radius: 10px;
 }

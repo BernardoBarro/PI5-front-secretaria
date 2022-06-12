@@ -84,7 +84,7 @@ export default defineComponent({
 }
 
 .box-2-cad-geral {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   width: 25%;
   height: 8rem;
   margin-top: 55px;
@@ -96,7 +96,7 @@ export default defineComponent({
   position: absolute;
 }
 .box-3-cad-geral {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   width: 25%;
   height: 8rem;
   margin-top: 55px;
@@ -109,7 +109,7 @@ export default defineComponent({
 }
 
 .box-4-cad-geral {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   width: 25%;
   height: 8rem;
   margin-top: 216px;
@@ -122,7 +122,7 @@ export default defineComponent({
 }
 
 .box-5-cad-geral {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   width: 25%;
   height: 8rem;
   margin-top: 374px;
@@ -135,7 +135,7 @@ export default defineComponent({
 }
 
 .box-6-cad-geral {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   width: 25%;
   height: 8rem;
   margin-top: 216px;
@@ -148,7 +148,7 @@ export default defineComponent({
 }
 
 .box-7-cad-geral {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   width: 25%;
   height: 8rem;
   margin-top: 374px;
@@ -167,7 +167,7 @@ export default defineComponent({
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
-  color: #ffb0ce;
+  color: var(--terceira-color);
   width: 41%;
 }
 
@@ -175,7 +175,7 @@ export default defineComponent({
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   position: absolute;
   display: inline-block;
   margin-left: 90.5%;

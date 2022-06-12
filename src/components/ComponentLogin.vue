@@ -69,7 +69,7 @@ export default defineComponent({
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
-  color: #f970a4;
+  color: var(--terceira-color);
 }
 
 .text-1-login {
@@ -107,9 +107,9 @@ export default defineComponent({
 
 .button-login {
   border-radius: 20px;
-  border: 1px solid #f970a4;
-  background-color: #f970a4;
-  color: var(--segunda-color);
+  border: 1px solid var(--terceira-color);
+  background-color: var(--terceira-color);
+  color: var(--principal-color);
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -175,7 +175,7 @@ input {
 }
 
 .overlay {
-  background: #f970a4;
+  background: var(--terceira-color);
   color: #ffffff;
   position: relative;
   left: -100%;

@@ -1,13 +1,12 @@
 <template>
   <div class="container">
     <table
-      border="1"
       id="table-box"
       class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
       style="border-radius: 9px"
     >
       <tr>
-        <td class="titulo">Nome</td>
+        <td class="titulo">Reunião</td>
         <td class="titulo">Data</td>
       </tr>
       <td class="tabela-reu">
@@ -62,6 +61,15 @@ export default defineComponent({
   list-style-type: none;
 }
 
+td {
+  border: none;
+}
+
+.table.is-narrow td {
+  padding-bottom: 2%;
+  padding-top: 2%;
+}
+
 .tab-reu {
   width: 92.2%;
   height: 40px;
@@ -73,7 +81,7 @@ export default defineComponent({
   background-color: var(--principal-color);
   border-radius: 3px;
   padding: 1%;
-  color: #f970a4;
+  color: var(--terceira-color);
   text-align: left;
   padding-left: 5%;
   padding-top: 4%;
@@ -85,6 +93,8 @@ export default defineComponent({
   border-radius: 9px;
   overflow-y: scroll;
   background-color: var(--segunda-color);
+  color: var(--terceira-color);
+  border: none;
 }
 .titulo {
   text-align: center;

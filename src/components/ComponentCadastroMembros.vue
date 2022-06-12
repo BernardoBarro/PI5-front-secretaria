@@ -161,10 +161,10 @@ export default defineComponent({
 }
 
 .botao-cad-membro {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   border: none;
   border-radius: 20px;
-  color: var(--segunda-color);
+  color: var(--principal-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -187,7 +187,7 @@ export default defineComponent({
 }
 
 #input-cad-mem::placeholder {
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
   letter-spacing: 3px;
 }
@@ -218,7 +218,7 @@ export default defineComponent({
 }
 
 .box-2-cad-membro {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   width: 20%;
   height: 25rem;
   padding: 0;
@@ -250,14 +250,14 @@ export default defineComponent({
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
-  color: #ffb0ce;
+  color: var(--terceira-color);
 }
 
 .circulo-cad-membro {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   position: absolute;
   display: inline-block;
   margin-left: 90.5%;

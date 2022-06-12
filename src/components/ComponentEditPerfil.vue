@@ -110,10 +110,10 @@ export default defineComponent({
 }
 
 .botao-excluir-edi-perfil {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   border: none;
   border-radius: 20px;
-  color: var(--segunda-color);
+  color: var(--principal-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -125,10 +125,10 @@ export default defineComponent({
 }
 
 .botao-editar-edi-perfil {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   border: none;
   border-radius: 20px;
-  color: var(--segunda-color);
+  color: var(--principal-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -161,7 +161,7 @@ input[type="date"] {
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: var(--principal-color);
   border-radius: 3px;
-  color: #f970a4;
+  color: var(--terceira-color);
 }
 
 input[type="e-mail"] {
@@ -177,7 +177,7 @@ input[type="e-mail"] {
 }
 
 input[type="e-mail"]::placeholder {
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
   letter-spacing: 3px;
 }
@@ -188,7 +188,7 @@ input[type="date"]::placeholder {
 }
 
 input[type="text"]::placeholder {
-  color: #f970a4;
+  color: var(--terceira-color);
   font-weight: 600;
   letter-spacing: 3px;
 }
@@ -213,7 +213,7 @@ input[type="text"]::placeholder {
 }
 
 .box-2-edi-perfil {
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   width: 20%;
   height: 25rem;
   padding: 0;
@@ -233,7 +233,7 @@ input[type="text"]::placeholder {
 .nome-edi-perfil {
   background-color: var(--principal-color);
   border: none;
-  color: #f970a4;
+  color: var(--terceira-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -248,7 +248,7 @@ input[type="text"]::placeholder {
 .informacoes-edi-perfil {
   background-color: var(--principal-color);
   border: none;
-  color: #f970a4;
+  color: var(--terceira-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -275,14 +275,14 @@ input[type="text"]::placeholder {
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
-  color: #ffb0ce;
+  color: var(--terceira-color);
 }
 
 .circulo-edi-perfil {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f970a4;
+  background-color: var(--terceira-color);
   position: absolute;
   display: inline-block;
   margin-left: 90.5%;
