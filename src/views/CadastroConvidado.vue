@@ -21,8 +21,3 @@ export default defineComponent({
 });
 </script>
 
-<style>
-main {
-  background-color: #f2f2f2;
-}
-</style>

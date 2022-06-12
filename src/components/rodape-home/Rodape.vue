@@ -146,7 +146,7 @@ export default defineComponent({
   border-radius: 10px;
   width: 16px;
   height: 16px;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   position: inherit;
   display: inline-block;
   margin-left: 6.5px;

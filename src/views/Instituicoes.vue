@@ -7,7 +7,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import MenuBox from "../components/menu/Menu.vue";
 import ComponentInstituicoes from "../components/ComponentInstituicoes.vue";
@@ -20,9 +20,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-main {
-  background-color: #f2f2f2;
-}
-</style>

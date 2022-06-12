@@ -98,7 +98,7 @@ export default defineComponent({
   width: 57%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
   color: #f970a4;
   outline: none;
@@ -122,7 +122,7 @@ export default defineComponent({
   margin-left: 22.7%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
 }
 .input-contato-cad-inst {
@@ -134,7 +134,7 @@ export default defineComponent({
   margin-left: -13.4%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
   position: absolute;
 }
@@ -207,7 +207,7 @@ export default defineComponent({
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
   margin-left: -37%;

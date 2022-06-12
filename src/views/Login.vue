@@ -2,7 +2,7 @@
   <ComponentLogin />
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import ComponentLogin from "../components/ComponentLogin.vue";
 

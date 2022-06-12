@@ -96,16 +96,16 @@
         <input
           id="input-edi-mem"
           type="text"
-          name="senha"
-          placeholder=" Senha"
-          ref="senha"
-          v-bind:value="senha"
+          name="status"
+          placeholder=" Status"
+          ref="status"
+          v-bind:value="status"
           disabled
         /><br />
         <input
           id="input-edi-mem"
           type="text"
-          name="senha"
+          name="cargo"
           placeholder=" Cargo"
           ref="cargo"
           v-bind:value="cargo"
@@ -156,7 +156,7 @@ export default defineComponent({
       ocupacao: {},
       padrinho: {},
       email: {},
-      senha: {},
+      status: {},
       cargo: {},
     };
   },
@@ -180,7 +180,7 @@ export default defineComponent({
       this.ocupacao = data.pessoa.ocupacao;
       this.padrinho = data.padrinho;
       this.email = data.pessoa.email;
-      this.senha = data.pessoa.senha;
+      this.status = data.status;
       this.cargo = data.cargo.nome;
     },
     async putData() {
@@ -281,7 +281,7 @@ export default defineComponent({
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
   color: #f970a4;
   padding-left: 11px;
@@ -346,7 +346,7 @@ form {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
   margin-left: -37%;

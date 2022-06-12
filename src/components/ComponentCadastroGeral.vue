@@ -206,7 +206,7 @@ export default defineComponent({
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
   margin-left: 7%;

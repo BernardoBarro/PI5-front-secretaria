@@ -2,7 +2,7 @@
   <ComponentRecuperacaoSenha />
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import ComponentRecuperacaoSenha from "../components/ComponentRecuperacaoSenha.vue";
 

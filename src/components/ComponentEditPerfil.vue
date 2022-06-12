@@ -1,34 +1,34 @@
 <template>
-  <h1 class="titulo-perfil">EDITAR PERFIL</h1>
-  <div class="circulo-perfil"></div>
+  <h1 class="titulo-edi-perfil">EDITAR PERFIL</h1>
+  <div class="circulo-edi-perfil"></div>
 
-  <div class="box-1-perfil">
-    <div class="box-2-perfil">
-      <div class="circulo-2-perfil"></div>
-      <img class="img-perfil" src="../assets/icon-perfil.png" />
+  <div class="box-1-edi-perfil">
+    <div class="box-2-edi-perfil">
+      <div class="circulo-2-edi-perfil"></div>
+      <img class="img-edi-perfil" src="../assets/icon-perfil.png" />
       <br />
-      <ul class="lista-perfil">
+      <ul class="lista-edi-perfil">
         <li class="nome-perfil-perfil">
           <label> <span>João da Silva</span><br /> </label>
         </li>
 
-        <li class="informacoes-perfil">
+        <li class="informacoes-edi-perfil">
           <label> <span>Vice-Presidente</span><br /> </label>
         </li>
 
-        <li class="informacoes-perfil">
+        <li class="informacoes-edi-perfil">
           <label> <span>096825</span><br /> </label>
         </li>
 
-        <li class="informacoes-perfil">
+        <li class="informacoes-edi-perfil">
           <label> <span>09/12/2021</span><br /> </label>
         </li>
       </ul>
     </div>
 
-    <div class="box-3-perfil">
-      <div class="coluna-esquerda-perfil">
-        <form class="form-perfil" method="get" action="">
+    <div class="box-3-edi-perfil">
+      <div class="coluna-esquerda-edi-perfil">
+        <form class="form-edi-perfil" method="get" action="">
           <input
             type="text"
             onfocus="(this.type='date')"
@@ -74,10 +74,10 @@
       </div>
     </div>
   </div>
-  <div class="container-botao-perfil">
+  <div class="container-botao-edi-perfil">
     <router-link :to="{ name: 'home' }">
       <input
-        class="botao-editar-perfil"
+        class="botao-editar-edi-perfil"
         type="submit"
         name="editar"
         value="Editar"
@@ -85,7 +85,7 @@
     </router-link>
     <router-link :to="{ name: 'home' }">
       <input
-        class="botao-excluir-perfil"
+        class="botao-excluir-edi-perfil"
         type="submit"
         name="excluir"
         value="Excluir"
@@ -103,13 +103,13 @@ export default defineComponent({
 </script>
 
 <style>
-.container-botao-perfil {
+.container-botao-edi-perfil {
   align-items: flex-end;
   margin-block-start: auto;
   margin-bottom: 24px;
 }
 
-.botao-excluir-perfil {
+.botao-excluir-edi-perfil {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -124,7 +124,7 @@ export default defineComponent({
   margin-left: -91%;
 }
 
-.botao-editar-perfil {
+.botao-editar-edi-perfil {
   background-color: #f970a4;
   border: none;
   border-radius: 20px;
@@ -147,7 +147,7 @@ input[type="text"] {
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
 }
 
@@ -159,7 +159,7 @@ input[type="date"] {
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
   color: #f970a4;
 }
@@ -172,7 +172,7 @@ input[type="e-mail"] {
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
 }
 
@@ -193,14 +193,14 @@ input[type="text"]::placeholder {
   letter-spacing: 3px;
 }
 
-.coluna-esquerda-perfil {
+.coluna-esquerda-edi-perfil {
   width: 55%;
   position: absolute;
   margin-left: 3%;
   margin-top: 2%;
 }
 
-.box-1-perfil {
+.box-1-edi-perfil {
   background-color: white;
   width: 50%;
   height: 25rem;
@@ -212,7 +212,7 @@ input[type="text"]::placeholder {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-.box-2-perfil {
+.box-2-edi-perfil {
   background-color: #f970a4;
   width: 20%;
   height: 25rem;
@@ -222,16 +222,16 @@ input[type="text"]::placeholder {
   border-radius: 38px;
 }
 
-.img-perfil {
+.img-edi-perfil {
   margin-top: 46px;
 }
 
-.form-perfil {
+.form-edi-perfil {
   margin: 0%;
 }
 
-.nome-perfil-perfil {
-  background-color: #f2f2f2;
+.nome-edi-perfil {
+  background-color: var(--principal-color);
   border: none;
   color: #f970a4;
   text-align: center;
@@ -245,8 +245,8 @@ input[type="text"]::placeholder {
   border-radius: 20px;
 }
 
-.informacoes-perfil {
-  background-color: #f2f2f2;
+.informacoes-edi-perfil {
+  background-color: var(--principal-color);
   border: none;
   color: #f970a4;
   text-align: center;
@@ -259,7 +259,7 @@ input[type="text"]::placeholder {
   border-radius: 5px;
 }
 
-.box-3-perfil {
+.box-3-edi-perfil {
   width: 52.75%;
   margin-left: 20%;
   height: 25rem;
@@ -268,7 +268,7 @@ input[type="text"]::placeholder {
   display: inline-block;
 }
 
-.titulo-perfil {
+.titulo-edi-perfil {
   font-size: 40px;
   position: absolute;
   margin-left: 64%;
@@ -278,7 +278,7 @@ input[type="text"]::placeholder {
   color: #ffb0ce;
 }
 
-.circulo-perfil {
+.circulo-edi-perfil {
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -289,11 +289,11 @@ input[type="text"]::placeholder {
   margin-top: 3%;
 }
 
-.circulo-2-perfil {
+.circulo-2-edi-perfil {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
   margin-left: -26.5%;

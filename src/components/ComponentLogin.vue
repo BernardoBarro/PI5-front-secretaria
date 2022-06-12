@@ -134,6 +134,7 @@ input {
   background-color: rgb(253, 252, 252);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.12);
   border: none;
+  outline: none;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;

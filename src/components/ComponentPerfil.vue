@@ -147,7 +147,7 @@ input[type="text"] {
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
 }
 
@@ -159,7 +159,7 @@ input[type="date"] {
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
   color: #f970a4;
 }
@@ -172,7 +172,7 @@ input[type="e-mail"] {
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
 }
 
@@ -231,7 +231,7 @@ input[type="text"]::placeholder {
 }
 
 .nome-perfil-perfil {
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border: none;
   color: #f970a4;
   text-align: center;
@@ -246,7 +246,7 @@ input[type="text"]::placeholder {
 }
 
 .informacoes-perfil {
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border: none;
   color: #f970a4;
   text-align: center;
@@ -271,7 +271,7 @@ input[type="text"]::placeholder {
 .titulo-perfil {
   font-size: 40px;
   position: absolute;
-  margin-left: 75%;
+  margin-left: 77%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
@@ -293,7 +293,7 @@ input[type="text"]::placeholder {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
   margin-left: -26.5%;

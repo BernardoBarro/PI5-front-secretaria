@@ -1,5 +1,4 @@
 
-<!-- não deu certo -->
 <template>
   <h1 class="titulo-cad-reu">CADASTRO DE REUNIÕES</h1>
   <div class="circulo-cad-reu"></div>
@@ -136,7 +135,7 @@ input[type="text"]::placeholder {
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
   color: #f970a4;
   font-weight: 600;
@@ -160,7 +159,7 @@ input[type="text"]::placeholder {
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
   margin-left: -10%;
   position: absolute;
@@ -178,7 +177,7 @@ input[type="text"]::placeholder {
   outline: none;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
 }
 
 #textarea {
@@ -187,7 +186,7 @@ input[type="text"]::placeholder {
   width: 53.5%;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
   color: #f970a4;
   outline: none;
@@ -243,7 +242,7 @@ input[type="text"]::placeholder {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
   margin-left: -37%;

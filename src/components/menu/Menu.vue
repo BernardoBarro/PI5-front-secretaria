@@ -72,7 +72,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -108,7 +108,7 @@ export default defineComponent({
 #icon-home {
   margin-top: 23%;
   position: absolute;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
@@ -122,7 +122,7 @@ export default defineComponent({
 #icon-projetos {
   margin-top: 43%;
   position: absolute;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
@@ -136,7 +136,7 @@ export default defineComponent({
 #icon-instituicoes {
   margin-top: 63%;
   position: absolute;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
@@ -150,7 +150,7 @@ export default defineComponent({
 #icon-membros {
   margin-top: 83%;
   position: absolute;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
@@ -164,7 +164,7 @@ export default defineComponent({
 #icon-convidados {
   margin-top: 103%;
   position: absolute;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
@@ -178,7 +178,7 @@ export default defineComponent({
 #icon-patrocinador {
   margin-top: 123%;
   position: absolute;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
@@ -192,7 +192,7 @@ export default defineComponent({
 #icon-cadastros {
   margin-top: 143%;
   position: absolute;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;
@@ -206,7 +206,7 @@ export default defineComponent({
 #icon-sair {
   margin-top: 177%;
   position: absolute;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 9px;
   border-style: solid;
   border-width: 1px;

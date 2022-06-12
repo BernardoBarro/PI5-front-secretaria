@@ -5,7 +5,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import ComponentErro from "../components/ComponentErro.vue";
 
@@ -16,10 +16,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-main {
-  background-color: #f2f2f2;
-  height: 625px;
-}
-</style>

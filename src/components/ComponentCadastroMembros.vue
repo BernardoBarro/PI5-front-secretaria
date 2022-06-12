@@ -5,14 +5,7 @@
   <div class="box-1-cad-membro">
     <div class="box-2-cad-membro">
       <div class="circulo-2-cad-membro"></div>
-      <img class="img-cad-membro" src="../assets/icon-perfil.png" />
-      <br />
-      <h2 class="titulo-status-cad-membro">Status</h2>
-      <select class="status-cad-membro" name="status" ref="status">
-        <option>ATIVO</option>
-        <option>AFASTADO</option>
-        <option>DESLIGADO</option>
-      </select>
+      <img class="img-cad-mem" src="../assets/icon-membro.png" />
     </div>
 
     <div class="box-3-cad-membro">
@@ -21,24 +14,28 @@
           <input type="text" name="ri" placeholder=" RI" ref="ri" /><br />
           <input type="text" name="nome" placeholder=" Nome" ref="nome" /><br />
           <input
+            id="input-cad-mem"
             type="text"
             name="genero"
             placeholder=" Genero"
             ref="genero"
           /><br />
           <input
+            id="input-cad-mem"
             type="text"
             name="nascimento"
             placeholder=" Data de Nascimento"
             ref="nascimento"
           /><br />
           <input
+            id="input-cad-mem"
             type="text"
             name="admissao"
             placeholder=" Data de Admissão"
             ref="admissao"
           /><br />
           <input
+            id="input-cad-mem"
             type="text"
             name="telefone"
             placeholder=" Telefone"
@@ -51,30 +48,35 @@
         <form method="get" action="">
           <input type="text" name="cep" placeholder=" CEP" ref="cep" /><br />
           <input
+            id="input-cad-mem"
             type="text"
             name="ocupacao"
             placeholder=" Ocupação"
             ref="ocupacao"
           /><br />
           <input
+            id="input-cad-mem"
             type="text"
             name="padrinho"
             placeholder=" Padrinho"
             ref="padrinho"
           /><br />
           <input
+            id="input-cad-mem"
             type="text"
             name="email"
             placeholder=" E-mail"
             ref="email"
           /><br />
           <input
+            id="input-cad-mem"
             type="text"
             name="senha"
             placeholder=" Senha"
             ref="senha"
           /><br />
           <input
+            id="input-cad-mem"
             type="text"
             name="cargo"
             placeholder=" Cargo"
@@ -126,7 +128,6 @@ export default defineComponent({
         padrinho: this.$refs.padrinho.value,
         email: this.$refs.email.value,
         senha: this.$refs.senha.value,
-        // status: this.$refs.status.value,
         cargo: this.$refs.cargo.value,
       };
       console.log(postData);
@@ -153,14 +154,6 @@ export default defineComponent({
 </script>
 
 <style>
-.titulo-status-cad-membro {
-  color: #ffff;
-  font-weight: 600;
-  font-size: 20px;
-  text-align: left;
-  margin-left: 12%;
-}
-
 .container-botao-cad-membro {
   align-items: flex-end;
   margin-block-start: auto;
@@ -181,36 +174,7 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 
-.cargo-comissoes-cad-membro {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
-.status-cad-membro {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
-input[type="text"] {
+#input-cad-mem {
   width: 77%;
   height: 40px;
   margin-top: 10px;
@@ -218,57 +182,14 @@ input[type="text"] {
   margin-left: 29px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   border-radius: 3px;
 }
 
-input[type="date"] {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-  color: #f970a4;
-}
-
-input[type="e-mail"] {
-  width: 77%;
-  height: 40px;
-  margin-top: 12px;
-  outline: none;
-  margin-left: 29px;
-  border: none;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: #f2f2f2;
-  border-radius: 3px;
-}
-
-input[type="e-mail"]::placeholder {
+#input-cad-mem::placeholder {
   color: #f970a4;
   font-weight: 600;
   letter-spacing: 3px;
-}
-
-input[type="date"]::placeholder {
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
-input[type="text"]::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-}
-
-#textarea::placeholder {
-  color: #f970a4;
-  font-weight: 600;
-  letter-spacing: 3px;
-  padding: 5px;
 }
 
 .coluna-esquerda-cad-membro {
@@ -306,33 +227,6 @@ input[type="text"]::placeholder {
   border-radius: 38px 0px 0px 5px;
 }
 
-.img-cad-membro {
-  margin-top: 46px;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-.cargos-cad-membro {
-  background-color: #f2f2f2;
-  border: none;
-  color: #f970a4;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  padding: 7px 38px;
-  width: 76%;
-  margin-top: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.cargos-cad-membro:hover {
-  background-color: #d91b5c;
-}
-
 .box-3-cad-membro {
   width: 52.75%;
   margin-left: 20%;
@@ -342,8 +236,11 @@ input[type="radio"] {
   display: inline-block;
 }
 
-.inputs-cad-membro {
-  margin-top: 3px;
+.img-cad-mem {
+  height: 59%;
+  max-width: 100%;
+  margin-top: 43%;
+  margin-left: 6%;
 }
 
 .titulo-cad-membro {
@@ -371,27 +268,11 @@ input[type="radio"] {
   border-radius: 10px;
   width: 20px;
   height: 20px;
-  background-color: #f2f2f2;
+  background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
-  margin-left: -26.5%;
+  margin-left: -2.5%;
   margin-top: 8%;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-}
-
-.cargos-cad-membro label span {
-  cursor: pointer;
-  width: 100%;
-}
-
-.cargos-cad-membro label input {
-  z-index: 1;
-}
-.cargos-cad-membro input[type="radio"] {
-  all: unset;
-}
-.cargos-cad-membro input[type="radio"]:checked + span {
-  color: #d91b5c;
-  font-weight: 700;
 }
 </style>

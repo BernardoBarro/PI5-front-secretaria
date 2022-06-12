@@ -7,7 +7,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
 import MenuBox from "../components/menu/Menu.vue";
 import ComponentProjeto from "../components/ComponentProjeto.vue";
