@@ -22,15 +22,18 @@
           <p class="text-3-login">
             Please enter your username and password to login.
           </p>
-          <input type="email" placeholder="User" />
-          <input type="password" placeholder="Password" />
+          <input type="email" placeholder="User" ref="user" />
+          <input type="password" placeholder="Password" ref="senha" />
 
           <router-link
             class="recupera-senha"
             :to="{ name: 'recuperacao-senha' }"
             >Esqueceu sua senha?</router-link
           >
-          <router-link class="button-login" :to="{ name: 'home' }"
+          <router-link
+            class="button-login"
+            :to="{ name: 'home' }"
+            @click="postData"
             >Login</router-link
           >
         </form>
@@ -40,11 +43,45 @@
 </template>
 
 
-<script lang="ts">
+<script >
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentLogin",
+  data() {
+    return {
+      postResult: null,
+    };
+  },
+  methods: {
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
+    async postData() {
+      const postData = {
+        user: this.$refs.user.value,
+        senha: this.$refs.senha.value,
+      };
+      console.log(postData);
+      try {
+        const res = await fetch("http://localhost:8080/auth", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            charset: "utf-8",
+          },
+          body: JSON.stringify(postData),
+        });
+
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.postResult = err.message;
+      }
+    },
+  },
 });
 </script>
 
@@ -55,6 +92,7 @@ export default defineComponent({
 }
 
 .container-main-login {
+  background: #f6f5f7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +107,7 @@ export default defineComponent({
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
-  color: var(--terceira-color);
+  color: #f970a4;
 }
 
 .text-1-login {
@@ -100,16 +138,16 @@ export default defineComponent({
 
 .linha-vertical-login {
   width: 193px;
-  border: 0.1px solid var(--principal-color);
+  border: 0.1px solid #ffffff;
   margin-top: 30%;
   position: absolute;
 }
 
 .button-login {
   border-radius: 20px;
-  border: 1px solid var(--terceira-color);
-  background-color: var(--terceira-color);
-  color: var(--principal-color);
+  border: 1px solid #f970a4;
+  background-color: #f970a4;
+  color: #ffffff;
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -119,21 +157,20 @@ export default defineComponent({
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
 }
 .form-login {
-  background-color: var(--segunda-color);
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 0 50px;
   height: 100%;
-  margin-top: 0%;
+  margin-top: -1%;
 }
 
 input {
-  background-color: var(--principal-color);
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 5%) inset;
+  background-color: rgb(253, 252, 252);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.12);
   border: none;
-  outline: none;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
@@ -175,7 +212,7 @@ input {
 }
 
 .overlay {
-  background: var(--terceira-color);
+  background: #f970a4;
   color: #ffffff;
   position: relative;
   left: -100%;
