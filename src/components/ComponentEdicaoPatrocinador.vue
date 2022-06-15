@@ -101,6 +101,7 @@ export default defineComponent({
               charset: "utf-8",
             },
             body: JSON.stringify(putData),
+            Authorization:'Bearer ${token}
           }
         );
         if (!res.ok) {
