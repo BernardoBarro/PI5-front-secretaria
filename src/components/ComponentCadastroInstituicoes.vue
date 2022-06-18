@@ -60,8 +60,9 @@ export default defineComponent({
       const postData = {
         nome: this.$refs.nome.value,
         contato: this.$refs.contato.value,
-        descricao: this.$refs.descricao.value,
+        detalhes: this.$refs.descricao.value,
       };
+      const token = localStorage.getItem("@Auth");
       console.log(postData);
       try {
         const res = await fetch("http://localhost:8080/instituicao", {
@@ -69,7 +70,7 @@ export default defineComponent({
           headers: {
             "Content-Type": "application/json",
             charset: "utf-8",
-            Authorization:'Bearer ${token}
+            Authorization: token,
           },
           body: JSON.stringify(postData),
         });

@@ -83,8 +83,15 @@ export default defineComponent({
   },
   methods: {
     async getName() {
+      const token = localStorage.getItem("@Auth");
       const res = await fetch(
-        "http://localhost:8080/projeto/" + router.currentRoute.value.params.id
+        "http://localhost:8080/projeto/" + router.currentRoute.value.params.id,
+        {
+          method: "GET",
+          headers: {
+            Authorization: token,
+          },
+        }
       );
       const data = await res.json();
       this.data = data;
@@ -101,7 +108,7 @@ export default defineComponent({
         status: status.value,
         descricao: descricao.value,
       };
-
+      const token = localStorage.getItem("@Auth");
       console.log(putData);
       try {
         const res = await fetch(
@@ -112,7 +119,7 @@ export default defineComponent({
             headers: {
               "Content-Type": "application/json",
               charset: "utf-8",
-              Authorization:'Bearer ${token}
+              Authorization: token,
             },
             body: JSON.stringify(putData),
           }
@@ -130,10 +137,16 @@ export default defineComponent({
       if (id) {
         console.log(id);
         try {
+          const token = localStorage.getItem("@Auth");
           const res = await fetch(
             "http://localhost:8080/projeto/" +
               router.currentRoute.value.params.id,
-            { method: "DELETE" }
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: token,
+              },
+            }
           );
           const data = await res.json();
           const result = {

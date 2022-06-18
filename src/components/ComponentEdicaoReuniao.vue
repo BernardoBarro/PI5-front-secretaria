@@ -1,5 +1,5 @@
 <template>
-  <h1 class="titulo-edi-reu">EDIÇÃO REUNIAO</h1>
+  <h1 class="titulo-edi-reu">EDIÇÃO REUNIÃO</h1>
   <div class="circulo-edi-reu"></div>
 
   <div class="box-1-edi-reu">
@@ -25,17 +25,17 @@
       <input
         id="input-edi-reu"
         type="text"
-        name="assunto"
-        placeholder=" Assunto"
-        v-bind:value="assunto"
-        ref="assunto"
-      /><br />
-      <textarea
-        id="textarea-edi-reu"
         name="local"
         placeholder=" Local"
         v-bind:value="local"
         ref="local"
+      /><br />
+      <textarea
+        id="textarea-edi-reu"
+        name="assunto"
+        placeholder=" Assunto"
+        v-bind:value="assunto"
+        ref="assunto"
       ></textarea>
     </form>
   </div>
@@ -83,8 +83,15 @@ export default defineComponent({
   },
   methods: {
     async getName() {
+      const token = localStorage.getItem("@Auth");
       const res = await fetch(
-        "http://localhost:8080/reuniao/" + router.currentRoute.value.params.id
+        "http://localhost:8080/reuniao/" + router.currentRoute.value.params.id,
+        {
+          method: "GET",
+          headers: {
+            Authorization: token,
+          },
+        }
       );
       const data = await res.json();
       this.data = data;
@@ -94,6 +101,7 @@ export default defineComponent({
       this.local = data.local;
     },
     async putData() {
+      const token = localStorage.getItem("@Auth");
       const { nome, dataReuniao, assunto, local } = this.$refs;
       const putData = {
         nome: nome.value,
@@ -101,7 +109,6 @@ export default defineComponent({
         assunto: assunto.value,
         local: local.value,
       };
-
       console.log(putData);
       try {
         const res = await fetch(
@@ -112,7 +119,7 @@ export default defineComponent({
             headers: {
               "Content-Type": "application/json",
               charset: "utf-8",
-              Authorization:'Bearer ${token}
+              Authorization: token,
             },
             body: JSON.stringify(putData),
           }
@@ -126,6 +133,7 @@ export default defineComponent({
       }
     },
     async deleteDataById() {
+      const token = localStorage.getItem("@Auth");
       const id = router.currentRoute.value.params.id;
       if (id) {
         console.log(id);
@@ -133,7 +141,12 @@ export default defineComponent({
           const res = await fetch(
             "http://localhost:8080/reuniao/" +
               router.currentRoute.value.params.id,
-            { method: "DELETE" }
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: token,
+              },
+            }
           );
           const data = await res.json();
           const result = {

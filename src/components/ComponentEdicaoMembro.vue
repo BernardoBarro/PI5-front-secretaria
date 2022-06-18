@@ -165,8 +165,16 @@ export default defineComponent({
   },
   methods: {
     async getName() {
+      const token = localStorage.getItem("@Auth");
       const res = await fetch(
-        "http://localhost:8080/associado/" + router.currentRoute.value.params.ri
+        "http://localhost:8080/associado/" +
+          router.currentRoute.value.params.ri,
+        {
+          method: "GET",
+          headers: {
+            Authorization: token,
+          },
+        }
       );
       const data = await res.json();
       this.data = data;
@@ -179,7 +187,7 @@ export default defineComponent({
       this.cep = data.pessoa.endereco.cep;
       this.ocupacao = data.pessoa.ocupacao;
       this.padrinho = data.padrinho;
-      this.email = data.pessoa.email;
+      this.email = data.email;
       this.status = data.status;
       this.cargo = data.cargo.nome;
     },
@@ -194,7 +202,7 @@ export default defineComponent({
         ocupacao,
         padrinho,
         email,
-
+        status,
         cargo,
       } = this.$refs;
       const putData = {
@@ -207,9 +215,10 @@ export default defineComponent({
         ocupacao: ocupacao.value,
         padrinho: padrinho.value,
         email: email.value,
+        status: status.value,
         cargo: cargo.value,
       };
-
+      const token = localStorage.getItem("@Auth");
       console.log(putData);
       try {
         const res = await fetch(
@@ -220,7 +229,7 @@ export default defineComponent({
             headers: {
               "Content-Type": "application/json",
               charset: "utf-8",
-              Authorization:'Bearer ${token}
+              Authorization: token,
             },
             body: JSON.stringify(putData),
           }
@@ -231,6 +240,34 @@ export default defineComponent({
         }
       } catch (err) {
         this.putResult = err.message;
+      }
+    },
+    async deleteDataById() {
+      const token = localStorage.getItem("@Auth");
+      const id = router.currentRoute.value.params.ri;
+      if (id) {
+        console.log(id);
+        try {
+          const res = await fetch(
+            "http://localhost:8080/associado/" +
+              router.currentRoute.value.params.ri,
+            {
+              method: "DELETE",
+              headers: {
+                Authorization: token,
+              },
+            }
+          );
+          const data = await res.json();
+          const result = {
+            status: res.status + "-" + res.statusText,
+            headers: { "Content-Type": res.headers.get("Content-Type") },
+            data: data,
+          };
+          this.deleteResult = this.fortmatResponse(result);
+        } catch (err) {
+          this.deleteResult = err.message;
+        }
       }
     },
   },

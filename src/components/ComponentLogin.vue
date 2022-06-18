@@ -19,18 +19,19 @@
       </div>
       <div class="form-container sign-in-container">
         <form class="form-login" action="#">
-          <p class="text-3-login">
-            Please enter your username and password to login.
-          </p>
-          <input type="email" placeholder="User" />
-          <input type="password" placeholder="Password" />
+          <p class="text-3-login">Por favor entrar com seu usuário e senha.</p>
+          <input type="email" placeholder="User" ref="user" />
+          <input type="password" placeholder="Password" ref="senha" />
 
           <router-link
             class="recupera-senha"
             :to="{ name: 'recuperacao-senha' }"
             >Esqueceu sua senha?</router-link
           >
-          <router-link class="button-login" :to="{ name: 'home' }"
+          <router-link
+            class="button-login"
+            :to="{ name: 'home' }"
+            @click="postData"
             >Login</router-link
           >
         </form>
@@ -40,11 +41,51 @@
 </template>
 
 
-<script lang="ts">
+<script >
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ComponentLogin",
+  data() {
+    return {
+      postResult: null,
+      data: {},
+    };
+  },
+  methods: {
+    fortmatResponse(res) {
+      return JSON.stringify(res, null, 2);
+    },
+    async postData() {
+      const postData = {
+        email: this.$refs.user.value,
+        senha: this.$refs.senha.value,
+      };
+      console.log(postData);
+      try {
+        const res = await fetch("http://localhost:8080/auth", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            charset: "utf-8",
+          },
+          body: JSON.stringify(postData),
+        });
+        const data = await res.json();
+        console.log(data);
+
+        const token = `Bearer ${data.token}`;
+        localStorage.setItem("@Auth", token);
+
+        if (!res.ok) {
+          const message = `An error has occured: ${res.status} - ${res.statusText}`;
+          throw new Error(message);
+        }
+      } catch (err) {
+        this.postResult = err.message;
+      }
+    },
+  },
 });
 </script>
 
@@ -55,6 +96,7 @@ export default defineComponent({
 }
 
 .container-main-login {
+  background: var(--segunda-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +107,7 @@ export default defineComponent({
 }
 
 .recupera-senha {
-  color: #333;
+  color: var(--terceira-color);
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
@@ -92,15 +134,15 @@ export default defineComponent({
   font-size: 10px;
   font-weight: 400;
   text-align: left;
-  margin-right: 37%;
+  margin-right: 40%;
   margin-top: 10%;
-  color: #c4c4c4;
+  color: var(--terceira-color);
   text-align: left;
 }
 
 .linha-vertical-login {
   width: 193px;
-  border: 0.1px solid var(--principal-color);
+  border: 0.1px solid var(--segunda-color);
   margin-top: 30%;
   position: absolute;
 }
@@ -109,7 +151,7 @@ export default defineComponent({
   border-radius: 20px;
   border: 1px solid var(--terceira-color);
   background-color: var(--terceira-color);
-  color: var(--principal-color);
+  color: var(--segunda-color);
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -126,12 +168,13 @@ export default defineComponent({
   flex-direction: column;
   padding: 0 50px;
   height: 100%;
-  margin-top: 0%;
+  margin-top: -1%;
 }
 
 input {
-  background-color: var(--principal-color);
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 5%) inset;
+  background-color: var(--primeira-color);
+  box-shadow: 0 4px 18px rgba(92, 92, 92, 0.1),
+    0 4px 4px rgba(92, 92, 92, 0.1) inset;
   border: none;
   outline: none;
   padding: 12px 15px;
@@ -141,7 +184,8 @@ input {
 }
 
 .container {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1),
+    0 10px 10px rgba(0, 0, 0, 0.22) inset;
   position: relative;
   overflow: hidden;
   width: 70%;
@@ -176,7 +220,7 @@ input {
 
 .overlay {
   background: var(--terceira-color);
-  color: #ffffff;
+  color: var(--segunda-color);
   position: relative;
   left: -100%;
   height: 100%;
@@ -201,7 +245,7 @@ input {
 }
 
 .social-container .recupera-senha {
-  border: 1px solid #dddddd;
+  border: 1px solid var(--principal-color);
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;

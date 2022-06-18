@@ -67,9 +67,10 @@ export default defineComponent({
       const postData = {
         nome: this.$refs.nome_reuniao.value,
         assunto: this.$refs.assunto.value,
-        dataReuniao: this.$refs.datareuniao.value,
+        data: this.$refs.datareuniao.value,
         local: this.$refs.local.value,
       };
+      const token = localStorage.getItem("@Auth");
       console.log(postData);
       try {
         const res = await fetch("http://localhost:8080/reuniao", {
@@ -77,7 +78,7 @@ export default defineComponent({
           headers: {
             "Content-Type": "application/json",
             charset: "utf-8",
-            Authorization:'Bearer ${token}
+            Authorization: token,
           },
           body: JSON.stringify(postData),
         });

@@ -43,7 +43,13 @@ export default defineComponent({
 
   methods: {
     async getName() {
-      const res = await fetch("http://localhost:8080/associado");
+      const token = localStorage.getItem("@Auth");
+      const res = await fetch("http://localhost:8080/associado", {
+        method: "GET",
+        headers: {
+          Authorization: token,
+        },
+      });
       const data = await res.json();
       this.data = data;
     },

@@ -43,7 +43,15 @@ export default defineComponent({
 
   methods: {
     async getName() {
-      const res = await fetch("http://localhost:8080/patrocinador");
+      const token = localStorage.getItem("@Auth");
+      const res = await fetch("http://localhost:8080/patrocinador", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          charset: "utf-8",
+          Authorization: token,
+        },
+      });
       const data = await res.json();
       this.data = data;
     },

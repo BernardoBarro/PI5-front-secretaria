@@ -19,13 +19,7 @@
         ref="dataInicio"
         placeholder=" Data Início"
       /><br />
-      <input
-        id="input-status-cad-proj"
-        type="text"
-        name="status"
-        ref="status"
-        placeholder=" Status"
-      /><br />
+
       <textarea
         id="textarea-proj"
         name="descricao"
@@ -67,17 +61,17 @@ export default defineComponent({
       const postData = {
         nome: this.$refs.nome.value,
         dataInicio: this.$refs.dataInicio.value,
-        status: this.$refs.status.value,
         descricao: this.$refs.descricao.value,
       };
       console.log(postData);
       try {
+        const token = localStorage.getItem("@Auth");
         const res = await fetch("http://localhost:8080/projeto", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             charset: "utf-8",
-            Authorization:'Bearer ${token}
+            Authorization: token,
           },
           body: JSON.stringify(postData),
         });
@@ -123,7 +117,7 @@ export default defineComponent({
 }
 
 #textarea-proj {
-  margin-top: 78px;
+  margin-top: 47px;
   margin-left: 22.8%;
   width: 57%;
   border: none;

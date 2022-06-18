@@ -37,6 +37,7 @@
 
 <script>
 import { defineComponent } from "vue";
+
 export default defineComponent({
   name: "ComponentCadastroConvidado",
   data() {
@@ -53,6 +54,7 @@ export default defineComponent({
         nome: this.$refs.nome_convidado.value,
         contato: this.$refs.tel_convidado.value,
       };
+      const token = localStorage.getItem("@Auth");
       console.log(postData);
       try {
         const res = await fetch("http://localhost:8080/convidado", {
@@ -60,7 +62,7 @@ export default defineComponent({
           headers: {
             "Content-Type": "application/json",
             charset: "utf-8",
-            Authorization:'Bearer ${token}
+            Authorization: token,
           },
           body: JSON.stringify(postData),
         });

@@ -61,6 +61,7 @@ export default defineComponent({
         valorDecimal: this.$refs.valor.value,
         descricao: this.$refs.descricao.value,
       };
+      const token = localStorage.getItem("@Auth");
       console.log(postData);
       try {
         const res = await fetch("http://localhost:8080/patrocinador", {
@@ -68,7 +69,7 @@ export default defineComponent({
           headers: {
             "Content-Type": "application/json",
             charset: "utf-8",
-            Authorization:'Bearer ${token}
+            Authorization: token,
           },
           body: JSON.stringify(postData),
         });

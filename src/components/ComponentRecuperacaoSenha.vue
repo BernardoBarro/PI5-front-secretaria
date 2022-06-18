@@ -57,7 +57,7 @@ export default defineComponent({
   box-sizing: border-box;
 }
 .container-main-rec-sen {
-  background: #f6f5f7;
+  background: var(--principal-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,14 +102,14 @@ export default defineComponent({
   text-align: left;
   margin-right: 37%;
   margin-top: 10%;
-  color: #c4c4c4;
+  color: var(--terceira-color);
   text-align: left;
   margin-bottom: 14px;
   margin-left: 8px;
 }
 .linha-vertical-rec-sen {
   width: 193px;
-  border: 0.1px solid #ffffff;
+  border: 0.1px solid var(--principal-color);
   margin-top: 30%;
   position: absolute;
 }
@@ -117,7 +117,7 @@ export default defineComponent({
   border-radius: 20px;
   border: 1px solid var(--terceira-color);
   background-color: var(--terceira-color);
-  color: #ffffff;
+  color: var(--principal-color);
   font-size: 12px;
   font-weight: bold;
   padding: 12px 45px;
@@ -129,7 +129,7 @@ export default defineComponent({
   margin-top: 44px;
 }
 #form-rec-sen {
-  background-color: #ffffff;
+  background-color: var(--segunda-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,34 +140,44 @@ export default defineComponent({
 }
 .input-email-rec-sen {
   background-color: rgb(253, 252, 252);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 18px rgba(92, 92, 92, 0.1),
+    0 4px 4px rgba(92, 92, 92, 0.1) inset;
   border: none;
+  outline: none;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
   border-radius: 15px;
+  color: var(--terceira-color);
 }
 .input-senha-rec-sen {
   background-color: rgb(253, 252, 252);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 18px rgba(92, 92, 92, 0.1),
+    0 4px 4px rgba(92, 92, 92, 0.1) inset;
   border: none;
+  outline: none;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100%;
   border-radius: 15px;
+  color: var(--terceira-color);
 }
 .input-ri-rec-sen {
   background-color: rgb(253, 252, 252);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 18px rgba(92, 92, 92, 0.1),
+    0 4px 4px rgba(92, 92, 92, 0.1) inset;
   border: none;
+  outline: none;
   padding: 12px 15px;
   margin: 8px 0;
   border-radius: 15px;
   width: 52%;
   margin-left: -47%;
+  color: var(--terceira-color);
 }
 #container {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(92, 92, 92, 0.1),
+    0 10px 10px rgba(92, 92, 92, 0.1) inset;
   position: relative;
   overflow: hidden;
   width: 70%;
@@ -197,7 +207,7 @@ export default defineComponent({
 }
 .overlay {
   background: var(--terceira-color);
-  color: #ffffff;
+  color: var(--principal-color);
   position: relative;
   left: -100%;
   height: 100%;

@@ -1,33 +1,48 @@
 <template>
   <div class="container">
-    <table
-      id="table-box"
-      class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
-      style="border-radius: 9px"
-    >
+    <table class="tab-reu">
       <tr>
-        <td class="titulo">Reunião</td>
-        <td class="titulo">Data</td>
+        <td>
+          <table class="tab-reu-2" border="1" width="100%">
+            <tr class="tr-tab" style="background-color: white">
+              <th style="color: var(--terceira-color); width: 52%">Nome</th>
+              <th style="color: var(--terceira-color)">Data</th>
+            </tr>
+          </table>
+        </td>
       </tr>
-      <td class="tabela-reu">
-        <li class="li-reuniao" v-for="datas in data" :key="datas.nome">
-          <router-link
-            :to="{ name: 'edicao-reuniao', params: { id: datas.id } }"
-          >
-            <div class="tab-reu">
-              {{ datas.nome }}
-            </div>
-          </router-link>
-        </li>
-      </td>
-
-      <td>
-        <li class="li-reuniao" v-for="datas in data" :key="datas.data">
-          <div class="tab-reu">
-            {{ datas.dataReuniao }}
+      <tr>
+        <td>
+          <div style="width: 450px; height: 150px; overflow: auto">
+            <table class="tab-reu-3" border="1" width="420">
+              <tr class="tr-reu">
+                <td class="li-reu">
+                  <li
+                    class="li-reuniao"
+                    v-for="datas in data"
+                    :key="datas.nome"
+                  >
+                    <router-link
+                      :to="{ name: 'edicao-reuniao', params: { id: datas.id } }"
+                    >
+                      <div class="tab-reu">
+                        {{ datas.nome }}
+                      </div>
+                    </router-link>
+                  </li>
+                </td>
+                <td class="li-reu">
+                  <li v-for="datas in data" :key="datas.data">
+                    <div class="tab-reu">
+                      {{ datas.dataReuniao }}
+                    </div>
+                  </li>
+                </td>
+              </tr>
+            </table>
           </div>
-        </li>
-      </td>
+        </td>
+      </tr>
     </table>
   </div>
 </template>
@@ -48,7 +63,13 @@ export default defineComponent({
 
   methods: {
     async getName() {
-      const res = await fetch("http://localhost:8080/reuniao");
+      const token = localStorage.getItem("@Auth");
+      const res = await fetch("http://localhost:8080/reuniao", {
+        method: "GET",
+        headers: {
+          Authorization: token,
+        },
+      });
       const data = await res.json();
       this.data = data;
     },
@@ -56,29 +77,24 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.li-reuniao {
-  list-style-type: none;
-}
-
-td {
+<style>
+.tr-tab {
   border: none;
+  text-align: center;
 }
 
-.table.is-narrow td {
-  padding-bottom: 2%;
-  padding-top: 2%;
+.ul-reu {
+  max-width: 100%;
+  overflow: scroll;
 }
-
 .tab-reu {
   width: 92.2%;
   height: 40px;
   margin-top: 12px;
   outline: none;
-  margin-left: 9px;
   border: none;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
-  background-color: var(--principal-color);
+  background-color: var(--segunda-color);
   border-radius: 3px;
   padding: 1%;
   color: var(--terceira-color);
@@ -87,16 +103,21 @@ td {
   padding-top: 4%;
 }
 
-#table-box {
-  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
-    0 0 0 1px rgb(10 10 10 / 2%);
-  border-radius: 9px;
-  overflow-y: scroll;
-  background-color: var(--segunda-color);
-  color: var(--terceira-color);
+.tab-reu-3 {
+  outline: none;
   border: none;
 }
-.titulo {
-  text-align: center;
+
+.li-reu {
+  list-style-type: none;
+  width: 56%;
+  height: 40px;
+  margin-top: 12px;
+  outline: none;
+  margin-left: 52px;
+  border: none;
+  background-color: var(--segunda-color);
+  border-radius: 3px;
+  padding-left: 3%;
 }
 </style>

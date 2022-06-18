@@ -130,6 +130,7 @@ export default defineComponent({
         senha: this.$refs.senha.value,
         cargo: this.$refs.cargo.value,
       };
+      const token = localStorage.getItem("@Auth");
       console.log(postData);
       try {
         const res = await fetch("http://localhost:8080/associado", {
@@ -137,7 +138,7 @@ export default defineComponent({
           headers: {
             "Content-Type": "application/json",
             charset: "utf-8",
-            Authorization:'Bearer ${token}
+            Authorization: token,
           },
           body: JSON.stringify(postData),
         });

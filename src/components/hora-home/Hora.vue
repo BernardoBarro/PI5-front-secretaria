@@ -29,6 +29,7 @@ const interval = setInterval(() => {
 
   document.getElementById("data-hora").innerHTML = dataHora;
 }, 1000);
+console.log(interval);
 </script>
 
 <style scoped>
