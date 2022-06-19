@@ -30,7 +30,7 @@
           >
           <router-link
             class="button-login"
-            :to="{ name: 'home' }"
+            :to="{ name: name }"
             @click="postData"
             >Login</router-link
           >
@@ -50,8 +50,10 @@ export default defineComponent({
     return {
       postResult: null,
       data: {},
+      name: "login",
     };
   },
+
   methods: {
     fortmatResponse(res) {
       return JSON.stringify(res, null, 2);
@@ -61,6 +63,7 @@ export default defineComponent({
         email: this.$refs.user.value,
         senha: this.$refs.senha.value,
       };
+      console.log(this.name);
       console.log(postData);
       try {
         const res = await fetch("http://localhost:8080/auth", {
@@ -76,6 +79,10 @@ export default defineComponent({
 
         const token = `Bearer ${data.token}`;
         localStorage.setItem("@Auth", token);
+
+        if (localStorage.getItem("@Auth") != "Bearer undefined") {
+          this.name = "home";
+        }
 
         if (!res.ok) {
           const message = `An error has occured: ${res.status} - ${res.statusText}`;
@@ -173,6 +180,7 @@ export default defineComponent({
 
 input {
   background-color: var(--primeira-color);
+  color: var(--terceira-color);
   box-shadow: 0 4px 18px rgba(92, 92, 92, 0.1),
     0 4px 4px rgba(92, 92, 92, 0.1) inset;
   border: none;
@@ -181,6 +189,10 @@ input {
   margin: 8px 0;
   width: 100%;
   border-radius: 15px;
+}
+
+input::placeholder {
+  color: var(--terceira-color);
 }
 
 .container {

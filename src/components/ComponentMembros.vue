@@ -130,6 +130,7 @@ export default defineComponent({
   margin-left: -93px;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
+  cursor: pointer;
 }
 
 .label-nome-memb {
@@ -160,7 +161,7 @@ export default defineComponent({
 .titulo-memb {
   font-size: 40px;
   position: absolute;
-  margin-left: 72%;
+  margin-left: 71.8%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
@@ -185,7 +186,7 @@ export default defineComponent({
   background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
-  margin-left: -37%;
+  margin-left: -36.5%;
   margin-top: 2%;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
 }

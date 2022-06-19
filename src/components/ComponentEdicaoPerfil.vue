@@ -77,14 +77,6 @@
   <div class="container-botao-edi-perfil">
     <router-link :to="{ name: 'home' }">
       <input
-        class="botao-editar-edi-perfil"
-        type="submit"
-        name="editar"
-        value="Editar"
-      />
-    </router-link>
-    <router-link :to="{ name: 'home' }">
-      <input
         class="botao-excluir-edi-perfil"
         type="submit"
         name="excluir"
@@ -98,7 +90,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "ComponentPerfil",
+  name: "ComponentEdicaoPerfil",
 });
 </script>
 
@@ -118,25 +110,11 @@ export default defineComponent({
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  margin-left: 91.2%;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-  width: 125px;
-  margin-left: -91%;
-}
-
-.botao-editar-edi-perfil {
-  background-color: var(--terceira-color);
-  border: none;
-  border-radius: 20px;
-  color: var(--principal-color);
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-left: 64px;
-  padding: 8px 40px;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-  width: 125px;
+  width: 120px;
+  cursor: pointer;
 }
 
 input[type="text"] {

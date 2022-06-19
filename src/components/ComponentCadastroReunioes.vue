@@ -124,9 +124,11 @@ input[type="text"]::placeholder {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: -93px;
+  margin-left: -94px;
   padding: 8px 40px;
+  width: 120px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
+  cursor: pointer;
 }
 
 .nome-reuniao-cad-reu {
@@ -222,7 +224,7 @@ input[type="text"]::placeholder {
 .titulo-cad-reu {
   font-size: 40px;
   position: absolute;
-  margin-left: 46%;
+  margin-left: 46.4%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
@@ -247,7 +249,7 @@ input[type="text"]::placeholder {
   background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
-  margin-left: -37%;
+  margin-left: -36.5%;
   margin-top: 2%;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
 }

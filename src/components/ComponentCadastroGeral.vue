@@ -163,7 +163,7 @@ export default defineComponent({
 .titulo-cad-geral {
   font-size: 40px;
   position: absolute;
-  margin-left: 69%;
+  margin-left: 68.6%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;

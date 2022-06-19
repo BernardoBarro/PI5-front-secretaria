@@ -13,7 +13,10 @@
       </tr>
       <tr>
         <td>
-          <div style="width: 450px; height: 150px; overflow: auto">
+          <div
+            class="div-tab-reu"
+            style="width: 450px; height: 150px; overflow: auto"
+          >
             <table class="tab-reu-3" border="1" width="420">
               <tr class="tr-reu">
                 <td class="li-reu">
@@ -81,6 +84,18 @@ export default defineComponent({
 .tr-tab {
   border: none;
   text-align: center;
+}
+
+.div-tab-reu::-webkit-scrollbar {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 3px solid var(--principal-color);
+  width: 8px;
+}
+
+.div-tab-reu::-webkit-scrollbar-thumb {
+  background-color: var(--terceira-color);
+  border-radius: 20px;
 }
 
 .ul-reu {

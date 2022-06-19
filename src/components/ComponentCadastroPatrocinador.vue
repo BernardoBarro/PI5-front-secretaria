@@ -130,9 +130,11 @@ export default defineComponent({
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: -93px;
+  margin-left: -94px;
   padding: 8px 40px;
+  width: 120px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
+  cursor: pointer;
 }
 
 #input-patrocinador-cad-patr {
@@ -192,7 +194,7 @@ export default defineComponent({
 .titulo-cad-patr {
   font-size: 40px;
   position: absolute;
-  margin-left: 36%;
+  margin-left: 36.4%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
@@ -215,7 +217,7 @@ export default defineComponent({
   background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
-  margin-left: -37%;
+  margin-left: -36.5%;
   margin-top: 2%;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
 }

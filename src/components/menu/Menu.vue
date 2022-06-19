@@ -3,12 +3,12 @@
     <div class="boxMenu">
       <div class="box-container">
         <div id="icon-perfil" class="button">
-          <router-link :to="{ name: 'perfil' }">
-            <i
-              class="fa-solid fa-circle-user fa-2xl"
-              style="color: var(--terceira-color)"
-            ></i>
-          </router-link>
+          <!-- <router-link :to="{ name: 'perfil' }"> -->
+          <i
+            class="fa-solid fa-circle-user fa-2xl"
+            style="color: var(--terceira-color)"
+          ></i>
+          <!-- </router-link> -->
         </div>
         <button id="icon-home" class="button">
           <router-link :to="{ name: 'home' }">

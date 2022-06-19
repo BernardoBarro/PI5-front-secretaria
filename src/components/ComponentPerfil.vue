@@ -75,20 +75,12 @@
     </div>
   </div>
   <div class="container-botao-perfil">
-    <router-link :to="{ name: 'home' }">
+    <router-link :to="{ name: 'edicao-perfil' }">
       <input
         class="botao-editar-perfil"
         type="submit"
         name="editar"
         value="Editar"
-      />
-    </router-link>
-    <router-link :to="{ name: 'home' }">
-      <input
-        class="botao-excluir-perfil"
-        type="submit"
-        name="excluir"
-        value="Excluir"
       />
     </router-link>
   </div>
@@ -109,21 +101,6 @@ export default defineComponent({
   margin-bottom: 24px;
 }
 
-.botao-excluir-perfil {
-  background-color: var(--terceira-color);
-  border: none;
-  border-radius: 20px;
-  color: var(--principal-color);
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  padding: 8px 40px;
-  box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-  width: 125px;
-  margin-left: -91%;
-}
-
 .botao-editar-perfil {
   background-color: var(--terceira-color);
   border: none;
@@ -133,10 +110,12 @@ export default defineComponent({
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: 64px;
+  margin-left: 91.2%;
+  margin-right: -16%;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-  width: 125px;
+  width: 120px;
+  cursor: pointer;
 }
 
 input[type="text"] {
@@ -149,6 +128,7 @@ input[type="text"] {
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: var(--principal-color);
   border-radius: 3px;
+  color: var(--terceira-color);
 }
 
 input[type="date"] {
@@ -174,6 +154,7 @@ input[type="e-mail"] {
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
   background-color: var(--principal-color);
   border-radius: 3px;
+  color: var(--terceira-color);
 }
 
 input[type="e-mail"]::placeholder {
@@ -271,7 +252,7 @@ input[type="text"]::placeholder {
 .titulo-perfil {
   font-size: 40px;
   position: absolute;
-  margin-left: 77%;
+  margin-left: 77.7%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;

@@ -169,10 +169,11 @@ export default defineComponent({
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: -275px;
+  margin-left: -231px;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-  width: 125px;
+  width: 120px;
+  cursor: pointer;
 }
 
 .botao-editar-edi-pat {
@@ -184,10 +185,12 @@ export default defineComponent({
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: -125px;
+  margin-left: -6.9%;
+  position: absolute;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
-  width: 125px;
+  width: 120px;
+  cursor: pointer;
 }
 
 #textareaedi {
@@ -249,7 +252,7 @@ export default defineComponent({
 .titulo-edi-pat {
   font-size: 40px;
   position: absolute;
-  margin-left: 41%;
+  margin-left: 41.8%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
@@ -272,7 +275,7 @@ export default defineComponent({
   background-color: var(--principal-color);
   position: absolute;
   display: inline-block;
-  margin-left: -37%;
+  margin-left: -36.5%;
   margin-top: 2%;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%) inset;
 }

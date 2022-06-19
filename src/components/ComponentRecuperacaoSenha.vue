@@ -127,6 +127,7 @@ export default defineComponent({
   cursor: pointer;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   margin-top: 44px;
+  cursor: pointer;
 }
 #form-rec-sen {
   background-color: var(--segunda-color);

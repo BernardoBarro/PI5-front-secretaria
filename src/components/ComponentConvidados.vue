@@ -130,6 +130,7 @@ export default defineComponent({
   margin-left: -93px;
   padding: 8px 40px;
   box-shadow: 0px 4px 4px 0px rgb(0 0 0 / 15%);
+  cursor: pointer;
 }
 
 .label-nome-conv {
@@ -160,7 +161,7 @@ form {
 .titulo-conv {
   font-size: 40px;
   position: absolute;
-  margin-left: 66%;
+  margin-left: 65.9%;
   margin-top: 1.5%;
   letter-spacing: 6px;
   font-weight: 500;
