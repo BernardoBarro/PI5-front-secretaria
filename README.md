@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+# Contexto
+Aplicação web para gerenciar a parte burocratica de um clube de voluntários (Rotaract) feito em uma matéria de Projeto Integrador da faculdade
