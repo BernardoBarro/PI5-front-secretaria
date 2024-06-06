@@ -1,4 +1,5 @@
-# rotaract
+# Rotaract
+The idea of ​​the project is to be a website to facilitate the management of the Rotaract Club secretary
 
 ## Project setup
 ```
